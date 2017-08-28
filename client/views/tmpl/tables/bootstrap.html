@@ -1,0 +1,82 @@
+
+    
+      <!-- tile -->
+      <section class="tile" fullscreen="isFullscreen06">
+
+        <!-- tile header -->
+        <div class="tile-header dvd dvd-btm">
+          <h1 class="custom-font"><strong>Obejectives </strong>Progress</h1>
+          <ul class="controls">
+            <li ng-controller="DaterangepickerCtrl">
+              <a href="javascript:;" daterangepicker="rangeOptions" date-begin="startDate" date-end="endDate">
+                <span>{{startDate}} - {{endDate}}</span>&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
+              </a>
+            </li>
+
+            <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+
+              <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
+
+              <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
+                <li>
+                  <a href tile-control-toggle>
+                    <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
+                    <span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
+                  </a>
+                </li>
+                <li>
+                  <a href tile-control-refresh ng-click="ajaxFaker()">
+                    <fa name="refresh"></fa> Refresh
+                  </a>
+                </li>
+                <li>
+                  <a href tile-control-fullscreen ng-click="isFullscreen06 = !isFullscreen06">
+                    <fa name="expand"></fa> Fullscreen
+                  </a>
+                </li>
+                <li>
+                  <a href tile-control-lightbox>
+                    <fa name="magnet"></fa> Open in Lightbox
+                  </a>
+                </li>
+
+              </ul>
+
+            </li>
+            <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
+          </ul>
+        </div>
+        <!-- /tile header -->
+
+        <!-- tile body -->
+        <div class="tile-body table-custom" ng-controller="TablesBootstrapCtrl">
+
+          <div class="table-responsive">
+            <table datatable="ng" dt-options="dtOptions" dt-column-defs="dtColumnDefs" class="table table-custom">
+              <thead>
+              <tr>
+                <th>ID</th>
+                <th>Objective</th>
+                <th>Description</th>
+                <th style="width: 180px;">Progress</th>
+                <th class="text-justify">Due Date</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="project in projects">
+                <td>{{ $index+1 }}</td>
+                <td>{{ project.title }}</td>
+                <td><small ng-class="{'text-danger': project.priority.value == 1, 'text-warning': project.priority.value == 2, 'text-success': project.priority.value == 3}">{{ project.priority.title }}</small></td>
+                <td><uib-progressbar class="progress-xxs not-rounded mb-0 inline-block" value="project.status" type="greensea" style="width: 150px; margin-right: 5px"></uib-progressbar><small>{{project.status}}%</small></td>
+                <td class="text-justify">{{project.priority.duration | date:"MMM dd"}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <!-- /tile body -->
+
+      </section>
+      <!-- /tile -->
+

@@ -1,0 +1,176 @@
+
+<body  ng-app="app">
+    
+<div class="pagecontent"  data-ng-controller="SingleOrderCtrl">
+    
+    <div class="row">
+       
+      <div class="col-md-12">
+ 
+<section class="tile" fullscreen="isFullscreen01"> 
+
+<div class="tile-header dvd dvd-btm">
+    
+   <h1 class="custom-font"><strong>Add Objectives</strong></h1>
+    <ul class="controls">
+ <li><a ui-sref="app.shop.products" ><i class="fa fa-plus mr-5"  ></i>Interns</a></li>
+        
+    <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+        
+           <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
+        <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
+         <li>
+                <a href tile-control-toggle>
+                <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
+                <span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
+                </a>
+          </li>
+           <li>
+                  <a href tile-control-refresh ng-click="ajaxFaker()">
+                  <fa name="refresh"></fa> Refresh
+                  </a>
+            </li>
+            <li>
+                 <a href tile-control-lightbox>
+                 <fa name="magnet"></fa> Open in Lightbox
+                 </a>
+            </li>
+
+        </ul>
+
+     </li>
+     <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
+    </ul>
+   </div> 
+      
+<div>
+  <div class="panel">
+   <div class="row">
+                         
+      <div class="col-md-8 col-sm-12">
+                             
+          <div class="inline-controls">
+           <div class="dataTables_length" id="DataTables_Table_0_length">
+            <label  class="col-md-8 col-sm-12">View Objectives<br>
+                
+                <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control input-sm">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select> 
+            </label>
+                                  
+            </div>
+      </div>
+      </div>
+                <div class="col-md-3 col-sm-8">
+                    <div class="pull-right">
+                        <div id="DataTables_Table_0_filter" class="dataTables_filter">
+                            <label>
+                                Search<input type="search" class="form-control input-sm" placeholder="Search" ng-model="searchKeyword"aria-controls="DataTables_Table_0">
+                            </label>
+              
+                         </div>
+                    </div>
+                  </div>
+                  </div>      
+<div class="panel-body">
+<table class="table table-bordered bordered table-striped table-condensed datatable" ui-options="dataTableOpt">
+          
+     <thead>
+          
+
+        <tr>
+      
+          <th>ID</th>
+        <th>Title</th>
+		<th>Descriptions</th>
+		<th>Durations</th>
+        <th>Status</th>
+        <th>Actions</th>
+            
+        </tr>
+         
+      </thead>
+ 
+    <tr>
+          
+<form class="form-horizontal" role="form" ng-submit="addRow()">
+    
+    
+    <td class="col-md">
+<!--
+            <input type="text" class="form-control" placeholder="id" name="id"
+            ng-model="newobjective.id" />
+-->
+		</td>
+		<td class="col-md">
+            <input type="text" class="form-control" placeholder="title" name="title"
+            ng-model="newobjective.title" />
+		</td>
+    
+		<td class="col-md">
+            <input type="text" placeholder="description" class="form-control" name="description"
+            ng-model="newobjective.description" />
+		</td>
+    
+		<td class="col-md">	
+           <input type="date" class="form-control" placeholder="date" name="date"
+           ng-model="newobjective.duration" />
+		</td>
+       <td class="col-md-2"></td>
+    
+    
+        <td class="col-md">								
+         <input type="submit" value="Add Objectives"  ng-click="addNewobjective(newobjective)"class="btn btn-xs btn-default"/>
+            
+        </td>
+    
+        </form>
+    
+	    </tr>
+    
+    
+        <tbody>
+       <tr ng-repeat="objective in objectives | filter: searchKeyword  track by $index">
+           
+            <td ng-hide="editMode">{{objective.id}}</td>
+            <td ng-if="editMode"></td>
+           
+            <td ng-hide="editMode">{{objective.title}}</td>
+            <td ng-if="editMode"><input type="text" class="form-control" placeholder="title" name="title" ng-model="objective.title"/></td>
+           
+            <td ng-hide="editMode" >{{objective.description}}</td>
+            <td ng-if="editMode"> <input type="text" class="form-control" placeholder="description" name="id"ng-model="objective .description" /></td>
+           
+            <td ng-hide="editMode" >{{objective.duration}}</td>
+            <td ng-if="editMode"> <input type="date" class="form-control" placeholder="date" name="id"ng-model="objective.date" /></td>
+
+           
+        <td ng-hide="editMode">
+           <uib-progressbar class="progress-striped not-rounded" value="56" type="warning">56%</uib-progressbar>
+                <td>
+
+            <span ng-hide="editMode" class="btn btn-sm btn-success" ng-click="edit(objective)"><i class="fa fa-edit"></i></span>
+                                               
+            <span ng-hide="editMode" class="btn btn-sm btn-warning" data-ng-click="remove($index)"><i class="fa fa-trash"></i></span>
+
+                <span ng-show="editMode" class="btn btn-sm btn-primary"  ng-click="save(objective)"><i class="fa fa-save"></i></span>
+  <span ng-show="editMode"class="btn btn-sm btn-info" ng-click="clear(objective)"><i class="fa fa-remove"></i></span>
+            </td>
+           </tr>
+            
+           </tbody>
+    
+    </table>
+
+           </div>
+       </div>
+   </div>
+    <div class="row"><div class="col-xs-6"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 1 to 5 of 3 entries</div></div><div class="col-xs-6"><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><ul class="pagination"><li class="disabled"><a href="#" class="previous" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" id="DataTables_Table_0_previous">Previous</a></li><li></li><li class="active"><a href="#" class="" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0">1</a></li><li class="disabled"><a href="#" class="next" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" id="DataTables_Table_0_next">Next</a></li></ul></div></div></div>
+</section>
+     </div>
+   </div>
+</div>
+</body>

@@ -1,0 +1,45 @@
+{
+  "name": "Objective",
+  "plural": "Objectives",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "desc": {
+      "type": "string",
+      "required": true
+    },
+    "dueDate": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "activities": {
+      "type": "hasMany",
+      "model": "Activity",
+      "foreignKey": ""
+    },
+    "logUser": {
+      "type": "belongsTo",
+      "model": "logUser",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

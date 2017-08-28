@@ -1,0 +1,51 @@
+<div id="sidebar-wrap" ng-controller="NavCtrl">
+  <uib-accordion close-others="oneAtTime" slimscroll="{height: '100%'}">
+
+    <uib-accordion-group is-open="status.isFirstOpen">
+      <uib-accordion-heading>
+        Navigation <i class="pull-right fa" ng-class="{'fa-angle-up': status.isFirstOpen, 'fa-angle-down': !status.isFirstOpen}"></i>
+      </uib-accordion-heading>
+      <ul id="navigation" nav-collapse ripple>
+          <!--dashboard-->
+        <li ui-sref-active="active"><a ui-sref="app.dashboard"><fa name="dashboard"></fa> <span>{{ 'Menu.DASHBOARD' | translate }}</span></a></li>
+          <!--dashboard-->
+          <!--Company-->
+        <li ui-sref-active="active" ng-class="{'open':$state.includes('app.forms')}">
+          <a ui-sref="app.forms"><fa name="list"></fa> <span>{{ 'Administrator' | translate }}</span></a>
+          <ul>
+
+            <li ui-sref-active="active"><a ui-sref="app.forms.wizard"><fa name="caret-right"></fa> {{ 'Companies' | translate }} <span class="badge badge-success">5</span></a></li>
+          </ul>
+          </li>
+          <!--Company-->
+            
+            
+            <!--Mentors-->
+
+         <li ui-sref-active="active" ng-class="{'open':$state.includes('app.shop')}">
+          <a ui-sref="app.shop"><fa name="desktop"></fa> <span>{{ 'Mentor' | translate }}</span></a>
+          <ul>
+            <li ui-sref-active="active"><a ui-sref="app.shop.single-order"><fa name="caret-right"></fa> {{ 'Add Objectives' | translate }}<span class="badge badge-success">5</span></a></li>
+            <li ui-sref-active="active"><a ui-sref="app.shop.products"><fa name="caret-right"></fa> {{ 'Interns' | translate }}
+                <span class="badge badge-success">5</span></a></li>
+          </ul>
+        </li>
+           <!--Mentors-->
+     
+        <!--Interns-->
+          
+                  <li ui-sref-active="active" ng-class="{'open':$state.includes('app.tables')}">
+          <a ui-sref="app.tables"><fa name="table"></fa> <span>{{ 'my activities' | translate }}</span></a>
+          <ul>
+            <li ui-sref-active="active"><a ui-sref="app.calendar"><fa name="calendar-o"></fa> <span>{{ 'Calendar' | translate }}</span> <span class="badge badge-success">3</span></a></li>
+            <li ui-sref-active="active"><a ui-sref="app.tables.bootstrap"><fa name="caret-right"></fa> {{ 'Obejectives' | translate }}</a></li>
+            <li ui-sref-active="active"><a ui-sref="app.tables.datatables"><fa name="caret-right"></fa> {{ 'Activities' | translate }}</a></li>
+          </ul>
+        </li>
+          <!--Interns-->
+        </ul>
+    </uib-accordion-group>
+
+  </uib-accordion>
+</div>
+

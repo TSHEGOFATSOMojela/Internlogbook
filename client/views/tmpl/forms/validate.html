@@ -1,0 +1,199 @@
+<body  ng-app="app">
+    
+<div class="pagecontent"  data-ng-controller="FormsValidateCtrl">
+    
+    <div class="row">
+       
+      <div class="col-md-12">
+ 
+<section class="tile" fullscreen="isFullscreen01"> 
+
+<div class="tile-header dvd dvd-btm">
+    
+   <h1 class="custom-font"><strong>MENTORS</strong></h1>
+    <ul class="controls">
+<!-- <li><a href="javascript:window.print()" class="fa fa-plus mr-5" uib-tooltip="Print"><i class="fa fa-print"></i></a></li>-->
+<!--   <li><a ui-sref="app.shop.single-order" ><i class="fa fa-plus mr-5"  ></i>Add Objectives</a></li>-->
+
+    <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+        
+           <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
+        <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
+         <li>
+                <a href tile-control-toggle>
+                <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
+                <span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
+                </a>
+          </li>
+           <li>
+                  <a href tile-control-refresh ng-click="ajaxFaker()">
+                  <fa name="refresh"></fa> Refresh
+                  </a>
+            </li>
+            <li>
+                 <a href tile-control-lightbox>
+                 <fa name="magnet"></fa> Open in Lightbox
+                 </a>
+            </li>
+
+        </ul>
+
+     </li>
+     <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
+    </ul>
+   </div> 
+      
+<div>
+  <div class="panel">
+   <div class="row">
+                         
+      <div class="col-md-8 col-sm-12">
+                             
+          <div class="inline-controls">
+           <div class="dataTables_length" id="DataTables_Table_0_length">
+            <label  class="col-md-8 col-sm-12">View Mentors<br>
+                
+                <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control input-sm">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select> 
+            </label>
+                                  
+            </div>
+      </div>
+      </div>
+                <div class="col-md-3 col-sm-8">
+                    <div class="pull-right">
+                        <div id="DataTables_Table_0_filter" class="dataTables_filter">
+                            <label>
+                                Search<input type="search" class="form-control input-sm" placeholder="Search" ng-model="searchKeyword"aria-controls="DataTables_Table_0">
+                            </label>
+              
+                         </div>
+                    </div>
+                  </div>
+                  </div>      
+<div class="panel-body">
+<table class="table table-bordered bordered table-striped table-condensed datatable" ui-options="dataTableOpt">
+          
+     <thead>
+          
+
+        <tr>
+      
+        <th>ID</th>
+        <th>Name</th>
+		<th>Surname</th>
+		<th>Email</th>
+        <th>Company</th>
+        <th>Department</th>
+        <th>Contacts</th>
+        <th>Interns</th>
+        <th>Actions</th>
+            
+        </tr>
+         
+      </thead>
+ 
+    <tr>
+          
+<form class="form-horizontal" role="form" ng-submit="addRow()">
+    
+    
+    <td class="col-md">
+<!--
+            <input type="text" class="form-control" placeholder="id" name="id"
+            ng-model="newIntern.id" />
+-->
+		</td>
+		<td class="col-md">
+            <input type="text" class="form-control" placeholder="name" name="name"
+            ng-model="newMentor.name" />
+		</td>
+    
+		<td class="col-md">
+            <input type="text" placeholder="surname" class="form-control" name="surname"
+            ng-model="newMentor.surname" />
+		</td>
+    
+		<td class="col-md">	
+           <input type="email" class="form-control" placeholder="email@example.com" name="email"
+           ng-model="newMentor.email" />
+		</td>
+    	<td class="col-md">
+			<input type="text" class="form-control" placeholder="company" name="company"
+			ng-model="newMentor.company" />
+		</td>
+    
+        <td class="col-md">
+			<input type="text" class="form-control" placeholder="department" name="department"
+			ng-model="newMentor.department" />
+		</td>
+    
+	<td class="col-md">
+			<input type="number" class="form-control" name="contacts"
+			ng-model="newMentor.contacts" placeholder="+27"/>
+		</td>
+        
+        <td class="col-md"></td>
+ 
+        <td class="col-md-2">								
+         <input type="submit" value="Add Mentor"  ng-click="addNewMentors(newMentor)"class="btn btn-xs btn-default"/>
+            
+        </td>
+    
+        </form>
+    
+	    </tr>
+    
+    
+        <tbody>
+       <tr ng-repeat="Mentor in Mentors | filter: searchKeyword  track by $index">
+           
+            <td ng-hide="editMode">{{Mentor.id}}</td>
+            <td ng-if="editMode"></td>
+           
+            <td ng-hide="editMode">{{Mentor.name}}</td>
+            <td ng-if="editMode"><input type="text" class="form-control" placeholder="name" name="name" ng-model="Mentor.name"/></td>
+           
+            <td ng-hide="editMode" >{{Mentor.surname}}</td>
+            <td ng-if="editMode"> <input type="text" class="form-control" placeholder="surname" name="id"ng-model="Mentor.surname" /></td>
+           
+            <td ng-hide="editMode" >{{Mentor.email}}</td>
+            <td ng-if="editMode"> <input type="email" class="form-control" placeholder="email" name="id"ng-model="Mentor.email" /></td>
+           
+            <td ng-hide="editMode">{{Mentor.company}}</td>
+            <td ng-if="editMode"> <input type="text" class="form-control" placeholder="company" name="id"ng-model="Mentor.company"/>
+           </td>
+            <td ng-hide="editMode">{{Mentor.department}}</td>
+            <td ng-if="editMode"> <input type="text" class="form-control" placeholder="gender" name="id"ng-model="Mentor.department"/></td>
+           
+            <td ng-hide="editMode">{{Mentor.contacts}}</td>
+            <td ng-show="editMode" > <input type="text" class="form-control" placeholder="contacts" name="id"
+            ng-model="Mentor.contacts"/>
+            </td>
+           
+           <td ng-hide="editMode"><a ui-sref="app.shop.products" class="btn btn-xs btn-default"><i class="fa fa-search"></i>View Interns <span class="badge badge-success">5</span></a></td>
+         <td>
+              <span ng-hide="editMode" class="btn btn-sm btn-success" ng-click="edit(Mentor)"><i class="fa fa-edit"></i></span>
+              <span ng-hide="editMode" class="btn btn-sm btn-warning" data-ng-click="remove($index)"><i class="fa fa-trash"></i></span>
+
+              <span ng-show="editMode" class="btn btn-sm btn-primary"  ng-click="save(Mentor)"><i class="fa fa-save"></i></span>
+              <span ng-show="editMode"class="btn btn-sm btn-info" ng-click="clear(Mentor)"><i class="fa fa-remove"></i></span>
+            </td>
+           </tr>
+            
+           </tbody>
+    
+    </table>
+      </div>
+       </div>
+   </div>
+        <div class="row"><div class="col-xs-6"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 1 to 5 of 3 entries</div></div><div class="col-xs-6"><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><ul class="pagination"><li class="disabled"><a href="#" class="previous" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" id="DataTables_Table_0_previous">Previous</a></li><li></li><li class="active"><a href="#" class="" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0">1</a></li><li class="disabled"><a href="#" class="next" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" id="DataTables_Table_0_next">Next</a></li></ul></div></div></div>
+</section>
+     </div>
+   </div>
+</div>
+</body>

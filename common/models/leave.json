@@ -1,0 +1,47 @@
+{
+  "name": "Leave",
+  "plural": "Leaves",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "leaveType": {
+      "type": "string",
+      "required": true
+    },
+    "dateFrom": {
+      "type": "date",
+      "required": true
+    },
+    "dateTo": {
+      "type": "date",
+      "required": true
+    },
+    "comment": {
+      "type": "string"
+    },
+    "Attachment": {
+      "type": "object",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "logUser": {
+      "type": "belongsTo",
+      "model": "logUser",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

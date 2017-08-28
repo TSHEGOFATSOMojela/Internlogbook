@@ -1,0 +1,253 @@
+<!--activity view-->
+<!-- tile -->
+      <section class="tile bg-dutch" fullscreen="isFullscreen06" ng-hide="var">
+
+        <!-- tile header -->
+        <div class="tile-header dvd dvd-btm">
+          <h1 class="custom-font"><strong>Activities </strong>Progress</h1>
+          <ul class="controls">
+            <li ng-controller="DaterangepickerCtrl">
+              <a href="javascript:;" daterangepicker="rangeOptions" date-begin="startDate" date-end="endDate">
+                <span>{{startDate}} - {{endDate}}</span>&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
+              </a>
+            </li>
+
+            <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+
+              <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
+
+              <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
+                <li>
+                  <a href tile-control-toggle>
+                    <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
+                    <span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
+                  </a>
+                </li>
+                <li>
+                  <a href tile-control-refresh ng-click="ajaxFaker()">
+                    <fa name="refresh"></fa> Refresh
+                  </a>
+                </li>
+                <li>
+                  <a href tile-control-fullscreen ng-click="isFullscreen06 = !isFullscreen06">
+                    <fa name="expand"></fa> Fullscreen
+                  </a>
+                </li>
+                <li>
+                  <a href tile-control-lightbox>
+                    <fa name="magnet"></fa> Open in Lightbox
+                  </a>
+                </li>
+
+              </ul>
+
+            </li>
+            <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
+          </ul>
+        </div>
+        <!-- /tile header -->
+
+        <!-- tile body -->
+        <div class="tile-body table-custom" ng-controller="TablesDatatablesCtrl">
+
+          <div class="table-responsive">
+            <table datatable="ng" dt-options="dtOptions" dt-column-defs="dtColumnDefs" class="table table-custom">
+              <thead>
+              <tr>
+                <th>ID</th>
+                <th>Objective</th>
+                <th>Acativity</th>
+                <th style="width: 180px;">Comment</th>  
+                <th style="width: 180px;">Duration</th>
+                <th class="text-justify">Date</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="act in activities">
+                <td>{{ $index+1 }}</td>
+                <td>{{ act.objectname}}</td>
+                <td><small ng-class="{'text-danger': project.priority.value == 1, 'text-warning': project.priority.value == 2, 'text-success': project.priority.value == 3}">{{act.activity}}</small></td>
+                <td><small>{{act.comment}}</small></td>  
+                <td><small>{{act.duration}}</small></td>
+                <td class="text-justify">{{act.dates|date:"dd MMM,yy"}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <!-- /tile body -->
+
+      </section>
+      <!-- /tile -->
+<!--activity view-->
+
+
+
+
+<!--activity view-->
+<!-- tile -->
+      <section class="tile bg-green" fullscreen="isFullscreen06" ng-hide="var">
+
+        <!-- tile header -->
+        <div class="tile-header dvd dvd-btm">
+          <h1 class="custom-font"><strong>Meetings </strong>Progress</h1>
+          <ul class="controls">
+            <li ng-controller="DaterangepickerCtrl">
+              <a href="javascript:;" daterangepicker="rangeOptions" date-begin="startDate" date-end="endDate">
+                <span>{{startDate}} - {{endDate}}</span>&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
+              </a>
+            </li>
+
+            <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+
+              <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
+
+              <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
+                <li>
+                  <a href tile-control-toggle>
+                    <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
+                    <span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
+                  </a>
+                </li>
+                <li>
+                  <a href tile-control-refresh ng-click="ajaxFaker()">
+                    <fa name="refresh"></fa> Refresh
+                  </a>
+                </li>
+                <li>
+                  <a href tile-control-fullscreen ng-click="isFullscreen06 = !isFullscreen06">
+                    <fa name="expand"></fa> Fullscreen
+                  </a>
+                </li>
+                <li>
+                  <a href tile-control-lightbox>
+                    <fa name="magnet"></fa> Open in Lightbox
+                  </a>
+                </li>
+
+              </ul>
+
+            </li>
+            <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
+          </ul>
+        </div>
+        <!-- /tile header -->
+
+        <!-- tile body -->
+        <div class="tile-body table-custom" ng-controller="TablesDatatablesCtrl">
+
+          <div class="table-responsive">
+            <table datatable="ng" dt-options="dtOptions" dt-column-defs="dtColumnDefs" class="table table-custom">
+              <thead>
+              <tr>
+                <th>ID</th>
+                <th>Meeting</th>
+                <th style="width: 180px;">Comment</th>  
+                <th style="width: 180px;">Duration</th>
+                <th class="text-justify">Date</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="met in meetings">
+                <td>{{ $index+1 }}</td>
+                <td>{{ met.meeting}}</td>
+                <td><small>{{met.comment}}</small></td>  
+                <td><small>{{met.duration}}</small></td>
+                <td class="text-justify">{{met.dates|date:"dd MMM,yy"}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <!-- /tile body -->
+
+      </section>
+      <!-- /tile -->
+<!--activity view-->
+
+
+
+
+   <!-- tile -->
+      <section class="tile bg-red" fullscreen="isFullscreen06" ng-hide="var">
+
+        <!-- tile header -->
+        <div class="tile-header dvd dvd-btm">
+          <h1 class="custom-font"><strong>Leave </strong>Progress</h1>
+          <ul class="controls">
+            <li ng-controller="DaterangepickerCtrl">
+              <a href="javascript:;" daterangepicker="rangeOptions" date-begin="startDate" date-end="endDate">
+                <span>{{startDate}} - {{endDate}}</span>&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
+              </a>
+            </li>
+
+            <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+
+              <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
+
+              <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
+                <li>
+                  <a href tile-control-toggle>
+                    <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
+                    <span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
+                  </a>
+                </li>
+                <li>
+                  <a href tile-control-refresh ng-click="ajaxFaker()">
+                    <fa name="refresh"></fa> Refresh
+                  </a>
+                </li>
+                <li>
+                  <a href tile-control-fullscreen ng-click="isFullscreen06 = !isFullscreen06">
+                    <fa name="expand"></fa> Fullscreen
+                  </a>
+                </li>
+                <li>
+                  <a href tile-control-lightbox>
+                    <fa name="magnet"></fa> Open in Lightbox
+                  </a>
+                </li>
+
+              </ul>
+
+            </li>
+            <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
+          </ul>
+        </div>
+        <!-- /tile header -->
+
+        <!-- tile body -->
+        <div class="tile-body table-custom" ng-controller="TablesDatatablesCtrl">
+
+          <div class="table-responsive">
+            <table datatable="ng" dt-options="dtOptions" dt-column-defs="dtColumnDefs" class="table table-custom">
+              <thead>
+              <tr>
+                <th>ID</th>
+                <th>Leave</th>
+                <th>From</th>
+                <th>To</th>  
+                <th style="width: 180px;">Comment</th>  
+                <th style="width: 180px;">Attachment</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="lv in leaves">
+                <td>{{ $index+1 }}</td>
+                <td>{{ lv.leaveType}}</td>
+                <td><small ng-class="{'text-danger': project.priority.value == 1, 'text-warning': project.priority.value == 2, 'text-success': project.priority.value == 3}">{{lv.From | date:"MMM dd"}}</small></td>
+                <td><small ng-class="{'text-danger': project.priority.value == 1, 'text-warning': project.priority.value == 2, 'text-success': project.priority.value == 3}">{{lv.To | date:"MMM dd"}}</small></td>
+                <td><small>{{lv.comment}}</small></td>  
+                <td><small><a href="myFile" download="{{lv.attachment}}.filetype"> <button class="btn btn-primary">Download</button></a></small></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <!-- /tile body -->
+
+      </section>
+      <!-- /tile -->

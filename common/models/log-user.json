@@ -1,0 +1,83 @@
+{
+  "name": "logUser",
+  "plural": "logUsers",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "fName": {
+      "type": "string",
+      "required": true
+    },
+    "lName": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "password": {
+      "type": "string",
+      "required": true
+    },
+    "contactNo": {
+      "type": "string",
+      "required": true
+    },
+    "gender": {
+      "type": "string",
+      "required": true
+    },
+    "jobTitle": {
+      "type": "string",
+      "required": true
+    },
+    "department": {
+      "type": "string"
+    },
+    "uCategory": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "company": {
+      "type": "belongsTo",
+      "model": "Company",
+      "foreignKey": ""
+    },
+    "objectives": {
+      "type": "hasMany",
+      "model": "Objective",
+      "foreignKey": ""
+    },
+    "leaves": {
+      "type": "hasMany",
+      "model": "Leave",
+      "foreignKey": ""
+    },
+    "meetings": {
+      "type": "hasMany",
+      "model": "Meeting",
+      "foreignKey": ""
+    },
+    "roles": {
+      "type": "hasOne",
+      "model": "Role",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

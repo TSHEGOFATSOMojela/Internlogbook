@@ -1,0 +1,213 @@
+<div class="page page-dashboard">
+
+  <div class="pageheader">
+
+<!--    <h2>{{page.title}} <span>// {{page.subtitle}}</span></h2>-->
+
+    <div class="page-bar">
+
+      <ul class="page-breadcrumb">
+        <li>
+          <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
+        </li>
+        <li>
+          <a ui-sref="app.dashboard">{{page.title}}</a>
+        </li>
+      </ul>
+
+      <div ng-controller="DaterangepickerCtrl" class="page-toolbar">
+        <a href="javascript:;" class="btn btn-lightred no-border" daterangepicker="rangeOptions" date-begin="startDate" date-end="endDate">
+          <i class="fa fa-calendar"></i>&nbsp;&nbsp;<span>{{startDate}} - {{endDate}}</span>&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+<!--cards row-->
+  <div class="row">
+
+    <!-- col -->
+    <div class="col-md-12">
+
+      <!-- tile -->
+      <section class="tile" fullscreen="isFullscreen02" ng-controller="BrowseUsageCtrl">
+
+        <!-- tile header -->
+        <div class="tile-header dvd dvd-btm">
+          <h1 class="custom-font"><strong>Logbook </strong> Usage</h1>
+          <ul class="controls">
+            <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+
+              <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
+
+              <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
+                <li>
+                  <a href tile-control-toggle>
+                    <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
+                    <span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
+                  </a>
+                </li>
+                <li>
+                  <a href tile-control-refresh ng-click="ajaxFaker()">
+                    <fa name="refresh"></fa> Refresh
+                  </a>
+                </li>
+                <li>
+                  <a href tile-control-fullscreen ng-click="isFullscreen02 = !isFullscreen02">
+                    <fa name="expand"></fa> Fullscreen
+                  </a>
+                </li>
+                <li>
+                  <a href tile-control-lightbox>
+                    <fa name="magnet"></fa> Open in Lightbox
+                  </a>
+                </li>
+
+              </ul>
+
+            </li>
+            <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
+          </ul>
+        </div>
+        <!-- /tile header -->
+
+        <!-- tile widget -->
+        <div class="tile-widget">
+          <div morris-donut-chart donut-data='donutData' style="height: 250px"></div>
+        </div>
+        <!-- /tile widget -->
+
+        <!-- tile body -->
+        <div class="tile-body p-0">
+
+          <uib-accordion close-others="oneAtATime">
+            <uib-accordion-group is-open="status.tab1.open" class="panel-transparent">
+              <uib-accordion-heading>
+                <span ng-class="{'text-default lt': !status.tab1.open}"><i class="fa text-sm mr-5" ng-class="{'fa-minus': status.tab1.open, 'fa-plus': !status.tab1.open}"></i> This Month</span><span class="badge pull-right bg-lightred">3</span>
+              </uib-accordion-heading>
+              <table class="table table-no-border m-0">
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Total Users</td>
+                    <td>6985</td>
+                    <td><i class="fa fa-caret-up text-success"></i></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Company</td>
+                    <td>2697</td>
+                    <td><i class="fa fa-caret-up text-success"></i></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Mentors</td>
+                    <td>3597</td>
+                    <td><i class="fa fa-caret-down text-danger"></i></td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>interns</td>
+                    <td>2145</td>
+                    <td><i class="fa fa-caret-up text-success"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+            </uib-accordion-group>
+            <uib-accordion-group is-open="status.tab2.open" class="panel-transparent">
+              <uib-accordion-heading>
+                <span ng-class="{'text-default lt': !status.tab2.open}"><i class="fa text-sm mr-5" ng-class="{'fa-minus': status.tab2.open, 'fa-plus': !status.tab2.open}"></i> Last Month</span>
+              </uib-accordion-heading>
+              <table class="table table-no-border m-0">
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Total users</td>
+                    <td>6985</td>
+                    <td><i class="fa fa-caret-up text-success"></i></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Companies</td>
+                    <td>2697</td>
+                    <td><i class="fa fa-caret-up text-success"></i></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Mentors</td>
+                    <td>3597</td>
+                    <td><i class="fa fa-caret-down text-danger"></i></td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>interns</td>
+                    <td>2145</td>
+                    <td><i class="fa fa-caret-up text-success"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+            </uib-accordion-group>
+            <uib-accordion-group is-open="status.tab3.open" class="panel-transparent">
+              <uib-accordion-heading>
+                <span ng-class="{'text-default lt': !status.tab3.open}"><i class="fa text-sm mr-5" ng-class="{'fa-minus': status.tab3.open, 'fa-plus': !status.tab3.open}"></i> This Year</span>
+              </uib-accordion-heading>
+              <table class="table table-no-border m-0">
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Total Users</td>
+                    <td>6985</td>
+                    <td><i class="fa fa-caret-up text-success"></i></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Companies</td>
+                    <td>2697</td>
+                    <td><i class="fa fa-caret-up text-success"></i></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Mentor</td>
+                    <td>3597</td>
+                    <td><i class="fa fa-caret-down text-danger"></i></td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>interns</td>
+                    <td>2145</td>
+                    <td><i class="fa fa-caret-up text-success"></i></td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </uib-accordion-group>
+          </uib-accordion>
+
+        </div>
+        <!-- /tile body -->
+
+      </section>
+      <!-- /tile -->
+
+    </div>
+    <!-- /col -->
+
+
+  </div>
+
+
+     
+
+
+       
+
+     
+
+
+
+
+
+
+
+</div>

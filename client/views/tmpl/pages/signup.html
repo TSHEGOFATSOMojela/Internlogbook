@@ -1,0 +1,133 @@
+<body controller="SignupCtrl">
+ <div class="page page-core page-login" >
+   <div class="text-center"><h3 class="text-light text-white"><span class="text-lightred"></span>INTERN LOGBOOK</h3></div>
+     <div class="container bg-white text-center">
+         <h2 class="text-light text-greensea">Sign Up</h2>
+         
+<table class="table">
+    
+    <form name="form" class="form-validation mt-24" novalidate>
+    <tr>
+        
+          <p class="help-block text-left"> Enter your details below:</p> 
+  
+		<th>
+            <div class="form-group">
+            <input type="text" class="form-control underline-input" placeholder="Full Name" ng-model="user.fullName" required>
+            </div>
+		</th>
+        
+		<th>
+            <div class="form-group">
+           <input type="text" class="form-control underline-input" placeholder="Last Name" ng-model="user.lastName" required>
+           </div>
+		</th>
+        
+		<th>   
+            <div class="form-group">
+            <input type="text" class="form-control underline-input" placeholder="Username" ng-model="user.userName" required>
+            </div>
+		</th>
+        
+        <th> 
+            <div class="form-group">
+            <input type="email" class="form-control underline-input" placeholder="Email" ng-model="user.email" required>
+            </div>
+		</th>
+         
+        <th>   
+            <div class="form-group">
+            <input type="text" class="form-control underline-input" placeholder="Gender" ng-model="user.gender" required>
+            </div>
+		</th>
+    
+	</tr>
+        
+	<tr>
+          <th>
+             <div class="form-group">
+             <input type="password" placeholder="Password" class="form-control underline-input" ng-model="user.password" required>
+             </div>
+		  </th>
+        
+        <th>
+           <div class="form-group">
+           <input type="password" placeholder="Confirm Password" class="form-control underline-input" ng-model="user.comfirmPassword" required>
+           </div>
+		</th>
+        
+        <th>
+            <div class="form-group">
+            <input type="number" class="form-control underline-input" placeholder="Contacts" ng-model="user.contacts" required>
+            </div>
+		</th>
+        
+        
+          <th>
+<!--
+            <div class="form-group">
+            <input type="number" class="form-control underline-input" placeholder="Contacts" ng-model="user.contacts" required>
+            </div>
+-->
+		</th>
+        
+        
+      <th> 
+      </th>  
+        <tr>
+ 
+    <form class="form-inline" name="form">
+        
+        <th>
+           <div class="form-group">
+               
+            <label for="Company" class="control-label"></label>
+            <select name='Company' id="Company" class="form-control" ng-model="Company" ng-options="Company as Company.CompanyName for Company in Companies" required>
+                <option value="" disabled>Companies</option>
+            </select>
+           </div>
+        </th>
+        
+         <th>
+        <div class="form-group">
+            <label for="Mentor" class="control-label"></label>
+            <select name='Mentor' required id="Mentor" class="form-control" ng-disabled="Mentors.length == 0" ng-model="Mentor" ng-options="Mentor as Mentor.MentorName for Mentor in Mentors">
+                <option value="" disabled>Mentors</option>
+            </select>
+        </div>
+         </th>
+        <th>
+        <div class="form-group">
+            <label for="Position" class="control-label"></label>
+            <select name='Position' required id="Position" class="form-control" ng-disabled="Positions.length == 0" ng-model="Position" ng-options="Position as Position.PositionName for Position in Positions">
+                <option value="" disabled>Position</option>
+            </select>
+        </div>
+        </th>
+
+    </form>
+
+
+        </tr>
+        
+
+    </tr>
+                 </form>
+</table>
+  <div class="form-group text-left">
+         <label class="checkbox checkbox-custom checkbox-custom-sm inline-block">
+          <input type="checkbox" ng-model="user.accept" required><i></i> I agree to the <a href="javascript:;">Terms of Service</a> & <a href="javascript:;">Privacy Policy</a>
+        </label>
+      </div>
+
+    <div class="bg-slategray lt wrap-reset mt- text-left">
+      <p class="m-0">
+        <a ui-sref="core.login" class="btn btn-greensea b-0 text-lowercase pull-right" ng-disabled='form.$invalid'>Submit</a>
+        <a ui-sref="core.login" class="btn btn-lightred b-0 text-lowercase">Back</a>
+      </p>
+    </div>
+
+  </div>
+
+</div>
+</body>
