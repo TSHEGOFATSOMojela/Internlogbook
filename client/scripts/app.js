@@ -897,5 +897,6 @@ var app = angular
       controller: 'HelpCtrl',
       templateUrl: 'views/tmpl/help.html'
     });
+ 
   }]);
 

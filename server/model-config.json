@@ -19,22 +19,22 @@
   },
   "AccessToken": {
     "dataSource": "logbookDB",
-    "public": true
+    "public": false
   },
   "ACL": {
     "dataSource": "logbookDB",
-    "public": true
+    "public": false
   },
   "RoleMapping": {
     "dataSource": "logbookDB",
-    "public": true,
+    "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
     "dataSource": "logbookDB",
-    "public": true
+    "public": false
   },
   "Company": {
     "dataSource": "logbookDB",

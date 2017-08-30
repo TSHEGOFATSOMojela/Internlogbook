@@ -63,12 +63,12 @@
               </tr>
               </thead>
               <tbody>
-              <tr ng-repeat="project in projects">
-                <td>{{ $index+1 }}</td>
-                <td>{{ project.title }}</td>
-                <td><small ng-class="{'text-danger': project.priority.value == 1, 'text-warning': project.priority.value == 2, 'text-success': project.priority.value == 3}">{{ project.priority.title }}</small></td>
+              <tr ng-repeat="o in objective">
+                <td>{{$index+1}}</td>
+                <td>{{o.name}}</td>
+                <td><small ng-class="{'text-danger': project.priority.value == 1, 'text-warning': project.priority.value == 2, 'text-success': project.priority.value == 3}">{{o.desc}}</small></td>
                 <td><uib-progressbar class="progress-xxs not-rounded mb-0 inline-block" value="project.status" type="greensea" style="width: 150px; margin-right: 5px"></uib-progressbar><small>{{project.status}}%</small></td>
-                <td class="text-justify">{{project.priority.duration | date:"MMM dd"}}</td>
+                <td class="text-justify">{{o.dueDate | date}}</td>
               </tr>
               </tbody>
             </table>
