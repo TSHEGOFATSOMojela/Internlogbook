@@ -1,0 +1,103 @@
+<body background-color="#FFFFFF" ng-app="app">
+    
+<div class="pagecontent"  data-ng-controller="FormUploadCtrl">
+    
+    <div class="row">
+       
+      <div class="col-md-12">
+ 
+<section class="tile" fullscreen="isFullscreen01"> 
+
+ <div class="tile-header dvd dvd-btm">
+    
+   <h1 class="custom-font" align="center"><strong>Add Mentor</strong></h1>
+    <ul class="controls">
+    </ul>
+   </div> 
+      
+<div>
+  <div class="panel">
+   <div class="row"></div>    
+<div class="panel-body">
+<table class="table table-bordered bordered table-striped table-condensed datatable" ui-options="dataTableOpt">
+          
+     <thead></thead>
+ 
+    <tr>
+          
+
+ 
+	<div  class="col-lg-10 well">
+	<div class="row">
+				<form class="form-horizontal" role="form"  ng-submit="addCompany()">
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<label>First Name</label>
+								<input type="text" class="form-control" placeholder="Enter first name here.." name="fName"
+                                ng-model="newMentor.FirstName" required/>
+							</div>
+                            	<div class="col-sm-6 form-group">
+								<label>Last Name</label>
+								<input type="text" class="form-control" placeholder="Enter last name here.." name="lName"
+                                ng-model="newMentor.lastName" required/>
+							</div>
+							<div class="col-sm-6 form-group">
+								<label>Email Address</label>
+								<input type="email" placeholder="info@example.com" class="form-control" name="email"
+                              ng-model="newMentor.email" required/>
+							</div>
+                            		<div class="col-sm-6 form-group">
+								<label>Gender</label>
+								<input type="text" placeholder="Enter gender here.." class="form-control" name="gender"
+                              ng-model="newMentor.gender" required/>
+							</div>
+						</div>
+                        <div class="form-group">
+						<label>Department</label>
+							<input type="text" class="form-control" name="department"
+			                ng-model="newMentor.department" placeholder="Enter gender here.." required/>
+					</div>	
+                        <div class="form-group">
+						<label>Job title</label>
+							<input type="number" class="form-control" name="title"
+			                ng-model="newMentor.title" placeholder="Enter title here.." required/>
+					</div>	
+					<div class="form-group">
+						<label>Role</label>
+							<input type="text" class="form-control" name="role"
+			                ng-model="newMentor.role" placeholder="Enter role here..eg mentor" required/>
+					</div>		
+					<div class="form-group">
+						<label>Contacts</label>
+							<input type="number" class="form-control" name="contacts"
+			                ng-model="newMentor.contacts" placeholder="+2700 000 000" required/>
+					</div>
+					<input class="btn btn-xs btn-default" type="submit" value="Add Company"  ng-click="addCompany()"/>					
+					</div>
+				</form> 
+        
+				</div>
+	</div>
+	
+    
+	    </tr>
+    
+    
+        <tbody>
+     
+            
+           </tbody>
+    
+    </table>
+      </div>
+       </div>
+    
+   </div>
+   
+</section>
+          
+     </div>
+   </div>
+</div>
+</body>

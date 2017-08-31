@@ -13,7 +13,7 @@
    <h1 class="custom-font"><strong>MENTORS</strong></h1>
     <ul class="controls">
 <!-- <li><a href="javascript:window.print()" class="fa fa-plus mr-5" uib-tooltip="Print"><i class="fa fa-print"></i></a></li>-->
-<!--   <li><a ui-sref="app.shop.single-order" ><i class="fa fa-plus mr-5"  ></i>Add Objectives</a></li>-->
+   <li><a ui-sref="app.forms.imgcrop" ><i class="fa fa-plus mr-5"  ></i>Add Mentor</a></li>
 
     <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
         
@@ -87,10 +87,10 @@
         <th>Name</th>
 		<th>Surname</th>
 		<th>Email</th>
-        <th>Company</th>
+        <th>gender</th>
         <th>Department</th>
-        <th>Contacts</th>
-        <th>Interns</th>
+        <th>Title</th>
+        <th>contacts</th>
         <th>Actions</th>
             
         </tr>
@@ -99,14 +99,13 @@
  
     <tr>
           
+<!--
 <form class="form-horizontal" role="form" ng-submit="addRow()">
     
     
     <td class="col-md">
-<!--
             <input type="text" class="form-control" placeholder="id" name="id"
             ng-model="newIntern.id" />
--->
 		</td>
 		<td class="col-md">
             <input type="text" class="form-control" placeholder="name" name="name"
@@ -145,6 +144,7 @@
         </td>
     
         </form>
+-->
     
 	    </tr>
     
@@ -152,27 +152,33 @@
         <tbody>
        <tr ng-repeat="Mentor in Mentors | filter: searchKeyword  track by $index">
            
+<!--
             <td ng-hide="editMode">{{Mentor.id}}</td>
             <td ng-if="editMode"></td>
+-->
            
-            <td ng-hide="editMode">{{Mentor.name}}</td>
-            <td ng-if="editMode"><input type="text" class="form-control" placeholder="name" name="name" ng-model="Mentor.name"/></td>
+            <td ng-hide="editMode">{{Mentor.fName}}</td>
+            <td ng-if="editMode"><input type="text" class="form-control" placeholder="fName" name="fName" ng-model="Mentor.fName"/></td>
            
-            <td ng-hide="editMode" >{{Mentor.surname}}</td>
-            <td ng-if="editMode"> <input type="text" class="form-control" placeholder="surname" name="id"ng-model="Mentor.surname" /></td>
+            <td ng-hide="editMode" >{{Mentor.lName}}</td>
+            <td ng-if="editMode"> <input type="text" class="form-control" placeholder="lName" ng-model="Mentor.lName" /></td>
            
             <td ng-hide="editMode" >{{Mentor.email}}</td>
-            <td ng-if="editMode"> <input type="email" class="form-control" placeholder="email" name="id"ng-model="Mentor.email" /></td>
+            <td ng-if="editMode"> <input type="email" class="form-control" placeholder="email" ng-model="Mentor.email" /></td>
            
-            <td ng-hide="editMode">{{Mentor.company}}</td>
-            <td ng-if="editMode"> <input type="text" class="form-control" placeholder="company" name="id"ng-model="Mentor.company"/>
+            <td ng-hide="editMode">{{Mentor.gender}}</td>
+            <td ng-if="editMode"> <input type="text" class="form-control" placeholder="gender" ng-model="Mentor.gender"/>
            </td>
             <td ng-hide="editMode">{{Mentor.department}}</td>
-            <td ng-if="editMode"> <input type="text" class="form-control" placeholder="gender" name="id"ng-model="Mentor.department"/></td>
-           
-            <td ng-hide="editMode">{{Mentor.contacts}}</td>
-            <td ng-show="editMode" > <input type="text" class="form-control" placeholder="contacts" name="id"
-            ng-model="Mentor.contacts"/>
+            <td ng-if="editMode"> <input type="text" class="form-control" placeholder="department" ng-model="Mentor.department"/></td>
+            <td ng-hide="editMode">{{Mentor.uCategory}}</td>
+            <td ng-if="editMode"> <input type="text" class="form-control" placeholder="uCategory" ng-model="Mentor.uCategory"/></td>
+            <td ng-hide="editMode">{{Mentor.jobTitle}}</td>
+            <td ng-show="editMode" > <input type="text" class="form-control" placeholder="jobTitle"
+            ng-model="Mentor.jobTitle"/>
+            </td>
+            <td ng-hide="editMode">{{Mentor.contactNo}}</td>
+            <td ng-show="editMode" > <input type="text" class="form-control" placeholder="contactNo" ng-model="Mentor.contactNo"/>
             </td>
            
            <td ng-hide="editMode"><a ui-sref="app.shop.products" class="btn btn-xs btn-default"><i class="fa fa-search"></i>View Interns <span class="badge badge-success">5</span></a></td>

@@ -2,7 +2,6 @@
   "logbookDB": {
     "host": "ds133192.mlab.com",
     "port": 33192,
-    "url": "",
     "database": "logbookdb",
     "password": "admin",
     "name": "logbookDB",
