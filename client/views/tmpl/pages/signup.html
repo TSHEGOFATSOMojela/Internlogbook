@@ -8,68 +8,69 @@
     
     <form name="form" class="form-validation mt-24" novalidate>
     <tr>
+
         
           <p class="help-block text-left"> Enter your details below:</p> 
   
 		<th>
             <div class="form-group">
-            <input type="text" class="form-control underline-input" placeholder="Full Name" ng-model="user.fullName" required>
+            <input type="text" class="form-control underline-input" placeholder="First Name" ng-model="user.fName" required>
             </div>
 		</th>
         
 		<th>
             <div class="form-group">
-           <input type="text" class="form-control underline-input" placeholder="Last Name" ng-model="user.lastName" required>
+           <input type="text" class="form-control underline-input" placeholder="Last Name" ng-model="user.lName" required>
            </div>
 		</th>
         
-		<th>   
-            <div class="form-group">
-            <input type="text" class="form-control underline-input" placeholder="Username" ng-model="user.userName" required>
-            </div>
-		</th>
         
         <th> 
             <div class="form-group">
-            <input type="email" class="form-control underline-input" placeholder="Email" ng-model="user.email" required>
+            <input type="email" class="form-control underline-input" placeholder="example@company.com" ng-model="user.email" required>
             </div>
 		</th>
-         
+      
         <th>   
             <div class="form-group">
             <input type="text" class="form-control underline-input" placeholder="Gender" ng-model="user.gender" required>
             </div>
 		</th>
-    
-	</tr>
-        
-	<tr>
           <th>
              <div class="form-group">
              <input type="password" placeholder="Password" class="form-control underline-input" ng-model="user.password" required>
              </div>
 		  </th>
         
+    
+	</tr>
+        
+	<tr>
         <th>
            <div class="form-group">
            <input type="password" placeholder="Confirm Password" class="form-control underline-input" ng-model="user.comfirmPassword" required>
            </div>
 		</th>
         
+           <th>   
+            <div class="form-group">
+            <input type="text" class="form-control underline-input" placeholder="Department" ng-model="user.department" required>
+            </div>
+		</th>
+        
+           <th>   
+            <div class="form-group">
+            <input type="text" class="form-control underline-input" placeholder="Position" ng-model="user.uCategory" required>
+            </div>
+		</th>
         <th>
             <div class="form-group">
-            <input type="number" class="form-control underline-input" placeholder="Contacts" ng-model="user.contacts" required>
+            <input type="number" class="form-control underline-input" placeholder="Contacts" ng-model="user.contactNo" required>
             </div>
 		</th>
         
         
-          <th>
-<!--
-            <div class="form-group">
-            <input type="number" class="form-control underline-input" placeholder="Contacts" ng-model="user.contacts" required>
-            </div>
--->
-		</th>
+          <th></th>
         
         
       <th> 
@@ -111,7 +112,7 @@
         </tr>
         
 
-    </tr>
+ 
                  </form>
 </table>
   <div class="form-group text-left">
