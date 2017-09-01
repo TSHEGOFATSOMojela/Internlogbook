@@ -10,8 +10,8 @@
 
 
  app
-   .controller('TablesBootstrapCtrl', ['$scope', 'Objective', function($scope,
-      Objective) {
+   .controller('TablesBootstrapCtrl', ['$scope', 'Objective','DTOptionsBuilder','DTColumnDefBuilder', function($scope,
+      Objective, DTOptionsBuilder, DTColumnDefBuilder) {
     $scope.objective = Objective.find({
       filter: {
         include: [
@@ -19,6 +19,17 @@
         ]
       }
     });
+      
+       $scope.status =[20,15];
+       
+      $scope.dtOptions = DTOptionsBuilder.newOptions().withBootstrap();
+      $scope.dtColumnDefs = [
+      DTColumnDefBuilder.newColumnDef(0),
+      DTColumnDefBuilder.newColumnDef(1),
+      DTColumnDefBuilder.newColumnDef(2),
+      DTColumnDefBuilder.newColumnDef(3),
+      DTColumnDefBuilder.newColumnDef(4).notSortable()
+    ]; 
   }]);
 
 //.controller('TablesBootstrapCtrl', function($scope, DTOptionsBuilder, DTColumnDefBuilder){

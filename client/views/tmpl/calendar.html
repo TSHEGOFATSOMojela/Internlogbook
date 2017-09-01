@@ -27,7 +27,7 @@
                   <li ng-repeat="x in objective">
                       <div class="p-15 bg-white">
                             <button id="object" type="button" class="btn btn-greensea btn-xs mb-10 pull-right b-0" ng-click="addEvent()" uib-tooltip="Doule-click to calendar day to add event" tooltip-placement="bottom" ><i ng-click="setCurrent($index)" class="fa fa-plus"></i></button> 
-                          <h4 class="custom-font text-default m-0">{{x.objectname}}</h4>
+                          <h4 class="custom-font text-default m-0">{{x.name}}</h4>
                        </div>
                   </li>
                     <hr>
@@ -61,16 +61,16 @@
         <div class="p-15">
         <div ng-repeat="e in events" class="p-10 mb-10 event-control {{e.className[0]}}">
             <div class="form-group">
-            <h4>{{e.Objective}}</h4>
-            <h5>{{e.desc}}</h5>
-            <h6>{{e.dur}}</h6>
+            <h4>{{e.objective.name}}</h4>
+            <h5>{{e.objective.desc}}</h5>
+            <h6>{{e.objective.dueDate | date}}</h6>
                 <hr>
                 activity
                 <input ng-model="e.title" class="form-control input-sm ">
 <!--                <a class="pull-right text-muted event-remove" ng-click="remove($index)"><i class="fa fa-trash-o"></i></a>-->
                 comment
                 <input ng-model="e.comment" class="form-control input-sm ">
-                <div class="text-sm text-muted"><strong>{{e.start | date:"MMM dd"}}</strong></div>
+                <div class="text-sm text-muted"><strong>{{e.date | date}}</strong></div>
             </div>
                         
     
@@ -117,7 +117,7 @@
 <!--                <a class="pull-right text-muted event-remove" ng-click="remove($index)"><i class="fa fa-trash-o"></i></a>-->
                 decription
                 <input ng-model="met.comment" class="form-control input-sm ">
-                <div class="text-sm text-muted"><strong>{{met.start | date:"MMM dd"}}</strong></div>
+                <div class="text-sm text-muted"><strong>{{met.date | date}}</strong></div>
             </div>
                 <section class="tile" fullscreen="isFullscreen10">
                   <div class="tile-body">
@@ -159,14 +159,14 @@
        <div class="p-15">
         <div ng-repeat="lvs in leaves" class="p-10 mb-10 event-control {{lvs.className[0]}}">
             <div class="form-group">
-            <h4>{{lvs.Leave}}</h4>
-            <h5>{{lvs.leavetype}}</h5>
+            <h4>{{lvs.title}}</h4>
+            <h5>{{lvs.leaveType}}</h5>
                 <hr>
                 number of days:
                 <input ng-model="lvs.days" class="form-control input-sm">
                 comment
-                <input ng-model="lvs.comments" class="form-control input-sm">
-                <div class="text-sm text-muted">{{lvs.start | date:"MMM dd"}} - {{lvs.end | date:"MMM dd"}}</div>
+                <input ng-model="lvs.comment" class="form-control input-sm">
+                <div class="text-sm text-muted">{{lvs.dateFrom | date}} - {{lvs.dateTo | date}}</div>
             </div>
             <div>
                
@@ -208,16 +208,13 @@
 
         <div class="fc-overlay">
           <div class="panel b-solid">
-            <h3>Objective: {{event.Objective}}</h3>
-            <h5>Description: {{event.desc}}</h5>
-            <h5>Days: {{event.days}}</h5>
+            <h3>Objective: {{event.objective.name}}</h3>
+            <h5>Description: {{event.objective.desc}}</h5>
             <h4 class="text-light mt-0">Activity: {{event.title}}</h4>
             <div class="b-b b-solid mb-10"></div>
-            <div class="text-muted"><i class="icon-calendar mr-5"></i> {{event.start | date:'medium'}}</div>
-            <div class="text-muted" ng-show='event.end'><i class="icon-clock mr-5"></i> {{event.end | date:'medium'}}</div>
-            <div class="text-muted" ng-show='event.location'><i class="icon-pointer mr-5"></i> {{event.location}}</div>
+            <div class="text-muted"><i class="icon-calendar mr-5"></i> {{event.date | date:'medium'}}</div>
+            <div class="text-muted" ng-show='event.date'><i class="icon-clock mr-5"></i> {{event.date | date}}</div>
             <div class="mt-10">Comment: {{event.comment}}</div>
-            <div class="mt-10">{{event.url}}</div>
           </div>
         </div>
 

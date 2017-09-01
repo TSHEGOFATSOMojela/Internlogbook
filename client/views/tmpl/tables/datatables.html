@@ -1,6 +1,6 @@
 <!--activity view-->
 <!-- tile -->
-      <section class="tile bg-dutch" fullscreen="isFullscreen06" ng-hide="var">
+      <section class="tile" fullscreen="isFullscreen06" ng-hide="var">
 
         <!-- tile header -->
         <div class="tile-header dvd dvd-btm">
@@ -63,13 +63,13 @@
               </tr>
               </thead>
               <tbody>
-              <tr ng-repeat="act in activities">
+              <tr ng-repeat="act in activities.slice().reverse()">
                 <td>{{ $index+1 }}</td>
-                <td>{{ act.objectname}}</td>
-                <td><small ng-class="{'text-danger': project.priority.value == 1, 'text-warning': project.priority.value == 2, 'text-success': project.priority.value == 3}">{{act.activity}}</small></td>
+                <td>{{ act.objective.name}}</td>
+                <td><small ng-class="{'text-danger': project.priority.value == 1, 'text-warning': project.priority.value == 2, 'text-success': project.priority.value == 3}">{{act.title}}</small></td>
                 <td><small>{{act.comment}}</small></td>  
-                <td><small>{{act.duration}}</small></td>
-                <td class="text-justify">{{act.dates|date:"dd MMM,yy"}}</td>
+                <td><small>{{act.duration.hour}} hour and {{act.duration.minutes}} minutes</small></td>
+                <td class="text-justify">{{act.date | date}}</td>
               </tr>
               </tbody>
             </table>
@@ -87,7 +87,7 @@
 
 <!--activity view-->
 <!-- tile -->
-      <section class="tile bg-green" fullscreen="isFullscreen06" ng-hide="var">
+      <section class="tile" fullscreen="isFullscreen06" ng-hide="var">
 
         <!-- tile header -->
         <div class="tile-header dvd dvd-btm">
@@ -151,10 +151,10 @@
               <tbody>
               <tr ng-repeat="met in meetings">
                 <td>{{ $index+1 }}</td>
-                <td>{{ met.meeting}}</td>
+                <td>{{ met.title}}</td>
                 <td><small>{{met.comment}}</small></td>  
-                <td><small>{{met.duration}}</small></td>
-                <td class="text-justify">{{met.dates|date:"dd MMM,yy"}}</td>
+                <td><small>{{met.duration.hour}} hours and {{met.duration.minutes}} minutes</small></td>
+                <td class="text-justify">{{met.date|date}}</td>
               </tr>
               </tbody>
             </table>
@@ -171,7 +171,7 @@
 
 
    <!-- tile -->
-      <section class="tile bg-red" fullscreen="isFullscreen06" ng-hide="var">
+      <section class="tile" fullscreen="isFullscreen06" ng-hide="var">
 
         <!-- tile header -->
         <div class="tile-header dvd dvd-btm">
@@ -236,11 +236,11 @@
               <tbody>
               <tr ng-repeat="lv in leaves">
                 <td>{{ $index+1 }}</td>
-                <td>{{ lv.leaveType}}</td>
-                <td><small ng-class="{'text-danger': project.priority.value == 1, 'text-warning': project.priority.value == 2, 'text-success': project.priority.value == 3}">{{lv.From | date:"MMM dd"}}</small></td>
-                <td><small ng-class="{'text-danger': project.priority.value == 1, 'text-warning': project.priority.value == 2, 'text-success': project.priority.value == 3}">{{lv.To | date:"MMM dd"}}</small></td>
+                <td>{{ lv.title}}</td>
+                <td><small ng-class="{'text-danger': project.priority.value == 1, 'text-warning': project.priority.value == 2, 'text-success': project.priority.value == 3}">{{lv.dateFrom | date}}</small></td>
+                <td><small ng-class="{'text-danger': project.priority.value == 1, 'text-warning': project.priority.value == 2, 'text-success': project.priority.value == 3}">{{lv.dateTo | date}}</small></td>
                 <td><small>{{lv.comment}}</small></td>  
-                <td><small><a href="myFile" download="{{lv.attachment}}.filetype"> <button class="btn btn-primary">Download</button></a></small></td>
+                <td><small><a href="myFile" download="{{lv.Attachment.note}}.filetype"> <button class="btn btn-primary">Download</button></a></small></td>
               </tr>
               </tbody>
             </table>

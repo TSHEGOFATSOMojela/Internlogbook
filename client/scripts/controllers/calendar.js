@@ -8,8 +8,8 @@
  * Controller of the minovateApp
  */
 app
-  .controller('CalendarCtrl', function ($scope,$compile,uiCalendarConfig) {
-
+  .controller('CalendarCtrl', ['$scope','Objective','Activity','Meeting','Leave','$compile','uiCalendarConfig', function($scope,Objective,Activity,Meeting,Leave, $compile, uiCalendarConfig) {
+    
     var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();
@@ -24,10 +24,34 @@ app
       currentTimezone: 'America/Chicago' // an option!
     };
 
+      $scope.leave = ["Annual Leave", "Maternity Leave", "Sick Leave","Family Responsibility Leave","Study Leave","Leave for religious holidays","Unpaid leave"];
     /* event source that contains custom events on the scope */
-    $scope.events = [];
-    $scope.leaves =[];
-    $scope.meetings =[];
+    $scope.objective = Objective.find();  
+    $scope.events = Activity.find({
+      filter: {
+        include: [
+          'objective'
+        ]
+      }
+    });
+    $scope.leaves = Leave.find({
+      filter: {
+        include: [
+          'logUser'
+        ]
+      }
+    });
+     $scope.meetings = Meeting.find({
+      filter: {
+        include: [
+          'logUser'
+        ]
+      }
+    });  
+
+//    $scope.events = [];
+//    $scope.leaves =[];
+//    $scope.meetings =[];
     
     /* alert on dayClick */
     $scope.precision = 400;
@@ -80,13 +104,13 @@ app
       calendar:{
         height: 550,
         hiddenDays: [ 0, 6 ],
-        allDay:true,  
+        allDay:false,  
         businessHours: {
             dow: [ 1, 2, 3, 4, 5 ], 
             start: '07:30', 
             end: '16:30', 
             } , 
-        editable: false,
+        editable: true,
         header:{
           left: 'prev',
           center: 'title',
@@ -103,7 +127,7 @@ app
     /* add custom event document.getElementById("obj").value */
     $scope.addEvent = function() {
         $scope.events.push({
-        Objective: $scope.objective[$scope.curr].objectname,  
+        Objective: $scope.objective[$scope.curr].name,  
         desc:$scope.objective[$scope.curr].desc,
         dur: $scope.objective[$scope.curr].duration,   
         title: 'New Activity',
@@ -113,6 +137,18 @@ app
       });
     };
     
+      /* add custom leave document.getElementById("obj").value */
+    $scope.addLeave = function() {
+        $scope.leaves.push({
+        Objectives: 'Leave',    
+        title: $scope.leave[$scope.curre],
+        start: new Date(y, m, d),
+        dateTo: new Date(y, m, d +2),     
+        className: ['b-l b-2x b-warning bg-red'],
+        comments:'add comment'   
+      });
+    };
+      
     /*add meeting*/
         $scope.addMeeting = function() {
         $scope.meetings.push({
@@ -123,19 +159,7 @@ app
       });
     };
     
-    /* add custom leave document.getElementById("obj").value */
-    $scope.addLeave = function() {
-        $scope.leaves.push({
-        title: 'Leave',    
-        leavetype: $scope.leave[$scope.curre],
-        days: 'days',    
-        start: new Date(y, m, d),
-        end: new Date(y, m, d +2),     
-        className: ['b-l b-2x b-warning bg-red'],
-        comments:'add comment'   
-      });
-        
-    };
+    
     /* remove activity */
     $scope.removeActivity = function(index) {
       $scope.events.splice(index,1);
@@ -159,8 +183,7 @@ app
       angular.element('.calendar').fullCalendar('today');
     };
 
-    /* event sources array*/
-    $scope.eventSources = [$scope.leaves,$scope.events,$scope.meetings];
+   
    
     
 /*get the index of selected objective*/
@@ -173,17 +196,15 @@ app
     $scope.curre = index;
 };
 
-    
-    $scope.leave = ["Annual Leave", "Maternity Leave", "Sick Leave","Family Responsibility Leave","Study Leave","Leave for religious holidays","Unpaid leave"];
 
     $scope.getLvIndex = function getLvIndex(index) {
     $scope.currIndex = index;  
    $scope.returnedLeav = $scope.leave[$scope.currIndex];
 };
 
-    $scope.objective =[{objectname:"Strongloop",desc:"Please study this for exam",duration:"8 days"},
-                       {objectname:"MongoDB",desc:"back-end must be done using mongodb",duration:"5 days"},
-                       {objectname:"Linex",desc:"we are about to hack",duration:"3 days"}];
+//    $scope.objective =[{objectname:"Strongloop",desc:"Please study this for exam",duration:"8 days"},
+//                       {objectname:"MongoDB",desc:"back-end must be done using mongodb",duration:"5 days"},
+//                       {objectname:"Linex",desc:"we are about to hack",duration:"3 days"}];
 
 
     
@@ -215,8 +236,11 @@ app
         $scope.showevent = false;
             $scope.showEvent = function () {
               return $scope.showevent = true;
-            }
-  });
+            };
+      
+       /* event sources array*/
+    $scope.eventSources = [$scope.events,$scope.leaves,$scope.meetings];
+  }]);
 
 
 
