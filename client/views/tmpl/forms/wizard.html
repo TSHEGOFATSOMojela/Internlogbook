@@ -13,7 +13,7 @@
    <h1 class="custom-font"><strong>Companies</strong></h1>
     <ul class="controls">
 <!-- <li><a href="javascript:window.print()" class="fa fa-plus mr-5" uib-tooltip="Print"><i class="fa fa-print"></i></a></li>-->
-<!--   <li><a ui-sref="app.shop.single-order" ><i class="fa fa-plus mr-5"  ></i>Add Company</a></li>-->
+   <li><a ui-sref="app.forms.upload" ><i class="fa fa-plus mr-5"  ></i>Add Company</a></li>
 
     <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
         
@@ -74,7 +74,7 @@
                          </div>
                     </div>
                   </div>
-                  </div>      
+                  </div>    
 <div class="panel-body">
 <table class="table table-bordered bordered table-striped table-condensed datatable" ui-options="dataTableOpt">
           
@@ -83,8 +83,8 @@
 
         <tr>
       
-        <th>Company ID</th>
-        <th>Comapany Name</th>
+        <th>ID</th>
+        <th>Name</th>
 		<th>Email</th>
 		<th>Website</th>
         <th>Address</th>
@@ -96,50 +96,7 @@
          
       </thead>
  
-    <tr>
-          
-<form class="form-horizontal" role="form" ng-submit="addRow()">
-    
-    
-    <td class="col-md">
-            <input type="text" class="form-control" placeholder="Company id" name="registrationId"
-            ng-model="newCompany.registrationId" />
-		</td>
-		<td class="col-md">
-            <input type="text" class="form-control" placeholder="name" name="name"
-            ng-model="newCompany.name" />
-		</td>
-    
-		<td class="col-md">
-            <input type="email" placeholder="info@example.com" class="form-control" name="email"
-            ng-model="newCompany.email" />
-		</td>
-    
-        <td class="col-md">
-			<input type="text" class="form-control" placeholder="www.companyexample.com" name="website"
-			ng-model="newCompany.website" />
-		</td>
-    
-		<td class="col-md">
-			<input type="text" class="form-control" placeholder="address" name="address"
-			ng-model="newCompany.address" />
-		</td>
-    
-        <td class="col-md">
-			<input type="number" class="form-control" name="contacts"
-			ng-model="newCompany.contacts" placeholder="011"/>
-		</td>
-        
-        <td class="col-md"></td>
- 
-        <td class="col-md-1">								
-         <input type="submit" value="Add Company"  ng-click="addNewCompany(newCompany)"class="btn btn-xs btn-default"/>
-            
-        </td>
-    
-        </form>
-    
-	    </tr>
+    <tr></tr>
     
     
         <tbody>
@@ -147,7 +104,8 @@
            
             <td ng-hide="editMode">{{Company.registrationId}}</td>
             <td ng-if="editMode"><input type="text" class="form-control" placeholder="Company id" name="registrationId"
-            ng-model="newCompany.registrationId" /></td>
+            ng-model="newCompany.registrationId" />
+           </td>
            
             <td ng-hide="editMode">{{Company.name}}</td>
             <td ng-if="editMode"><input type="text" class="form-control" placeholder="Company name" name="name" ng-model="Company.name"/></td>
@@ -158,12 +116,12 @@
             <td ng-hide="editMode" >{{Company.website}}</td>
             <td ng-if="editMode"> <input type="text" class="form-control" placeholder="www.company.com" name="id"ng-model="Company.website" /></td>
            
-            <td ng-hide="editMode">{{Company.address}}</td>
+            <td ng-hide="editMode">{{Company.address.street}} {{Company.address.town}} {{Company.address.city}} {{Company.address.code}}</td>
             <td ng-if="editMode"> <input type="text" class="form-control" placeholder="address" name="id"ng-model="Company.address"/></td>
            
-            <td ng-hide="editMode">{{Company.contacts}}</td>
+            <td ng-hide="editMode">{{Company.contactNo}}</td>
             <td ng-show="editMode" > <input type="text" class="form-control" placeholder="contacts" name="id"
-            ng-model="Company.contacts"/>
+            ng-model="Company.contactNo"/>
             </td>
            
            <td ng-hide="editMode"><a ui-sref="app.forms.validate" class="btn btn-xs btn-default"><i class="fa fa-search"></i>View Mentors <span class="badge badge-success">5</span></a></td>
