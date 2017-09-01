@@ -837,7 +837,7 @@ var app = angular
     //gallery page
     .state('app.pages.gallery', {
       url: '/gallery',
-      controller: 'GalleryCtrl',
+      controller: 'CalendarCtrl',
       templateUrl: 'views/tmpl/pages/gallery.html',
       resolve: {
         plugins: ['$ocLazyLoad', function($ocLazyLoad) {

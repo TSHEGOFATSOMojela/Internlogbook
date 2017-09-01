@@ -5,58 +5,7 @@
   <div class="tbox tbox-sm">
 
 
-    <div class="tcol w-lg bg-tr-white lt b-r">
-        <div class="tcol w-lg lt b-r bg-tr-info">
-            <div class="p-15 bg-info">
-                <h4 class="text-center custom-font text-default m-0  btn-info" ng-click="showEvent()">select event!</h4> 
-            </div> 
-             <md-radio-group ng-model="data.group1" layout="row" layout-align="center" ng-show="showevent">
-                    <md-radio-button value="Apple" class="custom-font text-default m-0" ng-click="ShowPassport('A')" > Activity </md-radio-button>
-                    <md-radio-button value="Banana" class="custom-font text-default m-0" ng-click="ShowPassport('L')"> Leave </md-radio-button>
-                </md-radio-group> 
-            <!-- Split button -->
-            
-            
-            <div class="btn-group mb-130" ng-show="IsVisibleA">   
-            <button type="button" class="btn btn-info">Select Objective</button>
-              <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-                <span class="caret"></span>
-                <span class="sr-only">Toggle Dropdown</span>
-              </button>
-                <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                  <li ng-repeat="x in objective">
-                      <div class="p-15 bg-white">
-                            <button id="object" type="button" class="btn btn-greensea btn-xs mb-10 pull-right b-0" ng-click="addEvent()" uib-tooltip="Doule-click to calendar day to add event" tooltip-placement="bottom" ><i ng-click="setCurrent($index)" class="fa fa-plus"></i></button> 
-                          <h4 class="custom-font text-default m-0">{{x.name}}</h4>
-                       </div>
-                  </li>
-                    <hr>
-                    <li>  
-                        <div class="p-15 bg-white">
-                            <button id="object" type="button" class="btn btn-greensea btn-xs mb-10 pull-right b-0" ng-click="addMeeting()" uib-tooltip="Doule-click to calendar day to add event" tooltip-placement="bottom" ><i class="fa fa-plus"></i></button> 
-                          <h4 class="custom-font text-default m-0">Meeting</h4>
-                       </div>
-                    </li>
-            </ul>
-              </div>
-                <!-- Split button -->
-            <div class="btn-group mb-130" ng-show="IsVisibleL">   
-            <button type="button" class="btn btn-info">Select Leave Type</button>
-              <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-                <span class="caret"></span>
-                <span class="sr-only">Toggle Dropdown</span>
-              </button>
-                <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                  <li ng-repeat="l in leave">
-                      <div class="p-15 bg-white">
-                            <button id="lev" type="button" class="btn btn-greensea btn-xs mb-10 pull-right b-0" ng-click="addLeave()" ng-disabled="" uib-tooltip="Doule-click to calendar day to add leav" tooltip-placement="bottom" ><i ng-click="setCurrents($index)"  class="fa fa-plus"></i></button> 
-                          <h4 class="custom-font text-default m-0">{{l}}</h4>
-                       </div>
-                  </li>
-            </ul>
-              </div>
-            </div> 
-        
+    <div class="tcol w-lg bg-tr-white lt b-r">      
         <!--Activity-->
         <div class="p-15">
         <div ng-repeat="e in events" class="p-10 mb-10 event-control {{e.className[0]}}">
@@ -189,14 +138,98 @@
       <div class="p-15 bg-white">
 
         <div class="pull-right">
+            
+    <ul class="nav-right list-inline">
+    <li class="dropdown users" uib-dropdown>
 
-          <button type="button" class="btn btn-sm btn-default" ng-click="today()">today</button>
 
-          <div class="btn-group">
+      <a href class="dropdown-toggle" uib-dropdown-toggle>
+<!--        <fa name="user" ></fa>-->
+          <i class="fa fa-list-ul" aria-hidden="true"></i>
+      </a>
+
+
+      <div class="dropdown-menu pull-right with-arrow panel panel-default animated littleFadeInUp" role="menu">
+        <div class="panel-heading">
+          Select an Event
+        </div>
+
+        <ul class="list-group" >
+
+          <li class="list-group-item">
+            <a class="media" ui-sref="app.pages.gallery" ng-click="addShow('act')">
+              <div class="media-left">
+<!--
+                <span class="media-object thumb thumb-sm">
+                  <img src="images/arnold-avatar.jpg" alt="" class="img-circle">
+                </span>
+-->
+              </div>
+              <div class="media-body" >
+                <span class="block">Add Activity</span>
+                <small class="text-muted"></small>
+                <small class="text-muted"></small>  
+              </div>
+            </a>
+          </li>
+
+          <li class="list-group-item" ui-sref="app.pages.gallery"  ng-click="addShow('met')">
+            <a href="javascript:;" class="media">
+              <div class="media-left">
+<!--
+                <span class="media-object  thumb thumb-sm">
+                  <img src="images/george-avatar.jpg" alt="" class="img-circle">
+                </span>
+-->
+              </div>
+              <div class="media-body">
+                <span class="block">Add Meeting</span>
+                <small class="text-muted"></small>
+                <small class="text-muted"></small>
+              </div>
+            </a>
+          </li>
+            
+            <li class="list-group-item" ui-sref="app.pages.gallery" ng-model="addLeave" value="addLeaves">
+            <a href="javascript:;" class="media">
+              <div class="media-left">
+<!--
+                <span class="media-object  thumb thumb-sm">
+                  <img src="images/george-avatar.jpg" alt="" class="img-circle">
+                </span>
+-->
+              </div>
+              <div class="media-body">
+                <span class="block">Add Leave</span>
+                <small class="text-muted"></small>
+                <small class="text-muted"></small>
+              </div>
+            </a>
+          </li>
+
+        </ul>
+
+        <div class="panel-footer">
+          <a ui-sref="app.pages.gallery" ng-model="addAll" value="addAlls">>Add all events <fa name="angle-right" class="pull-right"></fa></a>
+<!--            <a  class="text-uppercase">Create an account</a>-->
+        </div>
+
+      </div>
+
+    </li>
+        <li><button type="button" class="btn btn-sm btn-default" ng-click="today()">today</button></li>
+        <li>
+            <div class="btn-group">
             <button class="btn btn-default btn-sm" ng-click="changeView('agendaDay', 'myCalendar1')">Day</button>
             <button class="btn btn-default btn-sm" ng-click="changeView('agendaWeek', 'myCalendar1')">Week</button>
             <button class="btn btn-default btn-sm" ng-click="changeView('month', 'myCalendar1')">Month</button>
           </div>
+        </li>
+                </ul>
+
+          
+            
+          
 
         </div>
 

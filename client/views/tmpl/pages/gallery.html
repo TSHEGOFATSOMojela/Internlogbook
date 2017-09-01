@@ -1,7 +1,7 @@
 <div class="page page-form-validate">
     
     <!--Activity-->
-        <form name="form2" class="form-horizontal" submit-validate ng-submit="submitForm(form2.$valid)" role="form" novalidate>
+        <form name="form2" class="form-horizontal" submit-validate ng-submit="submitForm(form2.$valid)" role="form" novalidate ng-show="addActivity">
 
           <!-- tile -->
           <section class="tile" fullscreen="isFullscreen04">
@@ -109,7 +109,7 @@
 
         </form>
 
-        <form name="form2" class="form-horizontal" submit-validate ng-submit="submitForm(form2.$valid)" role="form" novalidate>
+        <form name="form2" class="form-horizontal" submit-validate ng-submit="submitForm(form2.$valid)" role="form" novalidate ng-show="addMeeting">
 
           <!-- tile -->
           <section class="tile" fullscreen="isFullscreen04">
@@ -218,7 +218,7 @@
         </form>
             <!-- add leave form-->
             
-                   <form name="form2" class="form-horizontal" submit-validate ng-submit="submitForm(form2.$valid)" role="form" novalidate>
+        <form name="form2" class="form-horizontal" submit-validate ng-submit="submitForm(form2.$valid)" role="form" novalidate ng-show="addLeave">
 
           <!-- tile -->
           <section class="tile" fullscreen="isFullscreen04">

@@ -240,6 +240,45 @@ app
       
        /* event sources array*/
     $scope.eventSources = [$scope.events,$scope.leaves,$scope.meetings];
+      /* hide/show adding event tables */
+      
+      
+       
+//      $scope.addShow = function(){
+//            return $scope.addActivity = false;
+//      };
+      
+      
+      
+//              $scope.addAll = false;
+//              $scope.addActivity = false;
+//              $scope.addMeeting = false;
+//              $scope.addLeave = false;
+//              $scope.addShow = function (value) {
+//                if($scope.addAll = value == "All"){
+//                     $scope.addAll = true;
+//                    $scope.addActivity = false;
+//                    $scope.addMeeting = false;
+//                    $scope.addLeave = false;
+//                }else if($scope.addActivity = value == "act"){
+//                    $scope.addAll = false;
+//                    $scope.addActivity = true;
+//                    $scope.addMeeting = false;
+//                    $scope.addLeave = false;
+//                }else if($scope.addMeeting = value == "met"){
+//                    $$scope.addAll = false;
+//                    $scope.addActivity = false;
+//                    $scope.addMeeting = true;
+//                    $scope.addLeave = false;     
+//                }else if($scope.addLeave = value == "lea"){
+//                     $$scope.addAll = false;
+//                    $scope.addActivity = false;
+//                    $scope.addMeeting = false;
+//                    $scope.addLeave = true;
+//                }
+//        
+//            }
+//      
   }]);
 
 
