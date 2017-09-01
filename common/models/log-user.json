@@ -1,6 +1,6 @@
 {
-  "name": "LogUser",
-  "plural": "LogUsers",
+  "name": "logUser",
+  "plural": "logUsers",
   "base": "User",
   "idInjection": true,
   "options": {

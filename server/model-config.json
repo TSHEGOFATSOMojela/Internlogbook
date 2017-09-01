@@ -56,7 +56,7 @@
     "dataSource": "logbookDB",
     "public": true
   },
-  "LogUser": {
+  "logUser": {
     "dataSource": "logbookDB",
     "public": true
   }
