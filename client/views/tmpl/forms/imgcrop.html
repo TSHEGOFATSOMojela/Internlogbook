@@ -29,7 +29,7 @@
  
 	<div  class="col-lg-10 well">
 	<div class="row">
-				<form class="form-horizontal" role="form"  ng-submit="addCompany()">
+				<form class="form-horizontal" role="form"  ng-submit="addMentor()">
 					<div class="col-sm-12">
 						<div class="row">
 							<div class="col-sm-6 form-group">
@@ -44,7 +44,7 @@
 							</div>
 							<div class="col-sm-6 form-group">
 								<label>Email Address</label>
-								<input type="email" placeholder="info@example.com" class="form-control" name="email"
+								<input type="email" placeholder="name@example.com" class="form-control" name="email"
                               ng-model="newMentor.email" required/>
 							</div>
                             		<div class="col-sm-6 form-group">
@@ -60,7 +60,7 @@
 					</div>	
                         <div class="form-group">
 						<label>Job title</label>
-							<input type="number" class="form-control" name="title"
+							<input type="text" class="form-control" name="title"
 			                ng-model="newMentor.title" placeholder="Enter title here.." required/>
 					</div>	
 					<div class="form-group">
@@ -73,7 +73,7 @@
 							<input type="number" class="form-control" name="contacts"
 			                ng-model="newMentor.contacts" placeholder="+2700 000 000" required/>
 					</div>
-					<input class="btn btn-xs btn-default" type="submit" value="Add Company"  ng-click="addCompany()"/>					
+					<input class="btn btn-xs btn-default" type="submit" value="Add Mentor"  ng-click="addMentor()"/>					
 					</div>
 				</form> 
         
