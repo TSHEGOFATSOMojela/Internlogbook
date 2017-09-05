@@ -1,11 +1,11 @@
 'use strict';
 
-app.controller('FormsValidateCtrl', ['$scope', 'LogUser', function($scope, LogUser) {
+app.controller('FormsValidateCtrl', ['$scope', 'User', function($scope, User) {
 
     
     
     //get all companies in the database
-     $scope.Mentors = LogUser.find();
+     $scope.Mentors = User.find();
     
     
   }])

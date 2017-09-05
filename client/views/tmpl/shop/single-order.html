@@ -135,16 +135,18 @@
         <tbody>
        <tr ng-repeat="objective in objectives | filter: searchKeyword  track by $index">
            
-            <td ng-hide="editMode">{{objective.id}}</td>
+            <td ng-hide="editMode">
+<!--                {{objective.id}}-->
+           </td>
             <td ng-if="editMode"></td>
            
-            <td ng-hide="editMode">{{objective.title}}</td>
+            <td ng-hide="editMode">{{objective.name}}</td>
             <td ng-if="editMode"><input type="text" class="form-control" placeholder="title" name="title" ng-model="objective.title"/></td>
            
-            <td ng-hide="editMode" >{{objective.description}}</td>
+            <td ng-hide="editMode" >{{objective.desc}}</td>
             <td ng-if="editMode"> <input type="text" class="form-control" placeholder="description" name="id"ng-model="objective .description" /></td>
            
-            <td ng-hide="editMode" >{{objective.duration}}</td>
+            <td ng-hide="editMode" >{{objective.dueDate | date:'MM-dd-yyyy'}}</td>
             <td ng-if="editMode"> <input type="date" class="form-control" placeholder="date" name="id"ng-model="objective.date" /></td>
 
            
