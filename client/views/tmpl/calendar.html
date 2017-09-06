@@ -6,132 +6,56 @@
 
 
     <div class="tcol w-lg bg-tr-white lt b-r">      
-        <!--Activity-->
+        <!-- start of activity-->
         <div class="p-15">
-        <div ng-repeat="e in events" class="p-10 mb-10 event-control {{e.className[0]}}">
+        <div ng-repeat="e in events" class="p-10 mb-10 event-control b-l b-2x b-info bg-dutch">
             <div class="form-group">
+            <h3>Obejective</h3> 
+            <hr>    
             <h4>{{e.objective.name}}</h4>
             <h5>{{e.objective.desc}}</h5>
             <h6>{{e.objective.dueDate | date}}</h6>
                 <hr>
-                activity
-                <input ng-model="e.title" class="form-control input-sm ">
-<!--                <a class="pull-right text-muted event-remove" ng-click="remove($index)"><i class="fa fa-trash-o"></i></a>-->
-                comment
-                <input ng-model="e.comment" class="form-control input-sm ">
+                <h3>Activity<a class="pull-right text-muted event-remove" ng-click="removeActivity($index)"><i class="fa fa-trash-o"></i></a></h3>
+                <hr>
+                <h4>task: {{e.title}}</h4>
+                <h5>comment: {{e.comment}}</h5>
+                <h6>duration: {{e.duration.hour}} hours and {{e.duration.minutes}} minutes</h6>
                 <div class="text-sm text-muted"><strong>{{e.date | date}}</strong></div>
             </div>
-                        
-    
-                <section class="tile" fullscreen="isFullscreen10">
-<!-- tile body -->
-          <div class="tile-body">
-            <!-- row -->
-            <div class="row">
-              <!-- col -->
-              <div class="col-md-6">
-                <label>Hours:</label>
-                <select class="form-control" ng-model="hstep" ng-options="opt for opt in options.hstep"></select>
-              </div>
-              <!-- /col -->
-
-              <!-- col -->
-              <div class="col-md-6">
-                <label>Minutes:</label>
-                <select class="form-control" ng-model="mstep" ng-options="opt for opt in options.mstep"></select>
-              </div>
-              <!-- /col -->
-
-            </div>
-            <!-- /row -->
-
-            <hr>
-          </div>
-<!-- /tile body -->
-             </section>
-               
-                <!--thu-->
-<a class="pull-right text-muted event-remove" ng-click="removeActivity($index)"><i class="fa fa-trash-o"></i></a>
-              <button type="button" class="btn btn-blue btn-rounded-20 mb-10 " >Save</button>
         </div>
     </div>
-    <!--Activity-->  
+    <!-- end of activity-->  
         
-                <!--Meeting-->
+    <!-- start of meeting-->
         <div class="p-15">
-        <div ng-repeat="met in meetings" class="p-10 mb-10 event-control {{met.className[0]}}">
+        <div ng-repeat="met in meetings" class="p-10 mb-10 event-control b-l b-2x b-info bg-green">
             <div class="form-group">
-                meeting
-                <input ng-model="met.title" class="form-control input-sm ">
-<!--                <a class="pull-right text-muted event-remove" ng-click="remove($index)"><i class="fa fa-trash-o"></i></a>-->
-                decription
-                <input ng-model="met.comment" class="form-control input-sm ">
-                <div class="text-sm text-muted"><strong>{{met.date | date}}</strong></div>
+                <h3>meeting</h3>
+                 <hr>
+                <h4>meeting: {{met.title}} <a class="pull-right text-muted event-remove" ng-click="removeMeeting($index)"><i class="fa fa-trash-o"></i></a></h4>
+                <h5>desc: {{met.comment}}</h5>
+                <h6>duration: {{met.duration.hour}} hours and {{met.duration.minutes}} minutes</h6>  
+                 <div class="text-sm text-muted"><strong>{{met.date | date}}</strong></div>
             </div>
-                <section class="tile" fullscreen="isFullscreen10">
-                  <div class="tile-body">
-            <!-- row -->
-            <div class="row">
-              <!-- col -->
-              <div class="col-md-6">
-                <label>Hours:</label>
-                <select class="form-control" ng-model="hstep" ng-options="opt for opt in options.hstep"></select>
-              </div>
-              <!-- /col -->
-
-              <!-- col -->
-              <div class="col-md-6">
-                <label>Minutes:</label>
-                <select class="form-control" ng-model="mstep" ng-options="opt for opt in options.mstep"></select>
-              </div>
-              <!-- /col -->
-
             </div>
-            <!-- /row -->
-
-            <hr>
-          </div>
-<!-- /tile body -->
-             </section>
-               
-                <!--thu-->
-<a class="pull-right text-muted event-remove" ng-click="removeMeeting($index)"><i class="fa fa-trash-o"></i></a>
-              <button type="button" class="btn btn-blue btn-rounded-20 mb-10 " >Save</button>
-        </div>
     </div>
-    <!--Meeting-->  
+    <!--end of meeting-->  
         
         
         
         
-    <!--Leave-->    
+    <!-- start of Leave-->    
        <div class="p-15">
-        <div ng-repeat="lvs in leaves" class="p-10 mb-10 event-control {{lvs.className[0]}}">
+        <div ng-repeat="lvs in leaves" class="p-10 mb-10 event-control b-l b-2x b-warning bg-red">
             <div class="form-group">
-            <h4>{{lvs.title}}</h4>
-            <h5>{{lvs.leaveType}}</h5>
-                <hr>
-                number of days:
-                <input ng-model="lvs.days" class="form-control input-sm">
-                comment
-                <input ng-model="lvs.comment" class="form-control input-sm">
-                <div class="text-sm text-muted">{{lvs.dateFrom | date}} - {{lvs.dateTo | date}}</div>
+            <h3>Leave</h3>    
+            <h4>leave type: {{lvs.title}}   <a class="pull-right text-muted event-remove" ng-click="removeLeave($index)"><i class="fa fa-trash-o"></i></a></h4>
+                <h5>from: {{lvs.date | date}} To {{lvs.dateTo | date}}</h5>
             </div>
-            <div>
-               
-          <label class="control-label">Upload file</label>      
-          <input ui-jq="filestyle" type="file" class="filestyle" ui-options="{
-            buttonText: 'Select files',
-            iconName: 'fa fa-inbox'
-          }" nv-file-select="" uploader="uploader" multiple>
-                
-            </div> 
-            <hr>
-            <a class="pull-right text-muted event-remove" ng-click="removeLeave($index)"><i class="fa fa-trash-o"></i></a>
-            <div><button type="button" class="btn btn-blue btn-rounded-20 mb-10 " >Save</button> </div>
         </div>
     </div>
-    <!--Leave-->  
+    <!--end of Leave-->  
 </div>
        
     <div class="tcol">
@@ -173,7 +97,7 @@
             </a>
           </li>
 
-          <li class="list-group-item" ui-sref="app.pages.gallery"  ng-click="addShow('met')">
+          <li class="list-group-item" ui-sref="app.pages.meeting"  ng-click="addShow('met')">
             <a href="javascript:;" class="media">
               <div class="media-left">
 <!--
@@ -190,7 +114,7 @@
             </a>
           </li>
             
-            <li class="list-group-item" ui-sref="app.pages.gallery" ng-model="addLeave" value="addLeaves">
+            <li class="list-group-item" ui-sref="app.pages.leave">
             <a href="javascript:;" class="media">
               <div class="media-left">
 <!--
@@ -252,9 +176,7 @@
         </div>
 
         <div class="calendar" ng-model="eventSources"  calendar="myCalendar1" ui-calendar="uiConfig.calendar"></div>
-
-
-      </div>
+     </div>
         
 
     </div>

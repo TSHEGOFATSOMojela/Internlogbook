@@ -847,6 +847,32 @@ var app = angular
         }]
       }
     })
+        //meeting page
+    .state('app.pages.meeting', {
+      url: '/meeting',
+      controller: 'CalendarCtrl',
+      templateUrl: 'views/tmpl/pages/meeting.html',
+      resolve: {
+        plugins: ['$ocLazyLoad', function($ocLazyLoad) {
+          return $ocLazyLoad.load([
+            'scripts/vendor/mixitup/jquery.mixitup.js'
+          ]);
+        }]
+      }
+    })
+        //leave page
+    .state('app.pages.leave', {
+      url: '/leave',
+      controller: 'CalendarCtrl',
+      templateUrl: 'views/tmpl/pages/leave.html',
+      resolve: {
+        plugins: ['$ocLazyLoad', function($ocLazyLoad) {
+          return $ocLazyLoad.load([
+            'scripts/vendor/mixitup/jquery.mixitup.js'
+          ]);
+        }]
+      }
+    })
     //timeline page
     .state('app.pages.timeline', {
       url: '/timeline',

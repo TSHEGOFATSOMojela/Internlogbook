@@ -1,14 +1,12 @@
-<div class="page page-form-validate">
-    
-    <!--Activity-->
-        <form name="form2" class="form-horizontal" submit-validate ng-submit="submitForm(form2.$valid)" role="form" novalidate>
+      <div class="page page-form-validate">
+        <form name="form3" class="form-horizontal" submit-validate ng-submit="submitForm(form2.$valid)" role="form" novalidate >
 
           <!-- tile -->
           <section class="tile" fullscreen="isFullscreen04">
 
             <!-- tile header -->
             <div class="tile-header dvd dvd-btm">
-              <h1 class="custom-font"><strong>Add </strong>Activity</h1>
+              <h1 class="custom-font"><strong>Add </strong>Leave</h1>
               <ul class="controls">
                 <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
 
@@ -47,45 +45,32 @@
 
             <!-- tile body -->
             <div class="tile-body form-validation">
-              <div class="form-group" >
-                <label class="col-sm-3 control-label">Select an objective</label>
-                <div  class="col-sm-9">
-                  <select chosen="{width:'500px'}">
-                     <option ng-repeat="obj in objectives" >{{obj.name}}</option>
-                   </select>
-                </div>
-              </div> 
-            
-                <hr class="line-dashed line-full" />
-            <div class="form-group">
-                <label class="col-sm-3 control-label">Activity</label>
-                <div class="col-sm-9">
-                  <input type="text" name="meeting" class="form-control" placeholder="Alpha" ng-model="meeting" ng-pattern="/^[a-zA-Z]+$/" required>
-                </div>
-              </div>
-
-              <hr class="line-dashed line-full" /> 
                 
-                   <div class="form-group">
-                <label class="col-sm-3 control-label">Hours</label>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Leave</label>
                 <div class="col-sm-9">
-                  <input type="text" name="hour" class="form-control" placeholder="Digits" ng-pattern="/^[0-9]+$/" ng-model="hour" required >
-                </div>
-              </div>
-
-              <hr class="line-dashed line-full" />
-      
-                <div class="form-group">
-                <label class="col-sm-3 control-label">Minutes</label>
-                <div class="col-sm-9">
-                  <input type="text" name="Minute" class="form-control" placeholder="Digits" ng-pattern="/^[0-9]+$/" ng-model="Minute" required >
+                  <input type="text" name="meeting" class="form-control" placeholder="Alpha" ng-model="meeting" ng-pattern="/^[a-zA-Z]+$/" required >
                 </div>
               </div>
                 
                    <hr class="line-dashed line-full" /> 
-              
-                  <div class="form-group">
-                <label class="col-sm-3 control-label">Date</label>
+                
+                         <div class="form-group">
+                <label class="col-sm-3 control-label">From</label>
+                <div class="col-sm-9" ng-controller="DatepickerDemoCtrl">
+                  <div class="input-group w-md">
+                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+                
+                       <hr class="line-dashed line-full" /> 
+                
+                        <div class="form-group">
+                <label class="col-sm-3 control-label">To</label>
                 <div class="col-sm-9" ng-controller="DatepickerDemoCtrl">
                   <div class="input-group w-md">
                     <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
@@ -97,24 +82,43 @@
               </div>
                 
             <hr class="line-dashed line-full" /> 
-                
            
-            
-                   <div class="form-group">
+                     <div class="form-group">
+                <label class="col-sm-3 control-label">Attachment</label>
+                <div class="col-sm-9">
+                  <input type="text" name="comment" class="form-control" placeholder="Alpha" ng-model="comment" ng-pattern="/^[a-zA-Z]+$/" required >
+                </div>
+              </div>
+     
+                 <hr class="line-dashed line-full" /> 
+                
+                    <div class="form-group">
                 <label class="col-sm-3 control-label">Comment</label>
                 <div class="col-sm-9">
                   <input type="text" name="comment" class="form-control" placeholder="Alpha" ng-model="comment" ng-pattern="/^[a-zA-Z]+$/" required >
                 </div>
               </div>
+
               </div>
-           
+              
+              <hr class="line-dashed line-full" /> 
+              
+                 <div class="form-group">
+                <label class="col-sm-3 control-label">Attachment</label>
+                <div class="col-sm-9">
+                  <input ui-jq="filestyle" type="file" class="filestyle" ui-options="{
+                    buttonText: 'Attachment',
+                    iconName: 'fa fa-inbox'
+                  }">
+                </div>
+              </div>
                 
 
 
             <!-- tile footer -->
             <div class="tile-footer text-right bg-tr-black lter dvd dvd-top">
               <!-- SUBMIT BUTTON -->
-              <button ui-sref="app.calendar" class="btn btn-default">Back</button>
+                <button ui-sref="app.calendar" class="btn btn-default">Back</button>
               <button type="submit" class="btn btn-default">Submit</button>
             </div>
             <!-- /tile footer -->
@@ -123,7 +127,10 @@
           <!-- /tile -->
 
         </form>
-</div>
-   
-            <!-- add leave form-->
+
+      </div>
       
+
+
+
+    
