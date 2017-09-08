@@ -8,7 +8,7 @@
  * Controller of the minovateApp
  */
 app
-  .controller('CalendarCtrl', ['$scope','Objective','Activity','Meeting','Leave','$compile','uiCalendarConfig', function($scope,Objective,Activity,Meeting,Leave, $compile, uiCalendarConfig) {
+  .controller('CalendarCtrl', ['$scope','$state','Objective','Activity','Meeting','Leave','$compile','uiCalendarConfig', function($scope,$state,Objective,Activity,Meeting,Leave, $compile, uiCalendarConfig) {
     
     var date = new Date();
     var d = date.getDate();
@@ -49,9 +49,7 @@ app
       }
     });  
 
-//    $scope.events = [];
-//    $scope.leaves =[];
-//    $scope.meetings =[];
+
     
     /* alert on dayClick */
     $scope.precision = 400;
@@ -125,17 +123,46 @@ app
     };
 
     /* add custom event */
-    $scope.addEvent = function() {
-        $scope.events.push({
-        Objective: $scope.objective[$scope.curr].name,  
-        desc:$scope.objective[$scope.curr].desc,
-        dur: $scope.objective[$scope.curr].duration,   
-        title: 'New Activity',
-        start: new Date(y, m, d),
-        className: ['b-l b-2x b-info bg-dutch'],
-        comment:'add comment'
-      });
+//    $scope.addEvent = function() {
+//        $scope.events.push({
+//        Objective: $scope.objective[$scope.curr].name,  
+//        desc:$scope.objective[$scope.curr].desc,
+//        dur: $scope.objective[$scope.curr].duration,   
+//        title: 'New Activity',
+//        start: new Date(y, m, d),
+//        className: ['b-l b-2x b-info bg-dutch'],
+//        comment:'add comment'
+//      });
+//    };
+      //create/add a new activity
+//    $scope.coffeeShops = [];
+//    $scope.selectedShop;
+//    $scope.review = {};
+//    $scope.isDisabled = false;
+//    $scope.objectives
+//     Objective.find()
+//      .$promise
+//      .then(function(object) {
+//        $scope.object = object;
+//        $scope.selectedObject = $scope.selectedShop || coffeeShops[0];
+//      });
+      
+   $scope.addEvent = function() {
+      Activity
+        .create({
+          title: $scope.newAct.title,
+          duration:{"hour": $scope.newAct.hour,
+                    "minutes": $scope.newAct.minutes},
+          comment: $scope.newAct.comment,
+          date: $scope.newAct.date,
+          objectiveId: $scope.object.
+         }).$promise
+        .then(function() {
+          //location go to view company page
+          $state.go('app.calendar');
+        });
     };
+       
     
       /* add custom leave*/
     $scope.addLeave = function() {
