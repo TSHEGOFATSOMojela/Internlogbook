@@ -1,0 +1,99 @@
+<body background-color="#FFFFFF" ng-app="app">
+    
+<div class="pagecontent"  data-ng-controller="FormUploadCtrl">
+    
+    <div class="row">
+       
+      <div class="col-md-12">
+ 
+<section class="tile" fullscreen="isFullscreen01"> 
+
+ <div class="tile-header dvd dvd-btm">
+    
+   <h1 class="custom-font" align="center"><strong>Edit Company Information</strong></h1>
+    <ul class="controls">
+    </ul>
+   </div> 
+      
+<div>
+  <div class="panel">
+   <div class="row"></div>    
+<div class="panel-body">
+<table class="table table-bordered bordered table-striped table-condensed datatable" ui-options="dataTableOpt">
+          
+     <thead></thead>
+ 
+    <tr>
+          
+
+ 
+	<div  class="col-lg-10 well">
+	<div class="row">
+				<form class="form-horizontal" role="form"  ng-submit="editCompany()">
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<label>Company Name</label>
+								<input type="text" id = "name"  ng-model ="current.name" value = "{{curent.name}}"/>
+							</div>
+							<div class="col-sm-6 form-group">
+								<label>Email Address</label>
+								<input type="email" id = "email" ng-model ="current.email"value = "{{curent.email}}" />
+							</div>
+                            
+                            <div class="form-group">
+						<label>Website</label>
+						<input type="text" id = "website" ng-model="current.website" value = "{{current.website}}"/>
+					</div>
+						</div>					
+						<div class="form-group">
+							<label>Address</label>
+							<textarea type="text" id = "address" ng-model="current.address" value = "{{current.address}}"></textarea>
+						</div>
+                        
+						<div class="row">
+							<div class="col-sm-4 form-group">
+								<label>City</label>
+								<input type="text"  id = "city" ng-model="current.city" value = "{{current.city}}"/>
+							</div>	
+							<div class="col-sm-4 form-group">
+								<label>Town</label>
+								<input type="text"  id = "town" ng-model="current.town" value = "{{current.town}}" />
+							</div>	
+							<div class="col-sm-4 form-group">
+								<label>Code</label>
+								<input type="text"  id = "code" ng-bimodelnd="current.code" value = "{{current.code}}"/>
+							</div>		
+						</div>
+												
+					<div class="form-group">
+						<label>Phone Number</label>
+							<input type="number" id = "contactNo"ng-model="company.contactNo" ng-model="current.contactNo" value = "{{current.contactNo}}"/>
+					</div>		
+					
+					
+					<input class="btn btn-xs btn-default" type="submit" value="Save"  ng-click="editCompany()"/>					
+					</div>
+				</form> 
+        
+				</div>
+	</div>
+    
+    
+        <tbody>
+     
+            
+           </tbody>
+    
+    </table>
+      </div>
+       </div>
+    
+   </div>
+   
+</section>
+          
+     </div>
+   </div>
+</div>
+</body>
