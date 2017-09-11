@@ -134,19 +134,7 @@ app
 //        className: ['b-l b-2x b-info bg-dutch'],
 //        comment:'add comment'
 //      });
-//    };
-      //create/add a new activity
-//    $scope.coffeeShops = [];
-//    $scope.selectedShop;
-//    $scope.review = {};
-//    $scope.isDisabled = false;
-//    $scope.objectives
-//     Objective.find()
-//      .$promise
-//      .then(function(object) {
-//        $scope.object = object;
-//        $scope.selectedObject = $scope.selectedShop || coffeeShops[0];
-//      });
+
       
    $scope.addEvent = function() {
       Activity
