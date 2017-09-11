@@ -15,7 +15,7 @@
   },
   "User": {
     "dataSource": "logbookDB",
-    "public": false
+    "public": true
   },
   "AccessToken": {
     "dataSource": "logbookDB",
