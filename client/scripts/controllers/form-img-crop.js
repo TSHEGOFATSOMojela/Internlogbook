@@ -1,10 +1,10 @@
 'use strict';
 
-app.controller('FormImgCropCtrl', ['$scope', 'LogUser', '$state', function($scope, LogUser,  $state) {
+app.controller('FormImgCropCtrl', ['$scope', 'logUser', '$state', function($scope, logUser,  $state) {
     
       //create/add a new Mentor
-   $scope.addMentor = function() {
-      LogUser
+   $scope.addCompany = function() {
+      logUser
         .create({
           fName: $scope.newMentor.FirstName,
           lName: $scope.newMentor.lastName,
@@ -14,6 +14,7 @@ app.controller('FormImgCropCtrl', ['$scope', 'LogUser', '$state', function($scop
           jobTitle: $scope.newMentor.title,
           department: $scope.newMentor.department,
           uCategory: $scope.newMentor.role
+          
           
         }).$promise
         .then(function() {
