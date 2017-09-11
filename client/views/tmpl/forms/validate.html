@@ -87,16 +87,27 @@
         <th>Name</th>
 		<th>Surname</th>
 		<th>Email</th>
-        <th>gender</th>
+        <th>Gender</th>
         <th>Department</th>
         <th>Title</th>
-        <th>contacts</th>
+        <th>Contacts</th>
+       <th>Interns</th>
         <th>Actions</th>
             
         </tr>
          
       </thead>
  
+
+    <tr></tr>
+    
+    
+        <tbody>
+       <tr ng-repeat="Mentor in Mentors | filter: searchKeyword  track by $index">
+           
+            <td ng-hide="editMode">{{Mentor.id}}</td>
+            <td ng-if="editMode"></td>
+
     <tr>
 
     
@@ -120,11 +131,16 @@
            </td>
             <td ng-show="editMode">{{Mentor.department}}</td>
             <td ng-if="editMode"> <input type="text" class="form-control" placeholder="department" ng-model="Mentor.department"/></td>
-<!--
+
+
+            <td ng-hide="editMode">{{Mentor.jobTitle}}</td>
+
+
             <td ng-hide="editMode">{{Mentor.uCategory}}</td>
             <td ng-if="editMode"> <input type="text" class="form-control" placeholder="uCategory" ng-model="Mentor.uCategory"/></td>
--->
+
             <td ng-show="editMode">{{Mentor.jobTitle}}</td>
+
             <td ng-show="editMode" > <input type="text" class="form-control" placeholder="jobTitle"
             ng-model="Mentor.jobTitle"/>
             </td>
