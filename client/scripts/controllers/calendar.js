@@ -26,6 +26,7 @@ app
 
       $scope.leave = ["Annual Leave", "Maternity Leave", "Sick Leave","Family Responsibility Leave","Study Leave","Leave for religious holidays","Unpaid leave"];
     /* event source that contains custom events on the scope */
+      $scope.object={};
     $scope.objectives = Objective.find();  
     $scope.events = Activity.find({
       filter: {
@@ -155,14 +156,14 @@ app
                     "minutes": $scope.newAct.minutes},
           comment: $scope.newAct.comment,
           date: $scope.newAct.date,
-          objectiveId: $scope.object.
+          objectiveId:$scope.object.selected.id
          }).$promise
         .then(function() {
           //location go to view company page
           $state.go('app.calendar');
         });
     };
-       
+      
     
       /* add custom leave*/
     $scope.addLeave = function() {
