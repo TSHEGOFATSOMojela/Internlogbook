@@ -15,6 +15,7 @@ app.controller('FormImgCropCtrl', ['$scope', 'logUser', '$state', function($scop
           department: $scope.newMentor.department,
           uCategory: $scope.newMentor.role
           
+          
         }).$promise
         .then(function() {
           //location go to view mentor page

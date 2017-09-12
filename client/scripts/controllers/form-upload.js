@@ -18,6 +18,7 @@ app.controller('FormUploadCtrl', ['$scope', 'Company', '$state', function($scope
                    "city" : $scope.newCompany.city,
                    "code" :$scope.newCompany.code}, 
           website: $scope.newCompany.website
+          
          
         }).$promise
         .then(function() {
