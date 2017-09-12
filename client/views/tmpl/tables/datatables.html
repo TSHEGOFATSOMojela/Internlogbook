@@ -69,7 +69,7 @@
                 <td><small ng-class="{'text-danger': project.priority.value == 1, 'text-warning': project.priority.value == 2, 'text-success': project.priority.value == 3}">{{act.title}}</small></td>
                 <td><small>{{act.comment}}</small></td>  
                 <td><small>{{act.duration.hour}} hour and {{act.duration.minutes}} minutes</small></td>
-                <td class="text-justify">{{act.date | date}}</td>
+                <td class="text-justify">{{act.start | date}}</td>
               </tr>
               </tbody>
             </table>
@@ -154,7 +154,7 @@
                 <td>{{ met.title}}</td>
                 <td><small>{{met.comment}}</small></td>  
                 <td><small>{{met.duration.hour}} hours and {{met.duration.minutes}} minutes</small></td>
-                <td class="text-justify">{{met.date|date}}</td>
+                <td class="text-justify">{{met.start|date}}</td>
               </tr>
               </tbody>
             </table>
@@ -237,8 +237,8 @@
               <tr ng-repeat="lv in leaves">
                 <td>{{ $index+1 }}</td>
                 <td>{{ lv.title}}</td>
-                <td><small ng-class="{'text-danger': project.priority.value == 1, 'text-warning': project.priority.value == 2, 'text-success': project.priority.value == 3}">{{lv.dateFrom | date}}</small></td>
-                <td><small ng-class="{'text-danger': project.priority.value == 1, 'text-warning': project.priority.value == 2, 'text-success': project.priority.value == 3}">{{lv.dateTo | date}}</small></td>
+                <td><small ng-class="{'text-danger': project.priority.value == 1, 'text-warning': project.priority.value == 2, 'text-success': project.priority.value == 3}">{{lv.start | date}}</small></td>
+                <td><small ng-class="{'text-danger': project.priority.value == 1, 'text-warning': project.priority.value == 2, 'text-success': project.priority.value == 3}">{{lv.end | date}}</small></td>
                 <td><small>{{lv.comment}}</small></td>  
                 <td><small><a href="myFile" download="{{lv.Attachment.note}}.filetype"> <button class="btn btn-primary">Download</button></a></small></td>
               </tr>
