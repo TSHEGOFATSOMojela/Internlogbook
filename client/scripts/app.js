@@ -560,11 +560,11 @@ var app = angular
       controller: 'FormsRegMentorCtrl',
       templateUrl: 'views/tmpl/forms/regMentor.html'
     })
-     //forms/regCompany
-    .state('app.forms.regCompany', {
-      url: '/regMentor',
-      controller: 'FormsRegCompanyCtrl',
-      templateUrl: 'views/tmpl/forms/regCompany.html'
+     //forms/editCompany
+    .state('app.forms.editCompany', {
+      url: '/editCompany',
+      controller: 'EditCompanyCtrl',
+      templateUrl: 'views/tmpl/forms/editCompany.html'
     })
     //forms/validate
     .state('app.forms.validate', {

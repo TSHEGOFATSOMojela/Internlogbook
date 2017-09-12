@@ -8,6 +8,5 @@ app.controller('FormWizardCtrl', ['$scope', 'Company', function($scope, Company)
     
     //get all companies in the database
      $scope.Companies = Company.find();
-    
-    
+
   }])

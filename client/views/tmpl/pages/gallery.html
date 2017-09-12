@@ -61,6 +61,74 @@
               </div> 
 
             
+
+                   <div class="form-group">
+                <label class="col-sm-3 control-label">Comment</label>
+                <div class="col-sm-9">
+                  <input type="text" name="comment" class="form-control" placeholder="Alpha" ng-model="comment" ng-pattern="/^[a-zA-Z]+$/" required >
+                </div>
+              </div>
+
+        
+            <!-- tile footer -->
+            <div class="tile-footer text-right bg-tr-black lter dvd dvd-top">
+              <!-- SUBMIT BUTTON -->
+              <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+            <!-- /tile footer -->
+
+          </section>
+          <!-- /tile -->
+
+        </form>
+
+        <form name="form2" class="form-horizontal" submit-validate ng-submit="submitForm(form2.$valid)" role="form" novalidate ng-show="addMeeting">
+
+          <!-- tile -->
+          <section class="tile" fullscreen="isFullscreen04">
+
+            <!-- tile header -->
+            <div class="tile-header dvd dvd-btm">
+              <h1 class="custom-font"><strong>Add </strong>Meeting</h1>
+              <ul class="controls">
+                <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+
+                  <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
+
+                  <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
+                    <li>
+                      <a href tile-control-toggle>
+                        <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
+                        <span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href tile-control-refresh ng-click="ajaxFaker()">
+                        <fa name="refresh"></fa> Refresh
+                      </a>
+                    </li>
+                    <li>
+                      <a href tile-control-fullscreen ng-click="isFullscreen04 = !isFullscreen04">
+                        <fa name="expand"></fa> Fullscreen
+                      </a>
+                    </li>
+                    <li>
+                      <a href tile-control-lightbox>
+                        <fa name="magnet"></fa> Open in Lightbox
+                      </a>
+                    </li>
+
+                  </ul>
+
+                </li>
+                <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
+              </ul>
+            </div>
+            <!-- /tile header -->
+
+            <!-- tile body -->
+            <div class="tile-body form-validation">
+           
                 <hr class="line-dashed line-full" />
             <div class="form-group">
                 <label class="col-sm-3 control-label">Activity</label>
