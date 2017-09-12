@@ -21,7 +21,7 @@
                 <h4>task: {{e.title}}</h4>
                 <h5>comment: {{e.comment}}</h5>
                 <h6>duration: {{e.duration.hour}} hours and {{e.duration.minutes}} minutes</h6>
-                <div class="text-sm text-muted"><strong>{{e.date | date}}</strong></div>
+                <div class="text-sm text-muted"><strong>{{e.start | date}}</strong></div>
             </div>
         </div>
     </div>
@@ -36,7 +36,7 @@
                 <h4>meeting: {{met.title}} <a class="pull-right text-muted event-remove" ng-click="removeMeeting($index)"><i class="fa fa-trash-o"></i></a></h4>
                 <h5>desc: {{met.comment}}</h5>
                 <h6>duration: {{met.duration.hour}} hours and {{met.duration.minutes}} minutes</h6>  
-                 <div class="text-sm text-muted"><strong>{{met.date | date}}</strong></div>
+                 <div class="text-sm text-muted"><strong>{{met.start | date}}</strong></div>
             </div>
             </div>
     </div>
@@ -51,7 +51,7 @@
             <div class="form-group">
             <h3>Leave</h3>    
             <h4>leave type: {{lvs.title}}   <a class="pull-right text-muted event-remove" ng-click="removeLeave($index)"><i class="fa fa-trash-o"></i></a></h4>
-                <h5>from: {{lvs.date | date}} To {{lvs.dateTo | date}}</h5>
+                <h5>from: {{lvs.start | date}} To {{lvs.end | date}}</h5>
             </div>
         </div>
     </div>

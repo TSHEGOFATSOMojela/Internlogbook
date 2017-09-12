@@ -26,7 +26,7 @@ app
 
       $scope.leave = ["Annual Leave", "Maternity Leave", "Sick Leave","Family Responsibility Leave","Study Leave","Leave for religious holidays","Unpaid leave"];
     /* event source that contains custom events on the scope */
-      $scope.object={};
+    $scope.object={};
     $scope.objectives = Objective.find();  
     $scope.events = Activity.find({
       filter: {
@@ -123,31 +123,13 @@ app
       }
     };
 
-    /* add custom event */
-//    $scope.addEvent = function() {
-//        $scope.events.push({
-//        Objective: $scope.objective[$scope.curr].name,  
-//        desc:$scope.objective[$scope.curr].desc,
-//        dur: $scope.objective[$scope.curr].duration,   
-//        title: 'New Activity',
-//        start: new Date(y, m, d),
-//        className: ['b-l b-2x b-info bg-dutch'],
-//        comment:'add comment'
-//      });
-//    };
-      //create/add a new activity
-//    $scope.coffeeShops = [];
-//    $scope.selectedShop;
-//    $scope.review = {};
-//    $scope.isDisabled = false;
-//    $scope.objectives
-//     Objective.find()
-//      .$promise
-//      .then(function(object) {
-//        $scope.object = object;
-//        $scope.selectedObject = $scope.selectedShop || coffeeShops[0];
-//      });
-      
+    $scope.hstep = 0;
+    $scope.mstep = 0;
+
+    $scope.options = {
+      hstep: [0,1, 2, 3, 4, 5, 6, 7, 8],
+      mstep: [0, 5, 10, 15, 25, 30]
+    }; 
    $scope.addEvent = function() {
       Activity
         .create({
@@ -155,7 +137,7 @@ app
           duration:{"hour": $scope.newAct.hour,
                     "minutes": $scope.newAct.minutes},
           comment: $scope.newAct.comment,
-          date: $scope.newAct.date,
+          start: $scope.newAct.date,
           objectiveId:$scope.object.selected.id
          }).$promise
         .then(function() {
@@ -163,29 +145,39 @@ app
           $state.go('app.calendar');
         });
     };
-      
+
+        /*add meeting*/
+        $scope.addMeeting = function() {
+         Meeting
+           .create({
+              title: $scope.newMeet.title,
+              duration:{"hour": $scope.newMeet.hour,
+                    "minutes": $scope.newMeet.minutes},
+              start: $scope.newMeet.date,
+              comment: $scope.newMeet.comment
+         }).$promise
+        .then(function() {
+          //location go to view company page
+          $state.go('app.calendar');
+        });
+    };
     
       /* add custom leave*/
-    $scope.addLeave = function() {
-        $scope.leaves.push({
-        Objectives: 'Leave',    
-        title: $scope.leave[$scope.curre],
-        start: new Date(y, m, d),
-        dateTo: new Date(y, m, d +2),     
-        className: ['b-l b-2x b-warning bg-red'],
-        comments:'add comment'   
-      });
+        $scope.addLeave = function() {
+         Leave
+           .create({
+              title: $scope.newLv.title,
+              start: $scope.newLv.date,
+              end: $scope.newLv.dateTo,
+              comment: $scope.newLv.comment,
+              Attachment:{"note": $scope.newLv.note}
+         }).$promise
+        .then(function() {
+          //location go to view company page
+          $state.go('app.calendar');
+        });
     };
-      
-    /*add meeting*/
-        $scope.addMeeting = function() {
-        $scope.meetings.push({
-        title: 'New Meeting',
-        start: new Date(y, m, d),
-        className: ['b-l b-2x b-info bg-green'],
-        comment:'add comment'
-      });
-    };
+ 
     
     
     /* remove activity */
@@ -210,61 +202,12 @@ app
     $scope.today = function(calendar) {
       angular.element('.calendar').fullCalendar('today');
     };
-
-   
-   
-    
-/*get the index of selected objective*/
-    $scope.setCurrent = function setCurrent(index) {
-    $scope.curr = index;
-};
-
-    /*get the index of selected leave*/
-    $scope.setCurrents = function setCurrents(index) {
-    $scope.curre = index;
-};
-
-
-    $scope.getLvIndex = function getLvIndex(index) {
-    $scope.currIndex = index;  
-   $scope.returnedLeav = $scope.leave[$scope.currIndex];
-};
-         $scope.IsVisibleA = false;
-            $scope.IsVisibleL = false;
-            $scope.ShowPassport = function (value) {
-                if($scope.IsVisibleA = value == "A"){
-                    $scope.IsVisibleA = true;
-                    $scope.IsVisibleL = false;
-                }else if($scope.IsVisibleL = value == "L"){
-                    $scope.IsVisibleL = true;
-                    $scope.IsVisibleA = false;
-                }
-        
-            };
-            
-    $scope.hstep = 0;
-    $scope.mstep = 0;
-
-    $scope.options = {
-      hstep: [0,1, 2, 3, 4, 5, 6, 7, 8],
-      mstep: [0, 5, 10, 15, 25, 30]
-    };  
-    $scope.ismeridian = true;
-    $scope.toggleMode = function() {
-      $scope.ismeridian = ! $scope.ismeridian;
-    };
-          
-        $scope.showevent = false;
-            $scope.showEvent = function () {
-              return $scope.showevent = true;
-            };
       
        /* event sources array*/
     $scope.eventSources = [$scope.events,$scope.leaves,$scope.meetings];
 
       
   }]);
-
 
 
 

@@ -46,10 +46,10 @@
             <!-- tile body -->
             <div class="tile-body form-validation">
                 
-            <div class="form-group">
+               <div class="form-group">
                 <label class="col-sm-3 control-label">Leave</label>
-                <div class="col-sm-9">
-                  <input type="text" name="meeting" class="form-control" placeholder="Alpha" ng-model="meeting" ng-pattern="/^[a-zA-Z]+$/" required >
+                <div class="col-sm-6">
+                  <input type="text" name="Leave" class="form-control" placeholder="enter leave" ng-model="newLv.title" ng-pattern="/^([A-Za-z]|[0-9]|\s)+$/" required >
                 </div>
               </div>
                 
@@ -59,7 +59,7 @@
                 <label class="col-sm-3 control-label">From</label>
                 <div class="col-sm-9" ng-controller="DatepickerDemoCtrl">
                   <div class="input-group w-md">
-                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="newLv.date" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
                     <span class="input-group-btn">
                       <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                     </span>
@@ -73,7 +73,7 @@
                 <label class="col-sm-3 control-label">To</label>
                 <div class="col-sm-9" ng-controller="DatepickerDemoCtrl">
                   <div class="input-group w-md">
-                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="newLv.dateTo" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
                     <span class="input-group-btn">
                       <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                     </span>
@@ -83,29 +83,33 @@
                 
             <hr class="line-dashed line-full" /> 
            
-                     <div class="form-group">
+                 <div class="form-group">
                 <label class="col-sm-3 control-label">Attachment</label>
-                <div class="col-sm-9">
-                  <input type="text" name="comment" class="form-control" placeholder="Alpha" ng-model="comment" ng-pattern="/^[a-zA-Z]+$/" required >
+                <div class="col-sm-6">
+                  <input type="text" name="Leave" class="form-control" placeholder="enter note" ng-model="newLv.note" ng-pattern="/^([A-Za-z]|[0-9]|\s)+$/" required >
                 </div>
               </div>
      
                  <hr class="line-dashed line-full" /> 
                 
-                    <div class="form-group">
-                <label class="col-sm-3 control-label">Comment</label>
-                <div class="col-sm-9">
-                  <input type="text" name="comment" class="form-control" placeholder="Alpha" ng-model="comment" ng-pattern="/^[a-zA-Z]+$/" required >
-                </div>
+                         <div class="form-group" ng-class="{ 'has-error' : contactForm.message.$invalid && !contactForm.message.$pristine || contactForm.message.$invalid && submitted, 'has-success' : contactForm.message.$valid && !contactForm.message.$pristine || contactForm.message.$valid && submitted}">
+                <label class="col-sm-3 control-label" for="message">Comment: </label>
+                         <div class="col-sm-6">
+                <textarea class="form-control" rows="5" name="message" id="message" placeholder="Type your comment" ng-model="newLv.comment"  on-blur-validation required></textarea>
+                <p class="help-block">
+                  <span ng-show="contactForm.message.$invalid && !contactForm.message.$pristine || contactForm.message.$invalid && submitted">commnet is required.</span>
+                </p>
+                         </div>
               </div>
 
               </div>
+<!--
               
               <hr class="line-dashed line-full" /> 
               
                  <div class="form-group">
                 <label class="col-sm-3 control-label">Attachment</label>
-                <div class="col-sm-9">
+                <div class="col-sm-6">
                   <input ui-jq="filestyle" type="file" class="filestyle" ui-options="{
                     buttonText: 'Attachment',
                     iconName: 'fa fa-inbox'
@@ -113,13 +117,14 @@
                 </div>
               </div>
                 
+-->
 
 
             <!-- tile footer -->
             <div class="tile-footer text-right bg-tr-black lter dvd dvd-top">
               <!-- SUBMIT BUTTON -->
                 <button ui-sref="app.calendar" class="btn btn-default">Back</button>
-              <button type="submit" class="btn btn-default">Submit</button>
+              <button type="submit" class="btn btn-default" ng-click="addLeave()">Submit</button>
             </div>
             <!-- /tile footer -->
 

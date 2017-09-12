@@ -62,31 +62,39 @@
 
             
                 <hr class="line-dashed line-full" />
-            <div class="form-group">
+        
+                
+              <div class="form-group">
                 <label class="col-sm-3 control-label">Activity</label>
-                <div class="col-sm-9">
-                  <input type="text" name="meeting" class="form-control" placeholder="Alpha" ng-model="newAct.title" ng-pattern="/^[a-zA-Z]+$/" required>
+                <div class="col-sm-6">
+                  <input type="text" name="activity" class="form-control" placeholder="enter activity" ng-model="newAct.title" ng-pattern="/^([A-Za-z]|[0-9]|\s)+$/" required >
                 </div>
               </div>
 
               <hr class="line-dashed line-full" /> 
-                
-                   <div class="form-group">
-                <label class="col-sm-3 control-label">Hours</label>
-                <div class="col-sm-9">
-                  <input type="text" name="hour" class="form-control" placeholder="Digits" ng-pattern="/^[0-9]+$/" ng-model="newAct.hour" required >
+        <div class="form-group">
+                <md-content class="md-padding">
+        <label class="col-sm-3 control-label">Duration</label>            
+          <div layout="row" class="col-sm-9" >
+            <md-input-container>
+              <label>Hours</label>
+              <md-select ng-model="newAct.hour">
+                <md-option ng-repeat="hour in options.hstep" value="{{hour}}">{{hour}}</md-option>
+              </md-select>
+            </md-input-container>
+            <md-input-container>
+              <label>Minutes</label>
+              <md-select ng-model="newAct.minutes">
+                <md-optgroup label="Minutes">
+                  <md-option  ng-repeat="minutes in options.mstep">{{minutes}}</md-option>
+                </md-optgroup>
+              </md-select>
+            </md-input-container>
+          </div>
+      </md-content>
                 </div>
-              </div>
-
-              <hr class="line-dashed line-full" />
-      
-                <div class="form-group">
-                <label class="col-sm-3 control-label">Minutes</label>
-                <div class="col-sm-9">
-                  <input type="text" name="Minute" class="form-control" placeholder="Digits" ng-pattern="/^[0-9]+$/" ng-model="newAct.minutes" required >
-                </div>
-              </div>
                 
+   
                    <hr class="line-dashed line-full" /> 
               
                   <div class="form-group">
@@ -102,15 +110,17 @@
               </div>
                 
             <hr class="line-dashed line-full" /> 
-                
-           
-            
-                   <div class="form-group">
-                <label class="col-sm-3 control-label">Comment</label>
-                <div class="col-sm-9">
-                  <input type="text" name="comment" class="form-control" placeholder="Alpha" ng-model="newAct.comment" ng-pattern="/^[a-zA-Z]+$/" required >
-                </div>
+
+                     <div class="form-group" ng-class="{ 'has-error' : contactForm.message.$invalid && !contactForm.message.$pristine || contactForm.message.$invalid && submitted, 'has-success' : contactForm.message.$valid && !contactForm.message.$pristine || contactForm.message.$valid && submitted}">
+                <label class="col-sm-3 control-label" for="message">Comment: </label>
+                         <div class="col-sm-6">
+                <textarea class="form-control" rows="5" name="message" id="message" placeholder="Type your comment" ng-model="newAct.comment"  on-blur-validation required></textarea>
+                <p class="help-block">
+                  <span ng-show="contactForm.message.$invalid && !contactForm.message.$pristine || contactForm.message.$invalid && submitted">commnet is required.</span>
+                </p>
+                         </div>
               </div>
+
               </div>
            
                 

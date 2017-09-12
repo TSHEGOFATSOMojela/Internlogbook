@@ -8,7 +8,7 @@
  * Controller of the minovateApp
  */
 app
-  .controller('DaterangepickerCtrl', function ($scope, $moment) {
+  .controller('DaterangepDatepickerDemoCtrlickerCtrl', function ($scope, $moment) {
     $scope.startDate = $moment().subtract(1, 'days').format('MMMM D, YYYY');
     $scope.endDate = $moment().add(31, 'days').format('MMMM D, YYYY');
     $scope.rangeOptions = {
