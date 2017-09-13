@@ -122,31 +122,6 @@ app
         eventMouseover: $scope.alertOnMouseOver  
       }
     };
-
-    /* add custom event */
-//    $scope.addEvent = function() {
-//        $scope.events.push({
-//        Objective: $scope.objective[$scope.curr].name,  
-//        desc:$scope.objective[$scope.curr].desc,
-//        dur: $scope.objective[$scope.curr].duration,   
-//        title: 'New Activity',
-//        start: new Date(y, m, d),
-//        className: ['b-l b-2x b-info bg-dutch'],
-//        comment:'add comment'
-//      });
-//    };
-      //create/add a new activity
-//    $scope.coffeeShops = [];
-//    $scope.selectedShop;
-//    $scope.review = {};
-//    $scope.isDisabled = false;
-//    $scope.objectives
-//     Objective.find()
-//      .$promise
-//      .then(function(object) {
-//        $scope.object = object;
-//        $scope.selectedObject = $scope.selectedShop || coffeeShops[0];
-//      });
       
    $scope.addEvent = function() {
       Activity
@@ -155,7 +130,7 @@ app
           duration:{"hour": $scope.newAct.hour,
                     "minutes": $scope.newAct.minutes},
           comment: $scope.newAct.comment,
-          date: $scope.newAct.date,
+          start: $scope.newAct.date,
           objectiveId:$scope.object.selected.id
          }).$promise
         .then(function() {
@@ -165,26 +140,36 @@ app
     };
       
     
-      /* add custom leave*/
-    $scope.addLeave = function() {
-        $scope.leaves.push({
-        Objectives: 'Leave',    
-        title: $scope.leave[$scope.curre],
-        start: new Date(y, m, d),
-        dateTo: new Date(y, m, d +2),     
-        className: ['b-l b-2x b-warning bg-red'],
-        comments:'add comment'   
-      });
+     /* add custom leave*/
+        $scope.addLeave = function() {
+         Leave
+           .create({
+              title: $scope.newLv.title,
+              start: $scope.newLv.date,
+              end: $scope.newLv.dateTo,
+              comment: $scope.newLv.comment,
+              Attachment:{"note": $scope.newLv.note}
+         }).$promise
+        .then(function() {
+          //location go to view company page
+          $state.go('app.calendar');
+        });
     };
       
     /*add meeting*/
         $scope.addMeeting = function() {
-        $scope.meetings.push({
-        title: 'New Meeting',
-        start: new Date(y, m, d),
-        className: ['b-l b-2x b-info bg-green'],
-        comment:'add comment'
-      });
+         Meeting
+           .create({
+              title: $scope.newMeet.title,
+              duration:{"hour": $scope.newMeet.hour,
+                    "minutes": $scope.newMeet.minutes},
+              start: $scope.newMeet.date,
+              comment: $scope.newMeet.comment
+         }).$promise
+        .then(function() {
+          //location go to view company page
+          $state.go('app.calendar');
+        });
     };
     
     

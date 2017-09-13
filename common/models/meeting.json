@@ -7,14 +7,14 @@
     "validateUpsert": true
   },
   "properties": {
-    "name": {
+    "title": {
       "type": "string",
       "required": true
     },
     "duration": {
       "type": "object"
     },
-    "date": {
+    "start": {
       "type": "date",
       "required": true
     },
