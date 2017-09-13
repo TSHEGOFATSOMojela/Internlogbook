@@ -7,15 +7,15 @@
     "validateUpsert": true
   },
   "properties": {
-    "leaveType": {
+    "title": {
       "type": "string",
       "required": true
     },
-    "dateFrom": {
+    "start": {
       "type": "date",
       "required": true
     },
-    "dateTo": {
+    "end": {
       "type": "date",
       "required": true
     },
