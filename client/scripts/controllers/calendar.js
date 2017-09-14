@@ -23,10 +23,14 @@ app
       className: 'gcal-event',           // an option!
       currentTimezone: 'America/Chicago' // an option!
     };
-
-      $scope.leave = ["Annual Leave", "Maternity Leave", "Sick Leave","Family Responsibility Leave","Study Leave","Leave for religious holidays","Unpaid leave"];
+//       $scope.clear = function($event) {
+//      $scope.Arrayleave.selected = undefined;
+//      $event.preventDefault();
+//      $event.stopPropagation();
+//    };
+    
     /* event source that contains custom events on the scope */
-      $scope.object={};
+    $scope.object={};
     $scope.objectives = Objective.find();  
     $scope.events = Activity.find({
       filter: {
@@ -49,7 +53,7 @@ app
         ]
       }
     });  
-
+ 
 
     
     /* alert on dayClick */
@@ -138,23 +142,26 @@ app
           $state.go('app.calendar');
         });
     };
+    
       
     
      /* add custom leave*/
         $scope.addLeave = function() {
          Leave
            .create({
-              title: $scope.newLv.title,
               start: $scope.newLv.date,
               end: $scope.newLv.dateTo,
               comment: $scope.newLv.comment,
-              Attachment:{"note": $scope.newLv.note}
+              Attachment:{"note": $scope.newLv.note},
+             title: $scope.newLv.title
          }).$promise
         .then(function() {
           //location go to view company page
           $state.go('app.calendar');
         });
     };
+        $scope.arrayleave= {};
+      $scope.arrayleaves = ["Annual Leave", "Maternity Leave", "Sick Leave","Family Responsibility Leave","Study Leave","Leave for religious holidays","Unpaid leave"];
       
     /*add meeting*/
         $scope.addMeeting = function() {

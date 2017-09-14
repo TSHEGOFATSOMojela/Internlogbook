@@ -6,7 +6,7 @@
          
 <table class="table">
     
-    <form name="form" class="form-validation mt-24" novalidate>
+    <form name="form2" class="form-validation mt-24" novalidate >
     <tr>
 
         
@@ -46,12 +46,18 @@
 	</tr>
         
 	<tr>
+<!--
         <th>
            <div class="form-group">
            <input type="password" placeholder="Confirm Password" class="form-control underline-input" ng-model="user.comfirmPassword" required>
            </div>
 		</th>
-        
+-->
+          <th>   
+            <div class="form-group">
+            <input type="text" class="form-control underline-input" placeholder="job title" ng-model="user.jobTitle" required>
+            </div>
+		</th>
            <th>   
             <div class="form-group">
             <input type="text" class="form-control underline-input" placeholder="Department" ng-model="user.department" required>
@@ -65,7 +71,7 @@
 		</th>
         <th>
             <div class="form-group">
-            <input type="number" class="form-control underline-input" placeholder="Contacts" ng-model="user.contactNo" required>
+            <input type="text" class="form-control underline-input" placeholder="Contacts" ng-model="user.contactNo" required>
             </div>
 		</th>
         
@@ -114,18 +120,18 @@
         </tr>
         
 
- 
+ <button type="submit" class="btn btn-default" ng-click="register()">Submit</button>
                  </form>
 </table>
   <div class="form-group text-left">
          <label class="checkbox checkbox-custom checkbox-custom-sm inline-block">
-          <input type="checkbox" ng-model="user.accept" required><i></i> I agree to the <a href="javascript:;">Terms of Service</a> & <a href="javascript:;">Privacy Policy</a>
+          <input type="checkbox" ng-model="user.accept" required><i></i> I agree to the <a href="javascript:;">Terms of Service</a>  <a href="javascript:;">Privacy Policy</a>
         </label>
       </div>
 
     <div class="bg-slategray lt wrap-reset mt- text-left">
       <p class="m-0">
-        <a ui-sref="core.login" class="btn btn-greensea b-0 text-lowercase pull-right" ng-disabled='form.$invalid'>Submit</a>
+        <a  class="btn btn-greensea b-0 text-lowercase pull-right" ng-disabled='form2.$invalid' ng-click="register()">Submit</a>
         <a ui-sref="core.login" class="btn btn-lightred b-0 text-lowercase">Back</a>
       </p>
     </div>
