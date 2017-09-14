@@ -2,21 +2,16 @@
 
 //angular.module('app', ['ui.bootstrap','ui.utils']);
 
-app.controller('EditCompanyCtrl', ['$scope', 'Company', function($scope, Company) {
+app.controller('EditCompanyCtrl', ['$scope', '$http', function($scope, $http) {
 
+     $scope.company = {};
     
-    $scope.editCompany=function(company){
-        $scope.current = company;
-     
-        $scope.current ={};
-   
-    $scope.save = function(company)
-    {
-        $scope.current ={};
+    $scope.editCompany=function(){
+        $http.getElementById('http://localhost:3000/api/Companies',$scope.company_id).success(function (response) ) {
+        $scope.company = response.data;
     }
+  }
 
- }
-
-    
-    
   }])
+
+    
