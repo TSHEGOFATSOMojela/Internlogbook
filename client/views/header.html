@@ -1,4 +1,4 @@
-<header class="clearfix">
+<header class="clearfix" ng-controller="LoginCtrl">
 
   <!-- Branding -->
   <div class="branding {{main.settings.brandingColor}}">
@@ -387,7 +387,7 @@
           <a href="#">
             <fa name=""></fa>Logout</a>
 -->
-               <a href="#" ui-sref="core.login" ><span class="badge bg-greensea pull-right"></span>
+               <a href="#" ng-click='logout()' ><span class="badge bg-greensea pull-right"></span>
             <fa name="sign-out"></fa>Logout</a>
           
         </li>

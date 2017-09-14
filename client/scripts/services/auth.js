@@ -7,40 +7,20 @@ angular
   .module('app')
   .factory('AuthService', ['LogUser', '$q', '$rootScope', '$state', function(
       LogUser, $q, $rootScope, $state) {
-    function login(email, password) {
-      return User
-        .login({email: email, password: password})
-        .$promise
-        .then(function(response) {
-          $rootScope.currentUser = {
-            id: response.user.id,
-            tokenId: response.id,
-            email: email
-          };
-        });
-    }
-
-    function logout() {
-      return User
-       .logout()
-       .$promise
-       .then(function() {
-         $rootScope.currentUser = null;
-       });
-    }
+ 
 
     function register(email, password,fName,lName,contactNo,gender,jobTitle,department,uCategory) {
       return LogUser
         .create({
-              email: "you@me.com",
-              password: "skhomo@123",
-              fName: "kediboni",
-              lName: "malatji",
-              contactNo: "012345678",
-              gender: "female",
-              jobTitle: "bas",
-              department: "BAs",
-              uCategory: "intern"
+              email: email,
+              password: password,
+              fName: fName,
+              lName: lName,
+              contactNo: contactNo,
+              gender: gender,
+              jobTitle: jobTitle,
+              department: department,
+              uCategory: uCategory
        })
        .$promise;
     }
@@ -56,9 +36,30 @@ angular
         });
     }
     return {
-      login: login,
-      logout: logout,
-      register: register,
-      refresh: refresh
+        register: register,
+        refresh: refresh
     };
   }]);
+
+
+//   function login(email, password) {
+//      return User
+//        .login({email: email, password: password})
+//        .$promise
+//        .then(function(response) {
+//          $rootScope.currentUser = {
+//            id: response.user.id,
+//            tokenId: response.id,
+//            email: email
+//          };
+//        });
+//    }
+//
+//    function logout() {
+//      return User
+//       .logout()
+//       .$promise
+//       .then(function() {
+//         $rootScope.currentUser = null;
+//       });
+//    }
