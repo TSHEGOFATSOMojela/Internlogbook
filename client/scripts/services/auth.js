@@ -30,23 +30,23 @@ angular
     }
 
     function register(email, password,fName,lName,contactNo,gender,jobTitle,department,uCategory) {
-      return LogUser
+      return User
         .create({
-              email: "you@me.com",
-              password: "skhomo@123",
-              fName: "kediboni",
-              lName: "malatji",
-              contactNo: "012345678",
-              gender: "female",
-              jobTitle: "bas",
-              department: "BAs",
-              uCategory: "intern"
+              email: email,
+              password: password,
+              fName: fName,
+              lName: lName,
+              contactNo: contactNo,
+              gender: gender,
+              jobTitle: jobTitle,
+              department: department,
+              uCategory: uCategory
        })
        .$promise;
     }
 
     function refresh(accessTokenId) {
-      return LogUser
+      return User
         .getCurrent(function(userResource) {
           $rootScope.currentUser = {
             id: userResource.id,
