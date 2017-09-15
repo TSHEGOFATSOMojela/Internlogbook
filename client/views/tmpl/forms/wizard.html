@@ -133,7 +133,7 @@
 
          <td>
               <span ng-hide="editMode" class="btn btn-sm btn-success" >
-                  <a ui-sref="app.forms.editCompany" ><i class="fa fa-edit"></i></a></span>
+                  <a ui-sref="app.forms.editCompany" ng-click = "viewCompany(Company)"><i class="fa fa-edit"></i></a></span>
              
                  <span ng-hide="editMode" class="btn btn-sm btn-warning" data-ng-click="remove($index)"><i class="fa fa-trash"></i></span>
         </td>
