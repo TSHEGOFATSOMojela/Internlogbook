@@ -1,57 +1,41 @@
-'use strict';
-
-//app.controller('SignupCtrl', ['$scope','$state', 'AuthService', function($scope,$state, AuthService) {
-//
-//         
-//         $scope.user ={
-//              email: "you@me.com",
-//              password: "skhomo@123",
-//              fName: "kediboni",
-//              lName: "malatji",
-//              contactNo: "012345678",
-//              gender: "female",
-//              jobTitle: "bas",
-//              department: "BAs",
-//              uCategory: "intern"
-//         };
-//       
-//        $scope.register = function() {
-//             AuthService.register($scope.user.email, $scope.user.password,$scope.user.fName,$scope.user.lName,$scope.user.contactNo,$scope.user.gender,$scope.user.jobTitle,$scope.user.department,$scope.user.uCategory)
-//            .then(function() {
-//                  $state.go('core.login');
-//            });
-//        };
-//
-//
-//  }]);
+        'use strict';
 
 
 
-//DON'T DELETE IS WORKING CODE
-
-app
-    .controller('SignupCtrl', ['$scope','$state', 'LogUser', function($scope,$state, LogUser) {
-
-        $scope.register = function() {
-         LogUser
-           .create({
-              email: $scope.user.email,
-              password: $scope.user.password,
-              fName: $scope.user.fName,
-              lName: $scope.user.lName,
-              contactNo: $scope.user.contactNo,
-              gender: $scope.user.gender,
-              jobTitle: $scope.user.jobTitle,
-              department: $scope.user.department,
-              uCategory: $scope.user.uCategory
-         }).$promise
-        .then(function() {
-          //location go to view company page
-          $state.go('core.login');
-        });
-    };
 
 
-  }]);
+
+        app
+            .controller('SignupCtrl', ['$scope','$state', 'LogUser', 'Company', function($scope,$state, LogUser, Company) {
+
+                //find list of companies registered in the system
+                $scope.company={};
+                $scope.Companies = Company.find();
+
+
+
+             //Create a new user
+                $scope.register = function() {
+                 LogUser
+                   .create({
+                      email: $scope.user.email,
+                      password: $scope.user.password,
+                      fName: $scope.user.fName,
+                      lName: $scope.user.lName,
+                      contactNo: $scope.user.contactNo,
+                      gender: $scope.user.gender,
+                      jobTitle: $scope.user.jobTitle,
+                      department: $scope.user.department,
+                      uCategory: $scope.user.uCategory,
+                      companyId: $scope.company.selected.id
+                 }).$promise
+                .then(function() {
+                  //location go to view company page
+                  $state.go('core.login');
+                });
+            };
+
+
+          }]);
 
 

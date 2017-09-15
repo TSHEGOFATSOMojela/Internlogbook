@@ -154,10 +154,10 @@
         <tbody>
        <tr ng-repeat="Intern in Interns | filter: searchKeyword  track by $index">
            
-            <td ng-hide="editMode">
-<!--                {{Intern.id}}-->
+       <td ng-hide="editMode">{{$index+1}}</td>
+               <td ng-if="editMode"><input type="text" class="form-control" placeholder="Company id" name="registrationId"
+            ng-model="newCompany.registrationId" />
            </td>
-            <td ng-if="editMode"></td>
            
             <td ng-hide="editMode">{{Intern.fName}}</td>
             <td ng-if="editMode"><input type="text" class="form-control" placeholder="name" name="name" ng-model="Intern.name"/></td>

@@ -104,11 +104,11 @@
     
         <tbody>
        <tr ng-repeat="Company in Companies | filter: searchKeyword  track by $index">
-           
-            <td ng-hide="editMode">{{Company.registrationId}}</td>
-            <td ng-if="editMode"><input type="text" class="form-control" placeholder="Company id" name="registrationId"
+            <td ng-hide="editMode">{{$index+1}}</td>
+               <td ng-if="editMode"><input type="text" class="form-control" placeholder="Company id" name="registrationId"
             ng-model="newCompany.registrationId" />
            </td>
+        
            
             <td ng-hide="editMode">{{Company.name}}</td>
             <td ng-if="editMode"><input type="text" class="form-control" placeholder="Company name" name="name" ng-model="Company.name"/></td>

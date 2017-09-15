@@ -104,10 +104,11 @@
  <tbody>
        <tr ng-repeat="Mentor in Mentors">
            
-          <td ng-hide="editMode">
-<!--                {{Intern.id}}-->
+       <td ng-hide="editMode">{{$index+1}}</td>
+               <td ng-if="editMode"><input type="text" class="form-control" placeholder="Company id" name="registrationId"
+            ng-model="newCompany.registrationId" />
            </td>
-            <td ng-if="editMode"></td>
+           
            
             <td ng-hide="editMode">{{Mentor.fName}}</td>
             <td ng-if="editMode"><input type="text" class="form-control" placeholder="name" name="name" ng-model="Intern.name"/></td>
@@ -132,7 +133,7 @@
             ng-model="Intern.contacts"/>
             </td>
            <!--coming-->
-           <td ng-hide="editMode"><a ui-sref="app.tables.datatables" class="btn btn-xs btn-default"><i class="fa fa-search"></i>View activities <span class="badge badge-success">5</span></a></td>
+           <td ng-hide="editMode"><a ui-sref="app.shop.products" class="btn btn-xs btn-default"><i class="fa fa-search"></i>View Interns <span class="badge badge-success">5</span></a></td>
          <td>
               <span ng-hide="editMode" class="btn btn-sm btn-success" ng-click="edit(Intern)"><i class="fa fa-edit"></i></span>
               <span ng-hide="editMode" class="btn btn-sm btn-warning" data-ng-click="remove($index)"><i class="fa fa-trash"></i></span>
