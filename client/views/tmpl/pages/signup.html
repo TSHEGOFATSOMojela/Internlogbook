@@ -100,44 +100,20 @@
               </div> 
         </th>
         
-<!--
-        
-          <th>
+     <th>
             
-             <div class="form-group" >
+              <div class="form-group" >
                   
                 <div class="col-s-13">
-                <ui-select ng-model="company.selected"  ng-disabled="disabled" class="w-md mb-10">
-                    <ui-select-match placeholder="Select or search an mentors..." >{{$select.selected.name}} <a href ng-click="clear($event)"><i class="fa fa-times"></i></a></ui-select-match>
-                    <ui-select-choices repeat="mentor in mentors | filter: $select.search">
-                      <span ng-bind-html="mentor.name | highlight: $select.search"></span>
+                <ui-select ng-model="mentor.selected"  ng-disabled="disabled" class="w-md mb-10">
+                    <ui-select-match placeholder="Select or search an mentors..." >{{$select.selected.fName}} <a href ng-click="clear($event)"><i class="fa fa-times"></i></a></ui-select-match>
+                    <ui-select-choices repeat="mentor in Mentors | filter: $select.search">
+                      <span ng-bind-html="mentor.fName | highlight: $select.search"></span>
                     </ui-select-choices>
                   </ui-select>
                   </div>
               </div> 
         </th>
-        
--->
-        
-<!--
-        
-         <th>
-        <div class="form-group">
-            <label for="Mentor" class="control-label"></label>
-            <select name='Mentor' required id="Mentor" class="form-control" ng-disabled="Mentors.length == 0" ng-model="Mentor" ng-options="Mentor as Mentor.MentorName for Mentor in Mentors">
-                <option value="" disabled>Mentors</option>
-            </select>
-        </div>
-         </th>
-        <th>
-        <div class="form-group">
-            <label for="Position" class="control-label"></label>
-            <select name='Position' required id="Position" class="form-control" ng-disabled="Positions.length == 0" ng-model="Position" ng-options="Position as Position.PositionName for Position in Positions">
-                <option value="" disabled>Position</option>
-            </select>
-        </div>
-        </th>
--->
 
     </form>
 

@@ -11,8 +11,10 @@
                 //find list of companies registered in the system
                 $scope.company={};
                 $scope.Companies = Company.find();
-
-
+                
+             //find list of companies registered in the system
+             $scope.mentor={};
+             $scope.Mentors = LogUser.find();
 
              //Create a new user
                 $scope.register = function() {
