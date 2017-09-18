@@ -591,6 +591,19 @@ var app = angular
         }]
       }
     })
+          //forms/upload/:id
+    .state('app.forms.uploads', {
+      url: '/upload/:id',
+      controller: 'EditUploadCtrl',
+      templateUrl: 'views/tmpl/forms/upload.html',
+      resolve: {
+        plugins: ['$ocLazyLoad', function($ocLazyLoad) {
+          return $ocLazyLoad.load([
+            'scripts/vendor/filestyle/bootstrap-filestyle.min.js'
+          ]);
+        }]
+      }
+    })
     //forms/imgcrop
     .state('app.forms.imgcrop', {
       url: '/imagecrop',

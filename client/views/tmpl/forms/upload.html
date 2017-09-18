@@ -10,7 +10,7 @@
 
  <div class="tile-header dvd dvd-btm">
     
-   <h1 class="custom-font" align="center"><strong>Add Company</strong></h1>
+   <h1 class="custom-font" align="center"><strong>{{action}} Company</strong></h1>
     <ul class="controls">
     </ul>
    </div> 
@@ -27,57 +27,57 @@
           
 
  
-	<div  class="col-lg-10 well">
+	<div  class="col-lg-10 well" ng-controller="FormUploadCtrl">
 	<div class="row">
-				<form class="form-horizontal" role="form"  ng-submit="addCompany()">
+				<form class="form-horizontal" role="form"  >
 					<div class="col-sm-12">
 						<div class="row">
 							<div class="col-sm-6 form-group">
 								<label>Company Name</label>
 								<input type="text" class="form-control" placeholder="Enter Company Here.." name="name"
-                                ng-model="newCompany.name" required/>
+                                ng-model="company.name" required/>
 							</div>
 							<div class="col-sm-6 form-group">
 								<label>Email Address</label>
-								<input type="email" placeholder="info@example.com" class="form-control" name="email"
-                              ng-model="newCompany.email" required/>
+								<input type="text" placeholder="info@example.com" class="form-control" name="email"
+                              ng-model="company.email" required/>
 							</div>
 						</div>					
 						<div class="form-group">
 							<label>Address</label>
 							<textarea type="text" class="form-control" placeholder="Enter Address Here.." name="street"
-                                ng-model="newCompany.street" required></textarea>
+                                ng-model="company.street" required></textarea>
 						</div>	
 						<div class="row">
 							<div class="col-sm-4 form-group">
 								<label>City</label>
 								<input type="text"  class="form-control" placeholder="Enter City Name Here.." name="city"
-                                ng-model="newCompany.city" required>
+                                ng-model="company.city" required>
 							</div>	
 							<div class="col-sm-4 form-group">
 								<label>Town</label>
 								<input type="text"  class="form-control" placeholder="Enter Town Name Here.." name="town"
-                                ng-model="newCompany.town"required>
+                                ng-model="company.town"required>
 							</div>	
 							<div class="col-sm-4 form-group">
 								<label>Code</label>
 								<input type="text"  class="form-control" placeholder="Enter Code Name Here.." name="code"
-                                ng-model="newCompany.code"required>
+                                ng-model="company.code"required>
 							</div>		
 						</div>
 												
 					<div class="form-group">
 						<label>Phone Number</label>
-							<input type="number" class="form-control" name="contacts"
-			                ng-model="newCompany.contactNo" placeholder="011" required/>
+							<input type="text" class="form-control" name="contacts"
+			                ng-model="company.contactNo" placeholder="011" required/>
 					</div>		
 					
 					<div class="form-group">
 						<label>Website</label>
 						<input type="text" class="form-control" placeholder="www.companyexample.com" name="website"
-			            ng-model="newCompany.website" required/>
+			            ng-model="company.website" required/>
 					</div>
-					<input class="btn btn-xs btn-default" type="submit" value="Add Company"  ng-click="addCompany()"/>					
+                        <button class="btn btn-xs btn-default" type="submit" ng-click="addCompany()">{{action}}</button>				
 					</div>
 				</form> 
         
@@ -87,11 +87,7 @@
     
 	    </tr>
     
-    
-        <tbody>
-     
-            
-           </tbody>
+  
     
     </table>
       </div>
