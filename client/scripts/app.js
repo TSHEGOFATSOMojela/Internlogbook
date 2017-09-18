@@ -578,6 +578,11 @@ var app = angular
       controller: 'FormWizardCtrl',
       templateUrl: 'views/tmpl/forms/wizard.html'
     })
+    //Delete/company
+      .state('delete-company', {
+       url: '/delete-company/:id',
+       controller: 'DeleteCompanyCtrl'
+      })
     //forms/upload
     .state('app.forms.upload', {
       url: '/upload',
