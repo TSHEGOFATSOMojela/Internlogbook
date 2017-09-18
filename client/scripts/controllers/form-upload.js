@@ -7,6 +7,7 @@ app.controller('FormUploadCtrl', ['$scope', 'Company', '$state', function($scope
 
 
   //create/add a new company
+    $scope.action = 'add';
    $scope.addCompany = function() {
       Company
         .create({
@@ -29,3 +30,22 @@ app.controller('FormUploadCtrl', ['$scope', 'Company', '$state', function($scope
     
     
   }])
+.controller('FormUploadCtrls', ['$scope','$q', 'Company','$stateParams', '$state', function($scope, $q, Company, $stateParams, $state) {
+    
+    $scope.action = 'Edit';
+    $scope.newCompany = {};
+       Company.findById({ id: $stateParams.id })
+          .$promise
+          .then(function(data) {
+        $scope.newCompany = data;
+   
+      });
+
+    $scope.addCompany = function() {
+      $scope.newCompany
+        .$save()
+        .then(function(newCompany) {
+          $state.go('app.forms.wizard');
+        });
+    };
+  }]);
