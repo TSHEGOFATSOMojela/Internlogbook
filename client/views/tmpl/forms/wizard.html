@@ -1,6 +1,6 @@
 <body  ng-app="app">
     
-<div class="pagecontent"  data-ng-controller="FormWizardCtrl">
+<div class="pagecontent">
     
     <div class="row">
        
@@ -134,8 +134,7 @@
          <td>
               <span ng-hide="editMode" class="btn btn-sm btn-success" >
                   <a ui-sref="app.forms.uploads({id: Company.id})" ><i class="fa fa-edit"></i></a></span>
-             
-                 <span ng-hide="editMode" class="btn btn-sm btn-warning" data-ng-click="remove($index)"><i class="fa fa-trash"></i></span>
+             <span  class="btn btn-sm btn-warning"><a ui-sref="delete-company({id: Company.id})" ><i class="fa fa-trash"></i></a></span>
         </td>
           
                    </tbody>
