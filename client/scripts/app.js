@@ -612,7 +612,7 @@ var app = angular
     })
     //forms/imgcrop
     .state('app.forms.imgcrop', {
-      url: '/imagecrop',
+      url: '/imagecrop/:id',
       controller: 'FormImgCropCtrl',
       templateUrl: 'views/tmpl/forms/imgcrop.html',
       resolve: {
