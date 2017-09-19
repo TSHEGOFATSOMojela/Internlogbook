@@ -568,21 +568,17 @@ var app = angular
     })
     //forms/validate
     .state('app.forms.validate', {
-      url: '/validate',
+      url: '/validate/:id',
       controller: 'FormsValidateCtrl',
       templateUrl: 'views/tmpl/forms/validate.html'
     })
+      
     //forms/wizard
     .state('app.forms.wizard', {
       url: '/wizard',
       controller: 'FormWizardCtrl',
       templateUrl: 'views/tmpl/forms/wizard.html'
     })
-    //Delete/company
-      .state('delete-company', {
-       url: '/delete-company/:id',
-       controller: 'DeleteCompanyCtrl'
-      })
     //forms/upload
     .state('app.forms.upload', {
       url: '/upload',

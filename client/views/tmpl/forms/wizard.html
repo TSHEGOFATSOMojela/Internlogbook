@@ -1,6 +1,6 @@
 <body  ng-app="app">
     
-<div class="pagecontent">
+<div class="pagecontent"  data-ng-controller="FormWizardCtrl">
     
     <div class="row">
        
@@ -127,15 +127,15 @@
             ng-model="Company.contactNo"/>
             </td>
            
-           <td ng-hide="editMode"><a ui-sref="app.forms.validate" class="btn btn-xs btn-default"><i class="fa fa-search"></i>View Mentors <span class="badge badge-success">5</span></a>
+           <td ng-hide="editMode"><a ui-sref="app.forms.validate({id: Company.id})" class="btn btn-xs btn-default"><i class="fa fa-search"></i>View Mentors <span class="badge badge-success">5</span></a>
            </td>
         
 
          <td>
               <span ng-hide="editMode" class="btn btn-sm btn-success" >
                   <a ui-sref="app.forms.uploads({id: Company.id})" ><i class="fa fa-edit"></i></a></span>
-            
-                 <span  class="btn btn-sm btn-warning"><a  ui-sref="delete-company({id: Company.id})" ><i class="fa fa-trash"></i></a></span>
+             
+                 <span ng-hide="editMode" class="btn btn-sm btn-warning" data-ng-click="remove($index)"><i class="fa fa-trash"></i></span>
         </td>
           
                    </tbody>
