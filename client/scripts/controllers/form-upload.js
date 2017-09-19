@@ -32,7 +32,7 @@ app.controller('FormUploadCtrl', ['$scope', 'Company', '$state', function($scope
   }])
 .controller('FormUploadCtrls', ['$scope','$q', 'Company','$stateParams', '$state', function($scope, $q, Company, $stateParams, $state) {
     
-    $scope.action = 'Edit';
+    $scope.action = 'Save';
     $scope.newCompany = {};
        Company.findById({ id: $stateParams.id })
           .$promise
@@ -48,15 +48,4 @@ app.controller('FormUploadCtrl', ['$scope', 'Company', '$state', function($scope
           $state.go('app.forms.wizard');
         });
     };
-  }])
-.controller('DeleteCompanyCtrl', ['$scope', 'Company', '$state',
-      '$stateParams', function($scope, Company, $state, $stateParams) {
-    Company
-      .deleteById({id: $stateParams.id})
-      .$promise
-      .then(function() {
-        $state.go('app.forms.wizard');
-      });
   }]);
-
-
