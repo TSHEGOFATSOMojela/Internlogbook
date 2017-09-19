@@ -30,8 +30,9 @@ app.controller('FormUploadCtrl', ['$scope', 'Company', '$state', function($scope
     
     
   }])
+//edit and save company
 .controller('FormUploadCtrls', ['$scope','$q', 'Company','$stateParams', '$state', function($scope, $q, Company, $stateParams, $state) {
-    
+    //edit company
     $scope.action = 'Save';
     $scope.newCompany = {};
        Company.findById({ id: $stateParams.id })
@@ -40,7 +41,7 @@ app.controller('FormUploadCtrl', ['$scope', 'Company', '$state', function($scope
         $scope.newCompany = data;
    
       });
-
+   //save company
     $scope.addCompany = function() {
       $scope.newCompany
         .$save()
@@ -49,6 +50,7 @@ app.controller('FormUploadCtrl', ['$scope', 'Company', '$state', function($scope
         });
     };
   }])
+//delete company
 .controller('DeleteCompanyCtrl', ['$scope', 'Company', '$state',
       '$stateParams', function($scope, Company, $state, $stateParams) {
     Company

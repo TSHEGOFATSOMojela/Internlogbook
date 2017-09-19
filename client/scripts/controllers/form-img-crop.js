@@ -1,31 +1,47 @@
-'use strict';
+ 'use strict';
 
-app.controller('FormImgCropCtrl', ['$scope', 'logUser', '$state', function($scope, logUser,  $state) {
-    
-      //create/add a new Mentor
-   $scope.addCompany = function() {
-      logUser
-        .create({
-          fName: $scope.newMentor.FirstName,
-          lName: $scope.newMentor.lastName,
-          email: $scope.newMentor.email, 
-          contactNo: $scope.newMentor.contacts,
-          gender: $scope.newMentor.gender,
-          jobTitle: $scope.newMentor.title,
-          department: $scope.newMentor.department,
-          uCategory: $scope.newMentor.role
-          
-          
-        }).$promise
-        .then(function() {
-          //location go to view mentor page
-          $state.go('app.forms.validate');
-        });
-    };
-    
-    
-    
-    
-    
-    
-  })
+app
+ .controller('FormImgCropCtrl', ['$scope','$state', 'LogUser', 'Company', '$stateParams', function($scope,$state, LogUser, Company, $stateParams) {
+
+                //find list of companies registered in the system
+                $scope.company={};
+//                $scope.Companies = Company.find();
+     
+         $scope.Companies = Company.find({
+      filter: {
+        where: {
+          id: $stateParams.id
+        }
+       
+      }
+    });
+     
+     
+     
+
+             //Create a new user
+                $scope.addMentor = function() {
+                 LogUser
+                   .create({
+                      email: $scope.user.email,
+                      password: $scope.user.password,
+                      fName: $scope.user.fName,
+                      lName: $scope.user.lName,
+                      contactNo: $scope.user.contactNo,
+                      gender: $scope.user.gender,
+                      jobTitle: $scope.user.jobTitle,
+                      department: $scope.user.department,
+                      uCategory: $scope.user.uCategory,
+                      companyId: $scope.company.selected.id
+                 }).$promise
+                .then(function() {
+                  //location go to view company page
+                  $state.go('app.forms.wizard');
+                });
+            };
+
+
+          }]);
+
+
+//   $scope.Mentors = LogUser.find();

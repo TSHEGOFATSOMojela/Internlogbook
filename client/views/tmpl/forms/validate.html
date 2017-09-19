@@ -11,9 +11,9 @@
 <div class="tile-header dvd dvd-btm">
     
    <h1 class="custom-font"><strong>MENTORS</strong></h1>
-    <ul class="controls">
+    <ul class="controls" >
 <!-- <li><a href="javascript:window.print()" class="fa fa-plus mr-5" uib-tooltip="Print"><i class="fa fa-print"></i></a></li>-->
-   <li><a ui-sref="app.forms.imgcrop" ><i class="fa fa-plus mr-5"  ></i>Add Mentor</a></li>
+   <li ><a  ui-sref="app.forms.imgcrop({id: Mentors.companyId})"><i class="fa fa-plus mr-5"  ></i>Add Mentor</a></li>
 
     <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
         
@@ -137,7 +137,9 @@
          <td>
               <span ng-hide="editMode" class="btn btn-sm btn-success" ng-click="edit(Intern)"><i class="fa fa-edit"></i></span>
               <span ng-hide="editMode" class="btn btn-sm btn-warning" data-ng-click="remove($index)"><i class="fa fa-trash"></i></span>
-
+             
+    <a ui-sref="app.forms.imgcrop({id: Mentor.companyId})"><i class="fa fa-plus mr-5"  ></i>Add Mentor</a>
+             
               <span ng-show="editMode" class="btn btn-sm btn-primary"  ng-click="save(Intern)"><i class="fa fa-save"></i></span>
               <span ng-show="editMode"class="btn btn-sm btn-info" ng-click="clear(Intern)"><i class="fa fa-remove"></i></span>
             </td>
