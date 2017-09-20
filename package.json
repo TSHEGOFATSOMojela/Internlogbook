@@ -11,6 +11,7 @@
     "posttest": "npm run lint && nsp check"
   },
   "dependencies": {
+    "angular-file-upload": "^2.5.0",
     "body-parser": "^1.17.2",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
@@ -18,7 +19,11 @@
     "loopback": "^3.0.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^4.0.0",
+    "loopback-component-storage": "^3.3.1",
+    "loopback-component-storage-mongo": "^1.5.1",
     "loopback-connector-mongodb": "^1.18.1",
+    "loopback-datasource-juggler": "^3.12.0",
+    "mongodb": "https://github.com/mongodb/node-mongodb-native/archive/gridfs-specification.tar.gz",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^2.0.0"
   },

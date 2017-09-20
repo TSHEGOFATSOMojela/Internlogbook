@@ -23,7 +23,7 @@
       "type": "string"
     },
     "Attachment": {
-      "type": "object",
+      "type": "string",
       "required": true
     }
   },
