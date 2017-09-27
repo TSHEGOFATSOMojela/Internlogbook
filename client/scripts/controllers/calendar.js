@@ -152,7 +152,7 @@ app
               start: $scope.newLv.date,
               end: $scope.newLv.dateTo,
               comment: $scope.newLv.comment,
-              Attachment:{"note": $scope.newLv.note},
+              Attachment: $scope.newLv.note,
              title: $scope.newLv.title
          }).$promise
         .then(function() {

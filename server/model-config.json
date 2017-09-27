@@ -27,14 +27,14 @@
   },
   "RoleMapping": {
     "dataSource": "logbookDB",
-    "public": false,
+    "public": true,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
     "dataSource": "logbookDB",
-    "public": false
+    "public": true
   },
   "Company": {
     "dataSource": "logbookDB",

@@ -64,24 +64,13 @@
       "type": "hasMany",
       "model": "Meeting",
       "foreignKey": ""
-    },
-    "roles": {
-      "type": "hasOne",
-      "model": "Role",
-      "foreignKey": ""
     }
   },
   "acls": [
     {
       "accessType": "*",
       "principalType": "ROLE",
-      "principalId": "$authenticated",
-      "permission": "ALLOW"
-    },
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "$unauthenticated",
+      "principalId": "$everyone",
       "permission": "ALLOW"
     }
   ],
