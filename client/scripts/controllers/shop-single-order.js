@@ -21,3 +21,14 @@ app.controller('SingleOrderCtrl', ['$scope', 'Objective',  '$stateParams', funct
     
     
   }])
+
+//delete objective
+.controller('DeleteObjectiveCtrl', ['$scope', 'Objective', '$state',
+      '$stateParams', function($scope, Objective, $state, $stateParams) {
+    Objective
+      .deleteById({id: $stateParams.id})
+      .$promise
+      .then(function() {
+        $state.go('app.shop.single-order');
+      });
+  }]);

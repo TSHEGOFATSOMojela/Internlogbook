@@ -135,8 +135,8 @@
            <!--coming-->
            <td ng-hide="editMode"><a ui-sref="app.shop.products" class="btn btn-xs btn-default"><i class="fa fa-search"></i>View Interns <span class="badge badge-success">5</span></a></td>
          <td>
-              <span ng-hide="editMode" class="btn btn-sm btn-success" ng-click="edit(Intern)"><i class="fa fa-edit"></i></span>
-              <span ng-hide="editMode" class="btn btn-sm btn-warning" data-ng-click="remove($index)"><i class="fa fa-trash"></i></span>
+            <span  ng-hide="editMode" class="btn btn-sm btn-success" ><a ui-sref="app.forms.imgcrop({id: Mentor.id})" ><i class="fa fa-edit"></i></a></span>
+               <span  class="btn btn-sm btn-warning"><a ui-sref="delete-mentor({id: Mentor.id})" ><i class="fa fa-trash"></i></a></span>
              
     <a ui-sref="app.forms.imgcrop({id: Mentor.companyId})"><i class="fa fa-plus mr-5"  ></i>Add Mentor</a>
              

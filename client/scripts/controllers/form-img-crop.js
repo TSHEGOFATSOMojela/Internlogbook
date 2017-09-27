@@ -40,8 +40,24 @@ app
                 });
             };
 
-
+    //edit mentor
+    $scope.action = 'Save';
+    $scope.user = {};
+       LogUser.findById({ id: $stateParams.id })
+          .$promise
+          .then(function(data) {
+        $scope.user = data;
+   
+      });
+   //save mentor
+    $scope.addMentor = function() {
+      $scope.user
+        .$save()
+        .then(function(user) {
+          $state.go('app.forms.validate');
+        });
+    };
           }]);
 
 
-//   $scope.Mentors = LogUser.find();
+
