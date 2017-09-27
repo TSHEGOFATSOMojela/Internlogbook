@@ -22,6 +22,24 @@ app.controller('OrdersCtrl', ['$scope', 'Objective', '$state',
     
   }])
 
-
+//edit and save objective
+.controller('OrdersCtrls', ['$scope','$q', 'Objective','$stateParams', '$state', function($scope, $q, Objective, $stateParams, $state) {
+    //edit Objective
+    $scope.newObjective = {};
+       Objective.findById({ id: $stateParams.id })
+          .$promise
+          .then(function(data) {
+        $scope.newObjective = data;
+   
+      });
+   //save company
+    $scope.addObjective = function() {
+      $scope.newObjective
+        .$save()
+        .then(function(newObjective) {
+          $state.go('app.shop.single-order');
+        });
+    };
+  }])
 
 

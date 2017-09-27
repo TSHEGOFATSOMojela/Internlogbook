@@ -134,8 +134,9 @@
            <!--coming-->
            <td ng-hide="editMode"><a ui-sref="app.tables.datatables" class="btn btn-xs btn-default"><i class="fa fa-search"></i>View activities <span class="badge badge-success">5</span></a></td>
          <td>
-              <span ng-hide="editMode" class="btn btn-sm btn-success" ng-click="edit(Intern)"><i class="fa fa-edit"></i></span>
-              <span ng-hide="editMode" class="btn btn-sm btn-warning" data-ng-click="remove($index)"><i class="fa fa-trash"></i></span>
+                  <span ng-hide="editMode" class="btn btn-sm btn-success" >
+                  <a ui-sref="app.shop.invoice({id: Intern.id})" ><i class="fa fa-edit"></i></a></span>
+             <span  class="btn btn-sm btn-warning"><a ui-sref="delete-intern({id: Intern.id})" ><i class="fa fa-trash"></i></a></span>
 
               <span ng-show="editMode" class="btn btn-sm btn-primary"  ng-click="save(Intern)"><i class="fa fa-save"></i></span>
               <span ng-show="editMode"class="btn btn-sm btn-info" ng-click="clear(Intern)"><i class="fa fa-remove"></i></span>

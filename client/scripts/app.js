@@ -448,6 +448,21 @@ var app = angular
         }]
       }
     })
+          //shop/orders/id
+    .state('app.shop.order', {
+      url: '/orders/:id',
+      controller: 'OrdersCtrls',
+      templateUrl: 'views/tmpl/shop/orders.html',
+      resolve: {
+        plugins: ['$ocLazyLoad', function($ocLazyLoad) {
+          return $ocLazyLoad.load([
+            'scripts/vendor/datatables/datatables.bootstrap.min.css',
+            'scripts/vendor/datatables/Pagination/input.js',
+            'scripts/vendor/datatables/ColumnFilter/jquery.dataTables.columnFilter.js'
+          ]);
+        }]
+      }
+    })
     //shop/products
     .state('app.shop.products', {
       url: '/products',
@@ -467,6 +482,21 @@ var app = angular
     .state('app.shop.invoices', {
       url: '/invoices',
       controller: 'InvoicesCtrl',
+      templateUrl: 'views/tmpl/shop/invoices.html',
+      resolve: {
+        plugins: ['$ocLazyLoad', function($ocLazyLoad) {
+          return $ocLazyLoad.load([
+            'scripts/vendor/datatables/datatables.bootstrap.min.css',
+            'scripts/vendor/datatables/Pagination/input.js',
+            'scripts/vendor/datatables/ColumnFilter/jquery.dataTables.columnFilter.js'
+          ]);
+        }]
+      }
+    })
+         //shop/invoices
+    .state('app.shop.invoice', {
+      url: '/invoices/:id',
+      controller: 'InvoicesCtrls',
       templateUrl: 'views/tmpl/shop/invoices.html',
       resolve: {
         plugins: ['$ocLazyLoad', function($ocLazyLoad) {
@@ -580,11 +610,28 @@ var app = angular
       controller: 'FormWizardCtrl',
       templateUrl: 'views/tmpl/forms/wizard.html'
     })
-    //Delete/company
+    //Delete/mentor
+      .state('delete-mentor', {
+       url: '/delete-mentor/:id',
+       controller: 'DeleteMentorCtrl'
+      })
+       //Delete/company
       .state('delete-company', {
        url: '/delete-company/:id',
        controller: 'DeleteCompanyCtrl'
       })
+        //Delete/objective
+      .state('delete-objective', {
+       url: '/delete-objective/:id',
+       controller: 'DeleteObjectiveCtrl'
+      })
+      
+        //Delete/intern
+      .state('delete-intern', {
+       url: '/delete-intern/:id',
+       controller: 'DeleteInternCtrl'
+      })
+      
     //forms/upload
     .state('app.forms.upload', {
       url: '/upload',
@@ -624,6 +671,7 @@ var app = angular
         }]
       }
     })
+ 
     //tables
     .state('app.tables', {
       url: '/tables',

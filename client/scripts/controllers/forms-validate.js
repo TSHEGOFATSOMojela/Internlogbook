@@ -20,3 +20,13 @@ app.controller('FormsValidateCtrl', ['$scope', '$q', 'LogUser', 'Company', '$sta
     
   }])
 
+//delete company
+.controller('DeleteMentorCtrl', ['$scope', 'LogUser', '$state',
+      '$stateParams', function($scope, LogUser, $state, $stateParams) {
+    LogUser
+      .deleteById({id: $stateParams.id})
+      .$promise
+      .then(function() {
+        $state.go('app.forms.validate');
+      });
+  }]);
