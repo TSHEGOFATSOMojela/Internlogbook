@@ -53,10 +53,14 @@ app.controller('FormUploadCtrl', ['$scope', 'Company', '$state', function($scope
 //delete company
 .controller('DeleteCompanyCtrl', ['$scope', 'Company', '$state',
       '$stateParams', function($scope, Company, $state, $stateParams) {
+    if (confirm("are you sure you want to delete?") == true) {
     Company
       .deleteById({id: $stateParams.id})
       .$promise
       .then(function() {
         $state.go('app.forms.wizard');
       });
-  }]);
+  }else
+           $state.go('app.forms.wizard');
+      }]);
+    
