@@ -57,7 +57,7 @@ app
           $state.go('app.forms.validate');
         });
     };
-          }]);
+          }])
 
 
 
