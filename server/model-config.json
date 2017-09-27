@@ -15,7 +15,7 @@
   },
   "User": {
     "dataSource": "logbookDB",
-    "public": true
+    "public": false
   },
   "AccessToken": {
     "dataSource": "logbookDB",
@@ -52,12 +52,16 @@
     "dataSource": "logbookDB",
     "public": true
   },
+     "Email": {
+    "dataSource": "emailDs"
+  },
   "Activity": {
     "dataSource": "logbookDB",
     "public": true
   },
   "logUser": {
     "dataSource": "logbookDB",
-    "public": true
+    "public": true,
+     "options": { "emailVerificationRequired": false}
   }
 }

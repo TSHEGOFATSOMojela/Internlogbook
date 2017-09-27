@@ -7,5 +7,24 @@
     "name": "logbookDB",
     "user": "admin",
     "connector": "mongodb"
+  },
+  "emailDs": {
+    "name": "emailDs",
+    "connector": "mail",
+   "transports": [
+      {
+        "type": "smtp",
+        "host": "smtp.gmail.com",
+        "secure": true,
+        "port": 465,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "internnoreply@gmail.com",
+          "pass": "Mt@14789"
+        }
+      }
+    ]
   }
 }
