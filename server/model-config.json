@@ -15,7 +15,7 @@
   },
   "User": {
     "dataSource": "logbookDB",
-    "public": true
+    "public": false
   },
   "AccessToken": {
     "dataSource": "logbookDB",
@@ -27,14 +27,14 @@
   },
   "RoleMapping": {
     "dataSource": "logbookDB",
-    "public": false,
+    "public": true,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
     "dataSource": "logbookDB",
-    "public": false
+    "public": true
   },
   "Company": {
     "dataSource": "logbookDB",

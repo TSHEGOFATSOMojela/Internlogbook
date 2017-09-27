@@ -17,6 +17,7 @@ var app = angular
     'ngCookies',
     'ngResource',
     'ngSanitize',
+    'angularFileUpload',
     'ngTouch',
     'ngMessages',
     'picardy.fontawesome',
