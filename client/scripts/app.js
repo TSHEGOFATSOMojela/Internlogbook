@@ -546,7 +546,8 @@ var app = angular
         }]
       }
     })
-      
+  
+  
       
  //forms/regIntern
     .state('app.forms.regIntern', {
@@ -930,6 +931,7 @@ var app = angular
         }]
       }
     })
+
     //intro page
     .state('app.pages.intro', {
       url: '/intro',
