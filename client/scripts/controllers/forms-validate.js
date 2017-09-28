@@ -19,7 +19,7 @@ app.controller('FormsValidateCtrl', ['$scope', '$q', 'LogUser', 'Company', '$sta
     
     
   }])
-
+    
 //delete company
 .controller('DeleteMentorCtrl', ['$scope', 'LogUser', '$state',
       '$stateParams', function($scope, LogUser, $state, $stateParams) {
@@ -28,8 +28,11 @@ app.controller('FormsValidateCtrl', ['$scope', '$q', 'LogUser', 'Company', '$sta
       .deleteById({id: $stateParams.id})
       .$promise
       .then(function() {
-        $state.go('app.forms.validate');
+        $state.go('app.forms.validate', {
+         redirect: '/validate/:id'});
+        
       });
   }else
-           $state.go('app.forms.validate');
+           $state.go('app.forms.validate', {
+             redirect: '/validate/:id'});
       }]);
