@@ -119,8 +119,18 @@
 
            
         <td ng-hide="editMode">
-           <uib-progressbar class="progress-striped not-rounded" value="56" type="warning">56%</uib-progressbar>
-                <td>
+         <div class="progress">
+              <div class="progress-bar progress-bar-success" role="progressbar" style="width:40%">
+                Free Space
+              </div>
+              <div class="progress-bar progress-bar-warning" role="progressbar" style="width:10%">
+                Warning
+              </div>
+              <div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%">
+                Danger
+              </div>
+         </div>
+                 <td>
 
                  <span ng-hide="editMode" class="btn btn-sm btn-success" >
                   <a ui-sref="app.shop.order({id: objective.id})" ><i class="fa fa-edit"></i></a></span>

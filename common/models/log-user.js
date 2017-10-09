@@ -12,13 +12,13 @@ module.exports = function(Loguser) {
       from: 'noreply@loopback.com',
       subject: 'Thanks for registering.',
       template: path.resolve(__dirname, '../../client/views/tmpl/pages/verify.ejs'),
-      redirect: '/verified',
+      redirect: 'core.login',
       Loguser: Loguser
     };
       
       
       
-         LoguserInstance.verify(options, function(err, response, next) {
+    LoguserInstance.verify(options, function(err, response, next) {
       if (err) return next(err);
 
       console.log('> verification email sent:', response);
