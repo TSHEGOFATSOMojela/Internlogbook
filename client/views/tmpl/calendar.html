@@ -67,15 +67,17 @@
     <li class="dropdown users" uib-dropdown>
 
 
-      <a href class="dropdown-toggle" uib-dropdown-toggle>
-<!--        <fa name="user" ></fa>-->
-          <i class="fa fa-list-ul" aria-hidden="true"></i>
-      </a>
+      <a href  uib-dropdown-toggle>
 
+        <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-plus-sign"></span> Add Task
+        </button>
+      </a>
+   
 
       <div class="dropdown-menu pull-right with-arrow panel panel-default animated littleFadeInUp" role="menu">
         <div class="panel-heading">
-          Select an Event
+          Select Task
         </div>
 
         <ul class="list-group" >
@@ -83,11 +85,7 @@
           <li class="list-group-item">
             <a class="media" ui-sref="app.pages.gallery" ng-click="addShow('act')">
               <div class="media-left">
-<!--
-                <span class="media-object thumb thumb-sm">
-                  <img src="images/arnold-avatar.jpg" alt="" class="img-circle">
-                </span>
--->
+
               </div>
               <div class="media-body" >
                 <span class="block">Add Activity</span>
@@ -100,11 +98,7 @@
           <li class="list-group-item" ui-sref="app.pages.meeting"  ng-click="addShow('met')">
             <a href="javascript:;" class="media">
               <div class="media-left">
-<!--
-                <span class="media-object  thumb thumb-sm">
-                  <img src="images/george-avatar.jpg" alt="" class="img-circle">
-                </span>
--->
+                  
               </div>
               <div class="media-body">
                 <span class="block">Add Meeting</span>
@@ -117,11 +111,7 @@
             <li class="list-group-item" ui-sref="app.pages.leave">
             <a href="javascript:;" class="media">
               <div class="media-left">
-<!--
-                <span class="media-object  thumb thumb-sm">
-                  <img src="images/george-avatar.jpg" alt="" class="img-circle">
-                </span>
--->
+
               </div>
               <div class="media-body">
                 <span class="block">Add Leave</span>
@@ -132,11 +122,12 @@
           </li>
 
         </ul>
+<!--
 
         <div class="panel-footer">
           <a ui-sref="app.pages.gallery" ng-model="addAll" value="addAlls">>Add all events <fa name="angle-right" class="pull-right"></fa></a>
-<!--            <a  class="text-uppercase">Create an account</a>-->
         </div>
+-->
 
       </div>
 

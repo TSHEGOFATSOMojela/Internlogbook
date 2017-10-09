@@ -115,46 +115,38 @@
     <li class="dropdown users" uib-dropdown>
 
 
-      <a href class="dropdown-toggle" uib-dropdown-toggle>
+      <a href class="dropdown-toggle" uib-dropdown-toggle  ng-controller="NavCtrl">
 <!--        <fa name="user" ></fa>-->
           <i class="fa fa-list-ul" aria-hidden="true"></i>
 
-        <span class="badge bg-lightred">3</span>
+        <span class="badge bg-lightred">{{Objectives.count}}</span>
       </a>
 
 
-      <div class="dropdown-menu pull-right with-arrow panel panel-default animated littleFadeInUp" role="menu">
-        <div class="panel-heading">
-          You have <strong>3</strong> objectives
+      <div class="dropdown-menu pull-right with-arrow panel panel-default animated littleFadeInUp" role="menu" >
+        <div class="panel-heading" ng-controller="NavCtrl">
+          You have <strong>{{Objectives.count}}</strong> objectives
         </div>
 
-        <ul class="list-group">
+        <ul class="list-group" ng-controller="TablesBootstrapCtrl">
 
-          <li class="list-group-item" >
+          <li class="list-group-item"  ng-repeat="o in objective">
             <a class="media" ui-sref="app.pages.gallery">
               <div class="media-left">
-<!--
-                <span class="media-object thumb thumb-sm">
-                  <img src="images/arnold-avatar.jpg" alt="" class="img-circle">
-                </span>
--->
               </div>
               <div class="media-body" >
-                <span class="block">StrongLoop</span>
-                <small class="text-muted">Please study this for exam</small>
-                <small class="text-muted">at the duretion of 8 days</small>  
+               <span class="block">{{o.name}}</span>
+                <small class="text-muted">{{o.desc}}</small>
+                <br><small class="text-muted">Duration: {{o.dueDate | date}}</small><br> 
               </div>
             </a>
           </li>
 
+<!--
           <li class="list-group-item">
             <a href="javascript:;" class="media">
               <div class="media-left">
-<!--
-                <span class="media-object  thumb thumb-sm">
-                  <img src="images/george-avatar.jpg" alt="" class="img-circle">
-                </span>
--->
+
               </div>
               <div class="media-body">
                 <span class="block">MongoDB</span>
@@ -163,15 +155,13 @@
               </div>
             </a>
           </li>
+-->
             
+<!--
             <li class="list-group-item">
             <a href="javascript:;" class="media">
               <div class="media-left">
-<!--
-                <span class="media-object  thumb thumb-sm">
-                  <img src="images/george-avatar.jpg" alt="" class="img-circle">
-                </span>
--->
+
               </div>
               <div class="media-body">
                 <span class="block">Linex</span>
@@ -180,6 +170,7 @@
               </div>
             </a>
           </li>
+-->
 
         </ul>
 
