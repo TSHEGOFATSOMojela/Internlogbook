@@ -872,6 +872,16 @@ var app = angular
       controller: 'SignupCtrl',
       templateUrl: 'views/tmpl/pages/signup.html'
     })
+      //email verify
+    .state('core.verify', {
+      url: '/verify',
+      templateUrl: 'views/tmpl/pages/verify.ejs'
+    }) 
+            //email verify
+    .state('core.verified', {
+      url: '/verified',
+      templateUrl: 'views/tmpl/pages/verified.ejs'
+    })  
     //forgot password
     .state('core.forgotpass', {
       url: '/forgotpass',

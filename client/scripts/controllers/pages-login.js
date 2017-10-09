@@ -14,10 +14,16 @@
           return LogUser
             .login({email: $scope.user.email, password: $scope.user.password})
             .$promise
-            .then(function() {
-              //location go to view company page
+            .then(function(response) {
+              $rootScope.currentUser = {
+             id: response.userId,
+             tokenId: response.id,
+             email: $scope.user.email     
+              }     
+              }).then(function(){
+               //location go to view company page
               $state.go('app.calendar');
-              });
+          });
         };
        
        
@@ -29,8 +35,10 @@
            .logout()
            .$promise
            .then(function() {
-             $state.go('core.login');
-           });
+             $rootScope.currentUser = null;
+           }).then(function(){
+              $state.go('core.login');
+          });
         }
       }]);
 
