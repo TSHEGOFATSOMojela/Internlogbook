@@ -68,7 +68,8 @@
     "roles": {
       "type": "hasOne",
       "model": "Role",
-      "foreignKey": ""
+      "foreignKey": "principalId",
+      "through": "RoleMapping"
     }
   },
   "acls": [

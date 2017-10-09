@@ -27,14 +27,14 @@
   },
   "RoleMapping": {
     "dataSource": "logbookDB",
-    "public": false,
+    "public": true,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
     "dataSource": "logbookDB",
-    "public": false
+    "public": true
   },
   "Company": {
     "dataSource": "logbookDB",
@@ -52,7 +52,7 @@
     "dataSource": "logbookDB",
     "public": true
   },
-     "Email": {
+  "Email": {
     "dataSource": "emailDs"
   },
   "Activity": {
@@ -62,6 +62,8 @@
   "logUser": {
     "dataSource": "logbookDB",
     "public": true,
-     "options": { "emailVerificationRequired": false}
+    "options": {
+      "emailVerificationRequired": true
+    }
   }
 }

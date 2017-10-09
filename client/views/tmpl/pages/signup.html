@@ -64,11 +64,13 @@
             </div>
 </th>
         
+<!--
            <th>   
             <div class="form-group">
             <input type="text" class="form-control underline-input" placeholder="Position" ng-model="user.uCategory" required>
             </div>
 </th>
+-->
         <th>
             <div class="form-group">
             <input type="text" class="form-control underline-input" placeholder="Contacts" ng-model="user.contactNo" required>
@@ -99,24 +101,22 @@
                   </div>
               </div> 
         </th>
-<!--
+
         
      <th>
-            
+         
               <div class="form-group" >
                   
                 <div class="col-s-13">
-                <ui-select ng-model="mentor.selected"  ng-disabled="disabled" class="w-md mb-10">
-                    <ui-select-match placeholder="Select or search an mentors..." >{{$select.selected.fName}} <a href ng-click="clear($event)"><i class="fa fa-times"></i></a></ui-select-match>
-                    <ui-select-choices repeat="mentor in Mentors | filter: $select.search">
-                      <span ng-bind-html="mentor.fName | highlight: $select.search"></span>
+                <ui-select ng-model="role.selected"  ng-disabled="disabled" class="w-md mb-10">
+                    <ui-select-match placeholder="Select or search an role..." >{{$select.selected.name}} <a href ng-click="clear($event)"><i class="fa fa-times"></i></a></ui-select-match>
+                    <ui-select-choices repeat="role in roles | filter: $select.search">
+                      <span ng-bind-html="role.name | highlight: $select.search"></span>
                     </ui-select-choices>
                   </ui-select>
                   </div>
               </div> 
         </th>
--->
-
     </form>
 
 
