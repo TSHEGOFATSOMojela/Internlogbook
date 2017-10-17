@@ -60,10 +60,7 @@ module.exports = function(Loguser) {
       subject: 'Thanks for registering.',
       template: path.resolve(__dirname, '../../client/views/tmpl/pages/verify.ejs'),
 
-      redirect: ''/verify',
-
       redirect: '/verify',
-
       Loguser: Loguser
     };
       
