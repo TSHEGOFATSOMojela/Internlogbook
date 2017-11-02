@@ -226,6 +226,7 @@
               <thead>
               <tr>
                 <th>ID</th>
+                <th>fila name</th>  
                 <th>Leave</th>
                 <th>From</th>
                 <th>To</th>  
@@ -236,18 +237,21 @@
               <tbody>
               <tr ng-repeat="lv in leaves">
                 <td>{{ $index+1 }}</td>
+                  <td><a href="'self'data:{{lv.Attachment.filetype}};base64,{{lv.Attachment.base64}}" download><img style='display:block; width:100px;height:100px;' src="data:{{lv.Attachment.filetype}};base64,{{lv.Attachment.base64}}"></a></td>
                 <td>{{ lv.title}}</td>
                 <td><small ng-class="{'text-danger': project.priority.value == 1, 'text-warning': project.priority.value == 2, 'text-success': project.priority.value == 3}">{{lv.start | date}}</small></td>
                 <td><small ng-class="{'text-danger': project.priority.value == 1, 'text-warning': project.priority.value == 2, 'text-success': project.priority.value == 3}">{{lv.end | date}}</small></td>
                 <td><small>{{lv.comment}}</small></td>  
-                <td><small><a href="myFile" download="{{lv.Attachment.note}}.filetype"> <button class="btn btn-primary">Download</button></a></small></td>
+                <td><small><button class="btn btn-primary" download(lv.Attachment.filetype,lv.Attachment.base64,lv.Attachment.filename)>Download</button></small></td>
               </tr>
               </tbody>
             </table>
           </div>
-
+                  
         </div>
         <!-- /tile body -->
 
       </section>
       <!-- /tile -->
+
+ 

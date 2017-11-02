@@ -53,7 +53,6 @@ app
         ]
       }
     });  
- 
 
     
     /* alert on dayClick */
@@ -142,25 +141,49 @@ app
           $state.go('app.calendar');
         });
     };
-    
-      
-    
+//                //convert to base64 string
+//                  var fs = require('fs');
+//
+//            // function to encode file data to base64 encoded string
+//            function base64_encode(file) {
+//                // read binary data
+//                var bitmap = fs.readFileSync(file);
+//                // convert binary data to base64 encoded string
+//                return new Buffer(bitmap).toString('base64');
+//            };
+//      var note = base64_encode($scope.newLv.note);
+//
+//            // function to create file from base64 encoded string
+//            function base64_decode(base64str, file) {
+//                // create buffer object from base64 encoded string, it is important to tell the constructor that the string is base64 encoded
+//                var bitmap = new Buffer(base64str, 'base64');
+//                // write buffer to file
+//                fs.writeFileSync(file, bitmap);
+//                console.log('******** File created from base64 encoded string ********');
+//            }
+//
+//            // convert image to base64 encoded string
+//            var base64str = base64_encode('kitten.jpg');
+//            console.log(base64str);
+//            // convert base64 string back to image 
+//            base64_decode(base64str, 'copy.jpg');
+
      /* add custom leave*/
         $scope.addLeave = function() {
          Leave
            .create({
+              title: $scope.newLv.title,
               start: $scope.newLv.date,
               end: $scope.newLv.dateTo,
               comment: $scope.newLv.comment,
-              Attachment: $scope.newLv.note,
-             title: $scope.newLv.title
-         }).$promise
+              Attachment: $scope.newLv.note
+            }).$promise
         .then(function() {
           //location go to view company page
           $state.go('app.calendar');
         });
     };
-        $scope.arrayleave= {};
+      $scope.arrayleave= {};
       $scope.arrayleaves = ["Annual Leave", "Maternity Leave", "Sick Leave","Family Responsibility Leave","Study Leave","Leave for religious holidays","Unpaid leave"];
       
     /*add meeting*/
@@ -252,7 +275,8 @@ app
             };
       
        /* event sources array*/
-    $scope.eventSources = [$scope.events,$scope.leaves,$scope.meetings];
+        $scope.eventSources = [$scope.events,$scope.leaves,$scope.meetings];
+      
 
       
   }]);

@@ -58,10 +58,9 @@ module.exports = function(Loguser) {
       to: LoguserInstance.email,
       from: 'noreply@loopback.com',
       subject: 'Thanks for registering.',
-      template: path.resolve(__dirname, '../../client/views/tmpl/pages/verify.ejs'),
-
+      template: path.resolve(__dirname, '../../client/views/tmpl/pages/verify.html'),
       redirect: '/verify',
-      Loguser: Loguser
+      user: LoguserInstance
     };
       
       
