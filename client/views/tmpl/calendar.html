@@ -3,60 +3,7 @@
 
 
   <div class="tbox tbox-sm">
-
-
-    <div class="tcol w-lg bg-tr-white lt b-r">      
-        <!-- start of activity-->
-        <div class="p-15">
-        <div ng-repeat="e in events" class="p-10 mb-10 event-control b-l b-2x b-info bg-dutch">
-            <div class="form-group">
-            <h3>Obejective</h3> 
-            <hr>    
-            <h4>{{e.objective.name}}</h4>
-            <h5>{{e.objective.desc}}</h5>
-            <h6>{{e.objective.dueDate | date}}</h6>
-                <hr>
-                <h3>Activity<a class="pull-right text-muted event-remove" ng-click="removeActivity($index)"><i class="fa fa-trash-o"></i></a></h3>
-                <hr>
-                <h4>task: {{e.title}}</h4>
-                <h5>comment: {{e.comment}}</h5>
-                <h6>duration: {{e.duration.hour}} hours and {{e.duration.minutes}} minutes</h6>
-                <div class="text-sm text-muted"><strong>{{e.start | date}}</strong></div>
-            </div>
-        </div>
-    </div>
-    <!-- end of activity-->  
-        
-    <!-- start of meeting-->
-        <div class="p-15">
-        <div ng-repeat="met in meetings" class="p-10 mb-10 event-control b-l b-2x b-info bg-green">
-            <div class="form-group">
-                <h3>meeting</h3>
-                 <hr>
-                <h4>meeting: {{met.title}} <a class="pull-right text-muted event-remove" ng-click="removeMeeting($index)"><i class="fa fa-trash-o"></i></a></h4>
-                <h5>desc: {{met.comment}}</h5>
-                <h6>duration: {{met.duration.hour}} hours and {{met.duration.minutes}} minutes</h6>  
-                 <div class="text-sm text-muted"><strong>{{met.start | date}}</strong></div>
-            </div>
-            </div>
-    </div>
-    <!--end of meeting-->  
-        
-        
-        
-        
-    <!-- start of Leave-->    
-       <div class="p-15">
-        <div ng-repeat="lvs in leaves" class="p-10 mb-10 event-control b-l b-2x b-warning bg-red">
-            <div class="form-group">
-            <h3>Leave</h3>    
-            <h4>leave type: {{lvs.title}}   <a class="pull-right text-muted event-remove" ng-click="removeLeave($index)"><i class="fa fa-trash-o"></i></a></h4>
-                <h5>from: {{lvs.start | date}} To {{lvs.end | date}}</h5>
-            </div>
-        </div>
-    </div>
-    <!--end of Leave-->  
-</div>
+<!--thu-->
        
     <div class="tcol">
       <div class="p-15 bg-white">

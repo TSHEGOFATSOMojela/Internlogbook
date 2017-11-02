@@ -13,11 +13,11 @@
 
 var app = angular
   .module('minovateApp', [
+    'naif.base64',
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'angularFileUpload',
     'ngTouch',
     'ngMessages',
     'picardy.fontawesome',
@@ -50,6 +50,7 @@ var app = angular
     'ui.grid.edit',
     'ui.grid.moveColumns',
     'ngTable',
+     
     'smart-table',
     'angular-flot',
     'angular-rickshaw',
@@ -977,19 +978,19 @@ var app = angular
         }]
       }
     })
-    //profile page
-    .state('app.pages.profile', {
-      url: '/profile',
-      controller: 'ProfileCtrl',
-      templateUrl: 'views/tmpl/pages/profile.html',
-      resolve: {
-        plugins: ['$ocLazyLoad', function($ocLazyLoad) {
-          return $ocLazyLoad.load([
-            'scripts/vendor/filestyle/bootstrap-filestyle.min.js'
-          ]);
-        }]
-      }
-    })
+//    //profile page
+//    .state('app.pages.profile', {
+//      url: '/profile',
+//      controller: 'ProfileCtrl',
+//      templateUrl: 'views/tmpl/pages/profile.html',
+//      resolve: {
+//        plugins: ['$ocLazyLoad', function($ocLazyLoad) {
+//          return $ocLazyLoad.load([
+//            'scripts/vendor/filestyle/bootstrap-filestyle.min.js'
+//          ]);
+//        }]
+//      }
+//    })
 
     //intro page
     .state('app.pages.intro', {

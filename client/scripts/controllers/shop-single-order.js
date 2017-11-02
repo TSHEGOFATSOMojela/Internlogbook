@@ -3,22 +3,11 @@
 
 app.controller('SingleOrderCtrl', ['$scope', 'Objective',  '$stateParams', function($scope, Objective, $stateParams) {
 
-    var datetime = new Date();
+    
     
     //get all companies in the database
-    $scope.obj={};
      $scope.objectives = Objective.find();
-    $scope.obj = Objective.find();
 
-    
-//  $scope.oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
-//$scope.firstDate = new Date();
-//$scope.secondDate = Objective.find({where: {dueDate: Date }});
-//
-//$scope.diffDate = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
-  
-    $scope.diffDate = Objective.find({where: {dueDate: true}});
-    
 
   }])
 

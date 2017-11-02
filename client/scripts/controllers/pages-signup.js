@@ -25,7 +25,6 @@
                       companyId: $scope.company.selected.id
                  }).$promise
                    .then(function(response) {
-                     
                       RoleMapping.create({
                       principalType: "USER",
                       principalId: response.id,

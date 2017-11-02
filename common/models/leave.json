@@ -23,8 +23,8 @@
       "type": "string"
     },
     "Attachment": {
-      "type": "string",
-      "required": true
+      "type": "object",
+      "required": false
     }
   },
   "validations": [],
@@ -63,13 +63,13 @@
     {
       "accessType": "*",
       "principalType": "ROLE",
-      "principalId": "$unauthenticated",
+      "principalId": "$authenticated",
       "permission": "ALLOW"
     },
     {
       "accessType": "*",
       "principalType": "ROLE",
-      "principalId": "$authenticated",
+      "principalId": "$unauthenticated",
       "permission": "ALLOW"
     }
   ],
