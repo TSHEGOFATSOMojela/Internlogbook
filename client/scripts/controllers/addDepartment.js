@@ -2,7 +2,7 @@
 'use strict';
 
 
-app.controller('FormUploadCtrl', ['$scope', 'Company', '$state', function($scope, Company,  $state) {
+app.controller('AddDepartmentCtrl', ['$scope', 'Company', '$state', function($scope, Company,  $state) {
 
 
 
@@ -24,14 +24,14 @@ app.controller('FormUploadCtrl', ['$scope', 'Company', '$state', function($scope
         }).$promise
         .then(function() {
           //location go to view company page
-          $state.go('app.forms.wizard');
+          $state.go('app.forms.department');
         });
     };
     
     
   }])
 //edit and save company
-.controller('FormUploadCtrls', ['$scope','$q', 'Company','$stateParams', '$state', function($scope, $q, Company, $stateParams, $state) {
+.controller('AddDepartmentCtrls', ['$scope','$q', 'Company','$stateParams', '$state', function($scope, $q, Company, $stateParams, $state) {
     //edit company
     $scope.action = 'Save';
     $scope.newCompany = {};
@@ -46,7 +46,7 @@ app.controller('FormUploadCtrl', ['$scope', 'Company', '$state', function($scope
       $scope.newCompany
         .$save()
         .then(function(newCompany) {
-          $state.go('app.forms.wizard');
+          $state.go('app.forms.department');
         });
     };
   }])
@@ -58,9 +58,9 @@ app.controller('FormUploadCtrl', ['$scope', 'Company', '$state', function($scope
       .deleteById({id: $stateParams.id})
       .$promise
       .then(function() {
-        $state.go('app.forms.wizard');
+        $state.go('app.forms.department');
       });
   }else
-           $state.go('app.forms.wizard');
+           $state.go('app.forms.department');
       }]);
     

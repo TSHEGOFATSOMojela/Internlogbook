@@ -12,7 +12,7 @@
 //  }]);
 
 
- app.controller('FormWizardCtrl', function($scope, $http) {
+ app.controller('DepartmentCtrl', function($scope, $http) {
      
       //get all companies in the database
     $http.get("http://localhost:3000/api/Companies").then(function (response) {

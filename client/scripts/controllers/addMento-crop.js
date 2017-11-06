@@ -1,7 +1,7 @@
  'use strict';
 
 app
- .controller('FormImgCropCtrl', ['$scope','$state', 'LogUser', 'Company', '$stateParams', function($scope,$state, LogUser, Company, $stateParams) {
+ .controller('AddMentoCtrl', ['$scope','$state', 'LogUser', 'Company', '$stateParams', function($scope,$state, LogUser, Company, $stateParams) {
         //edit mentor
     $scope.action = 'Save';
     $scope.user = {};
@@ -16,7 +16,7 @@ app
       $scope.user
         .$save()
         .then(function(user) {
-          $state.go('app.forms.validate');
+          $state.go('app.forms.mentos');
         });
     };
 
@@ -53,7 +53,7 @@ app
                  }).$promise
                 .then(function() {
                   //location go to view company page
-                  $state.go('app.forms.wizard');
+                  $state.go('app.forms.department');
                 });
             };
 

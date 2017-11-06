@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('FormsValidateCtrl', ['$scope', '$q', 'LogUser', 'Company', '$stateParams', function($scope, $q, LogUser, Company, $stateParams) {
+app.controller('MentosCtrl', ['$scope', '$q', 'LogUser', 'Company', '$stateParams', function($scope, $q, LogUser, Company, $stateParams) {
 
     $scope.Mentors = {};
   
@@ -28,11 +28,11 @@ app.controller('FormsValidateCtrl', ['$scope', '$q', 'LogUser', 'Company', '$sta
       .deleteById({id: $stateParams.id})
       .$promise
       .then(function() {
-        $state.go('app.forms.validate', {
+        $state.go('app.forms.mentos', {
          redirect: '/validate/:id'});
         
       });
   }else
-           $state.go('app.forms.validate', {
+           $state.go('app.forms.mentos', {
              redirect: '/validate/:id'});
       }]);
