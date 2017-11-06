@@ -1,6 +1,6 @@
 <body  ng-app="app">
     
-<div class="pagecontent"  data-ng-controller="FormsValidateCtrl">
+<div class="pagecontent"  data-ng-controller="MentosCtrl">
     
     <div class="row">
        
@@ -13,7 +13,7 @@
    <h1 class="custom-font"><strong>MENTORS</strong></h1>
     <ul class="controls" >
 <!-- <li><a href="javascript:window.print()" class="fa fa-plus mr-5" uib-tooltip="Print"><i class="fa fa-print"></i></a></li>-->
-   <li ><a  ui-sref="app.forms.imgcrop({id: Mentors.companyId})"><i class="fa fa-plus mr-5"  ></i>Add Mentor</a></li>
+   <li ><a  ui-sref="app.forms.addMento({id: Mentors.companyId})"><i class="fa fa-plus mr-5"  ></i>Add Mentor</a></li>
 
     <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
         
@@ -135,10 +135,10 @@
            <!--coming-->
            <td ng-hide="editMode"><a ui-sref="app.shop.products" class="btn btn-xs btn-default"><i class="fa fa-search"></i>View Interns <span class="badge badge-success">5</span></a></td>
          <td>
-            <span  ng-hide="editMode" class="btn btn-sm btn-success" ><a ui-sref="app.forms.imgcrop({id: Mentor.id})" ><i class="fa fa-edit"></i></a></span>
+            <span  ng-hide="editMode" class="btn btn-sm btn-success" ><a ui-sref="app.forms.addMento({id: Mentor.id})" ><i class="fa fa-edit"></i></a></span>
                <span  class="btn btn-sm btn-warning"><a ui-sref="delete-mentor({id: Mentor.id})" ><i class="fa fa-trash"></i></a></span>
              
-    <a ui-sref="app.forms.imgcrop({id: Mentor.companyId})"><i class="fa fa-plus mr-5"  ></i>Add Mentor</a>
+    <a ui-sref="app.forms.addMento({id: Mentor.companyId})"><i class="fa fa-plus mr-5"  ></i>Add Mentor</a>
              
               <span ng-show="editMode" class="btn btn-sm btn-primary"  ng-click="save(Intern)"><i class="fa fa-save"></i></span>
               <span ng-show="editMode"class="btn btn-sm btn-info" ng-click="clear(Intern)"><i class="fa fa-remove"></i></span>

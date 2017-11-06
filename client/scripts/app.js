@@ -599,18 +599,18 @@ var app = angular
       controller: 'EditCompanyCtrl',
       templateUrl: 'views/tmpl/forms/editCompany.html'
     })
-    //forms/validate
-    .state('app.forms.validate', {
-      url: '/validate/:id',
-      controller: 'FormsValidateCtrl',
-      templateUrl: 'views/tmpl/forms/validate.html'
+    //forms/Mentos
+    .state('app.forms.mentos', {
+      url: '/Mentos/:id',
+      controller: 'MentosCtrl',
+      templateUrl: 'views/tmpl/forms/mentos.html'
     })
       
-    //forms/wizard
-    .state('app.forms.wizard', {
-      url: '/wizard',
-      controller: 'FormWizardCtrl',
-      templateUrl: 'views/tmpl/forms/wizard.html'
+    //forms/department
+    .state('app.forms.department', {
+      url: '/Department',
+      controller: 'DepartmentCtrl',
+      templateUrl: 'views/tmpl/forms/department.html'
     })
     //Delete/mentor
       .state('delete-mentor', {
@@ -634,11 +634,11 @@ var app = angular
        controller: 'DeleteInternCtrl'
       })
       
-    //forms/upload
+    //forms/AddDepartment
     .state('app.forms.upload', {
-      url: '/upload',
-      controller: 'FormUploadCtrl',
-      templateUrl: 'views/tmpl/forms/upload.html',
+      url: '/Add Department',
+      controller: 'AddDepartmentCtrl',
+      templateUrl: 'views/tmpl/forms/addDepartment.html',
       resolve: {
         plugins: ['$ocLazyLoad', function($ocLazyLoad) {
           return $ocLazyLoad.load([
@@ -647,11 +647,11 @@ var app = angular
         }]
       }
     })
-       //forms/uploads/:id
-    .state('app.forms.uploads', {
+       //forms/addDepartment/:id
+    .state('app.forms.addDepartment', {
       url: '/upload/:id',
-      controller: 'FormUploadCtrls',
-      templateUrl: 'views/tmpl/forms/upload.html',
+      controller: 'addDepartmentCtrls',
+      templateUrl: 'views/tmpl/forms/addDepartment.html',
       resolve: {
         plugins: ['$ocLazyLoad', function($ocLazyLoad) {
           return $ocLazyLoad.load([
@@ -660,11 +660,11 @@ var app = angular
         }]
       }
     })
-    //forms/imgcrop
-    .state('app.forms.imgcrop', {
-      url: '/imagecrop/:id',
-      controller: 'FormImgCropCtrl',
-      templateUrl: 'views/tmpl/forms/imgcrop.html',
+    //forms/Add Mento 
+    .state('app.forms.addMento', {
+      url: '/AddMento/:id',
+      controller: 'AddMentoCtrl',
+      templateUrl: 'views/tmpl/forms/addMento.html',
       resolve: {
         plugins: ['$ocLazyLoad', function($ocLazyLoad) {
           return $ocLazyLoad.load([
