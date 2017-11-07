@@ -1,7 +1,7 @@
 'use strict';
 
 
-app.controller('SingleOrderCtrl', ['$scope', 'Objective',  '$stateParams', function($scope, Objective, $stateParams) {
+app.controller('ObjectivesCtrl', ['$scope', 'Objective',  '$stateParams', function($scope, Objective, $stateParams) {
 
     
     
@@ -19,8 +19,8 @@ app.controller('SingleOrderCtrl', ['$scope', 'Objective',  '$stateParams', funct
           .deleteById({id: $stateParams.id})
           .$promise
           .then(function() {
-            $state.go('app.shop.single-order');
+            $state.go('app.shop.objectives');
           });
       }else
-               $state.go('app.shop.single-order');
+               $state.go('app.shop.objectives');
           }]);

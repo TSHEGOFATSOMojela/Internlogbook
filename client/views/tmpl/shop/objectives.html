@@ -1,7 +1,7 @@
 
 <body  ng-app="app">
     
-<div class="pagecontent"  data-ng-controller="SingleOrderCtrl">
+<div class="pagecontent"  data-ng-controller="ObjectivesCtrl">
     
     <div class="row">
        
@@ -13,7 +13,7 @@
     
    <h1 class="custom-font"><strong>Objectives</strong></h1>
     <ul class="controls">
- <li><a ui-sref="app.shop.orders" ><i class="fa fa-plus mr-5"  ></i>Add Objectives</a></li>
+ <li><a ui-sref="app.shop.addObjective" ><i class="fa fa-plus mr-5"  ></i>Add Objectives</a></li>
         
     <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
         
@@ -133,7 +133,7 @@
                  <td>
 
                  <span ng-hide="editMode" class="btn btn-sm btn-success" >
-                  <a ui-sref="app.shop.order({id: objective.id})" ><i class="fa fa-edit"></i></a></span>
+                  <a ui-sref="app.shop.addObjective({id: objective.id})" ><i class="fa fa-edit"></i></a></span>
              <span  class="btn btn-sm btn-warning"><a ui-sref="delete-objective({id: objective.id})" ><i class="fa fa-trash"></i></a></span>
 
                 <span ng-show="editMode" class="btn btn-sm btn-primary"  ng-click="save(objective)"><i class="fa fa-save"></i></span>

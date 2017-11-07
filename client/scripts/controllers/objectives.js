@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('OrdersCtrl', ['$scope', 'Objective', '$state',
+app.controller('AddObjectiveCtrls', ['$scope', 'Objective', '$state',
                function($scope, Objective,  $state) {
 
 
@@ -15,7 +15,7 @@ app.controller('OrdersCtrl', ['$scope', 'Objective', '$state',
        }).$promise
         .then(function() {
           //location go to view Objective page
-          $state.go('app.shop.single-order');
+          $state.go('app.shop.objectives');
         });
     };
 
@@ -23,7 +23,7 @@ app.controller('OrdersCtrl', ['$scope', 'Objective', '$state',
   }])
 
 //edit and save objective
-.controller('OrdersCtrls', ['$scope','$q', 'Objective','$stateParams', '$state', function($scope, $q, Objective, $stateParams, $state) {
+.controller('AddObjectiveCtrls', ['$scope','$q', 'Objective','$stateParams', '$state', function($scope, $q, Objective, $stateParams, $state) {
     //edit Objective
     $scope.newObjective = {};
        Objective.findById({ id: $stateParams.id })
@@ -37,7 +37,7 @@ app.controller('OrdersCtrl', ['$scope', 'Objective', '$state',
       $scope.newObjective
         .$save()
         .then(function(newObjective) {
-          $state.go('app.shop.single-order');
+          $state.go('app.shop.objectives');
         });
     };
   }])

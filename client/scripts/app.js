@@ -450,11 +450,11 @@ var app = angular
         }]
       }
     })
-          //shop/orders/id
-    .state('app.shop.order', {
-      url: '/orders/:id',
-      controller: 'OrdersCtrls',
-      templateUrl: 'views/tmpl/shop/orders.html',
+          //shop/addObjective/id
+    .state('app.shop.addObjective', {
+      url: '/AddObjective/:id',
+      controller: 'AddObjectiveCtrls',
+      templateUrl: 'views/tmpl/shop/addObjective.html',
       resolve: {
         plugins: ['$ocLazyLoad', function($ocLazyLoad) {
           return $ocLazyLoad.load([
@@ -465,11 +465,11 @@ var app = angular
         }]
       }
     })
-    //shop/products
-    .state('app.shop.products', {
-      url: '/products',
-      controller: 'ProductsCtrl',
-      templateUrl: 'views/tmpl/shop/products.html',
+    //shop/interns
+    .state('app.shop.interns', {
+      url: '/Interns',
+      controller: 'InternsCtrl',
+      templateUrl: 'views/tmpl/shop/interns.html',
       resolve: {
         plugins: ['$ocLazyLoad', function($ocLazyLoad) {
           return $ocLazyLoad.load([
@@ -480,11 +480,11 @@ var app = angular
         }]
       }
     })
-    //shop/invoices
-    .state('app.shop.invoices', {
-      url: '/invoices',
-      controller: 'InvoicesCtrl',
-      templateUrl: 'views/tmpl/shop/invoices.html',
+    //shop/addIntern
+    .state('app.shop.addIntern', {
+      url: '/AddIntern',
+      controller: 'AddInternCtrl',
+      templateUrl: 'views/tmpl/shop/addIntern.html',
       resolve: {
         plugins: ['$ocLazyLoad', function($ocLazyLoad) {
           return $ocLazyLoad.load([
@@ -510,11 +510,11 @@ var app = angular
         }]
       }
     })
-    //shop/single-order
-    .state('app.shop.single-order', {
-      url: '/single-order',
-      controller: 'SingleOrderCtrl',
-      templateUrl: 'views/tmpl/shop/single-order.html',
+    //shop/objectives
+    .state('app.shop.objectives', {
+      url: '/Objectives',
+      controller: 'ObjectivesCtrl',
+      templateUrl: 'views/tmpl/shop/objectives.html',
       resolve: {
         plugins: ['$ocLazyLoad', function($ocLazyLoad) {
           return $ocLazyLoad.load([
