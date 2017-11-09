@@ -10,7 +10,7 @@
 
 
  app
-   .controller('TablesBootstrapCtrl', ['$scope','Role', 'Objective','DTOptionsBuilder','DTColumnDefBuilder', function($scope,Role,
+   .controller('ObjectivesProgressCtrl', ['$scope','Role', 'Objective','DTOptionsBuilder','DTColumnDefBuilder', function($scope,Role,
       Objective, DTOptionsBuilder, DTColumnDefBuilder) {
     $scope.objective = Objective.find({
       filter: {

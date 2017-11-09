@@ -8,7 +8,7 @@
  * Controller of the minovateApp
  */
 app
-  .controller('GalleryCtrl', function ($scope) {
+  .controller('AddActivityCtrl', function ($scope) {
 
     $scope.page = {
       title: 'Gallery',
