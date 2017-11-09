@@ -65,5 +65,17 @@
     "options": {
       "emailVerificationRequired": false
     }
+  },
+  "rating": {
+    "dataSource": "logbookDB",
+    "public": true
+  },
+  "Performance_rating": {
+    "dataSource": "logbookDB",
+    "public": true
+  },
+  "performance": {
+    "dataSource": "logbookDB",
+    "public": true
   }
 }
