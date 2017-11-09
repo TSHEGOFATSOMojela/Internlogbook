@@ -1,7 +1,7 @@
 'use strict';
 
 //get all the interns that belong to a mentor
-app.controller('ProductsCtrl', ['$scope', 'LogUser', function ($scope, LogUser) {
+app.controller('InternsCtrl', ['$scope', 'LogUser', function ($scope, LogUser) {
 
   $scope.Interns = LogUser.find();
 }])
@@ -15,8 +15,8 @@ app.controller('ProductsCtrl', ['$scope', 'LogUser', function ($scope, LogUser) 
       .deleteById({id: $stateParams.id})
       .$promise
       .then(function() {
-        $state.go('app.shop.products');
+        $state.go('app.shop.interns');
       });
      }else
-           $state.go('app.shop.products');
+           $state.go('app.shop.interns');
       }])
