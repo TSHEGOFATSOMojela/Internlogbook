@@ -679,17 +679,17 @@ var app = angular
       url: '/tables',
       template: '<div ui-view></div>'
     })
-    //tables/bootstrap
-    .state('app.tables.bootstrap', {
-      url: '/bootstrap',
-      controller: 'TablesBootstrapCtrl',
-      templateUrl: 'views/tmpl/tables/bootstrap.html'
+    //tables/objectivesProgress
+    .state('app.tables.objectivesProgress', {
+      url: '/ObjectivesProgress',
+      controller: 'ObjectivesProgressCtrl',
+      templateUrl: 'views/tmpl/tables/objectivesProgress.html'
     })
-    //tables/datatables
-    .state('app.tables.datatables', {
-      url: '/datatables',
-      controller: 'TablesDatatablesCtrl',
-      templateUrl: 'views/tmpl/tables/datatables.html',
+    //tables/activities
+    .state('app.tables.activities', {
+      url: '/Activities',
+      controller: 'ActivitiesCtrl',
+      templateUrl: 'views/tmpl/tables/activities.html',
       resolve: {
         plugins: ['$ocLazyLoad', function($ocLazyLoad) {
           return $ocLazyLoad.load([
@@ -914,11 +914,11 @@ var app = angular
       url: '/pages',
       template: '<div ui-view></div>'
     })
-    //gallery page
-    .state('app.pages.gallery', {
-      url: '/gallery',
+    //addActivity page
+    .state('app.pages.addActivity', {
+      url: '/AddActivity',
       controller: 'CalendarCtrl',
-      templateUrl: 'views/tmpl/pages/gallery.html',
+      templateUrl: 'views/tmpl/pages/addActivity.html',
       resolve: {
         plugins: ['$ocLazyLoad', function($ocLazyLoad) {
           return $ocLazyLoad.load([
