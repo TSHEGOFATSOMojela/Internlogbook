@@ -706,6 +706,14 @@ var app = angular
         }]
       }
     })
+      
+    //performance  
+       .state('app.tables.performance', {
+      url: '/Performance',
+      controller: 'PerformanceCtrl',
+      templateUrl: 'views/tmpl/tables/performance.html'
+    })
+      
     //tables/uiGrid
     .state('app.tables.ui-grid', {
       url: '/ui-grid',
