@@ -14,7 +14,7 @@
           <a ui-sref="app.forms"><fa name="list"></fa> <span>{{ 'Administrator' | translate }}</span></a>
           <ul>
 
-            <li ui-sref-active="active"><a ui-sref="app.forms.department"><fa name="caret-right"></fa> {{ 'Department' | translate }} <span class="badge badge-success">{{Companies.count}}</span></a></li>
+            <li ui-sref-active="active"><a ui-sref="app.forms.wizard"><fa name="caret-right"></fa> {{ 'Companies' | translate }} <span class="badge badge-success">{{Companies.count}}</span></a></li>
           </ul>
           </li>
           <!--Company-->
@@ -25,8 +25,8 @@
          <li ui-sref-active="active" ng-class="{'open':$state.includes('app.shop')}">
           <a ui-sref="app.shop"><fa name="desktop"></fa> <span>{{ 'Mentor' | translate }}</span></a>
           <ul>
-            <li ui-sref-active="active"><a ui-sref="app.shop.objectives"><fa name="caret-right"></fa> {{ 'Objectives' | translate }}<span class="badge badge-success">{{Objectives.count}}</span></a></li>
-            <li ui-sref-active="active"><a ui-sref="app.shop.interns"><fa name="caret-right"></fa> {{ 'Interns' | translate }}
+            <li ui-sref-active="active"><a ui-sref="app.shop.single-order"><fa name="caret-right"></fa> {{ 'Objectives' | translate }}<span class="badge badge-success">{{Objectives.count}}</span></a></li>
+            <li ui-sref-active="active"><a ui-sref="app.shop.products"><fa name="caret-right"></fa> {{ 'Interns' | translate }}
                 <span class="badge badge-success">{{logUsers.count}}</span></a></li>
           </ul>
         </li>
