@@ -65,9 +65,5 @@
     "options": {
       "emailVerificationRequired": false
     }
-  },
-  "performance": {
-    "dataSource": "logbookDB",
-    "public": true
   }
 }

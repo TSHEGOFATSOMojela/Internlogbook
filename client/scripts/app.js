@@ -450,11 +450,11 @@ var app = angular
         }]
       }
     })
-          //shop/addObjective/id
-    .state('app.shop.addObjective', {
-      url: '/AddObjective/:id',
-      controller: 'AddObjectiveCtrls',
-      templateUrl: 'views/tmpl/shop/addObjective.html',
+          //shop/orders/id
+    .state('app.shop.order', {
+      url: '/orders/:id',
+      controller: 'OrdersCtrls',
+      templateUrl: 'views/tmpl/shop/orders.html',
       resolve: {
         plugins: ['$ocLazyLoad', function($ocLazyLoad) {
           return $ocLazyLoad.load([
@@ -465,11 +465,11 @@ var app = angular
         }]
       }
     })
-    //shop/interns
-    .state('app.shop.interns', {
-      url: '/Interns',
-      controller: 'InternsCtrl',
-      templateUrl: 'views/tmpl/shop/interns.html',
+    //shop/products
+    .state('app.shop.products', {
+      url: '/products',
+      controller: 'ProductsCtrl',
+      templateUrl: 'views/tmpl/shop/products.html',
       resolve: {
         plugins: ['$ocLazyLoad', function($ocLazyLoad) {
           return $ocLazyLoad.load([
@@ -480,11 +480,11 @@ var app = angular
         }]
       }
     })
-    //shop/addIntern
-    .state('app.shop.addIntern', {
-      url: '/AddIntern',
-      controller: 'AddInternCtrl',
-      templateUrl: 'views/tmpl/shop/addIntern.html',
+    //shop/invoices
+    .state('app.shop.invoices', {
+      url: '/invoices',
+      controller: 'InvoicesCtrl',
+      templateUrl: 'views/tmpl/shop/invoices.html',
       resolve: {
         plugins: ['$ocLazyLoad', function($ocLazyLoad) {
           return $ocLazyLoad.load([
@@ -510,11 +510,11 @@ var app = angular
         }]
       }
     })
-    //shop/objectives
-    .state('app.shop.objectives', {
-      url: '/Objectives',
-      controller: 'ObjectivesCtrl',
-      templateUrl: 'views/tmpl/shop/objectives.html',
+    //shop/single-order
+    .state('app.shop.single-order', {
+      url: '/single-order',
+      controller: 'SingleOrderCtrl',
+      templateUrl: 'views/tmpl/shop/single-order.html',
       resolve: {
         plugins: ['$ocLazyLoad', function($ocLazyLoad) {
           return $ocLazyLoad.load([
@@ -599,18 +599,18 @@ var app = angular
       controller: 'EditCompanyCtrl',
       templateUrl: 'views/tmpl/forms/editCompany.html'
     })
-    //forms/Mentos
-    .state('app.forms.mentos', {
-      url: '/Mentos/:id',
-      controller: 'MentosCtrl',
-      templateUrl: 'views/tmpl/forms/mentos.html'
+    //forms/validate
+    .state('app.forms.validate', {
+      url: '/validate/:id',
+      controller: 'FormsValidateCtrl',
+      templateUrl: 'views/tmpl/forms/validate.html'
     })
       
-    //forms/department
-    .state('app.forms.department', {
-      url: '/Department',
-      controller: 'DepartmentCtrl',
-      templateUrl: 'views/tmpl/forms/department.html'
+    //forms/wizard
+    .state('app.forms.wizard', {
+      url: '/wizard',
+      controller: 'FormWizardCtrl',
+      templateUrl: 'views/tmpl/forms/wizard.html'
     })
     //Delete/mentor
       .state('delete-mentor', {
@@ -634,11 +634,11 @@ var app = angular
        controller: 'DeleteInternCtrl'
       })
       
-    //forms/AddDepartment
+    //forms/upload
     .state('app.forms.upload', {
-      url: '/Add Department',
-      controller: 'AddDepartmentCtrl',
-      templateUrl: 'views/tmpl/forms/addDepartment.html',
+      url: '/upload',
+      controller: 'FormUploadCtrl',
+      templateUrl: 'views/tmpl/forms/upload.html',
       resolve: {
         plugins: ['$ocLazyLoad', function($ocLazyLoad) {
           return $ocLazyLoad.load([
@@ -647,11 +647,11 @@ var app = angular
         }]
       }
     })
-       //forms/addDepartment/:id
-    .state('app.forms.addDepartment', {
+       //forms/uploads/:id
+    .state('app.forms.uploads', {
       url: '/upload/:id',
-      controller: 'addDepartmentCtrls',
-      templateUrl: 'views/tmpl/forms/addDepartment.html',
+      controller: 'FormUploadCtrls',
+      templateUrl: 'views/tmpl/forms/upload.html',
       resolve: {
         plugins: ['$ocLazyLoad', function($ocLazyLoad) {
           return $ocLazyLoad.load([
@@ -660,11 +660,11 @@ var app = angular
         }]
       }
     })
-    //forms/Add Mento 
-    .state('app.forms.addMento', {
-      url: '/AddMento/:id',
-      controller: 'AddMentoCtrl',
-      templateUrl: 'views/tmpl/forms/addMento.html',
+    //forms/imgcrop
+    .state('app.forms.imgcrop', {
+      url: '/imagecrop/:id',
+      controller: 'FormImgCropCtrl',
+      templateUrl: 'views/tmpl/forms/imgcrop.html',
       resolve: {
         plugins: ['$ocLazyLoad', function($ocLazyLoad) {
           return $ocLazyLoad.load([
