@@ -8,7 +8,7 @@
  * Controller of the minovateApp
  */
 app
-   .controller('TablesDatatablesCtrl', ['$scope','Activity','Meeting','Leave','DTOptionsBuilder','DTColumnDefBuilder', function($scope,
+   .controller('ActivitiesCtrl', ['$scope','Activity','Meeting','Leave','DTOptionsBuilder','DTColumnDefBuilder', function($scope,
       Activity,Meeting,Leave, DTOptionsBuilder, DTColumnDefBuilder) {
     $scope.activities = Activity.find({
       filter: {
