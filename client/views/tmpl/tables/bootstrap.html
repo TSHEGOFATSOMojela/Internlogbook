@@ -1,82 +1,156 @@
 
+<body  ng-app="app">
     
-      <!-- tile -->
-      <section class="tile" fullscreen="isFullscreen06">
+<div class="pagecontent"  data-ng-controller="TablesBootstrapCtrl">
+    
+    <div class="row">
+       
+      <div class="col-md-12">
+ 
+<section class="tile" fullscreen="isFullscreen01"> 
 
-        <!-- tile header -->
-        <div class="tile-header dvd dvd-btm">
-          <h1 class="custom-font"><strong>Obejectives </strong>Progress</h1>
-          <ul class="controls">
-            <li ng-controller="DaterangepickerCtrl">
-              <a href="javascript:;" daterangepicker="rangeOptions" date-begin="startDate" date-end="endDate">
-                <span>{{startDate}} - {{endDate}}</span>&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
-              </a>
-            </li>
-
-            <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
-
-              <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
-
-              <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
-                <li>
-                  <a href tile-control-toggle>
-                    <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
-                    <span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
-                  </a>
-                </li>
-                <li>
+<div class="tile-header dvd dvd-btm">
+    
+   <h1 class="custom-font"><strong>Objectives</strong></h1>
+    <ul class="controls">
+ <li><a ui-sref="app.shop.orders" ><i class="fa fa-plus mr-5"  ></i>Add Objectives</a></li>
+        
+    <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+        
+           <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
+        <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
+         <li>
+                <a href tile-control-toggle>
+                <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
+                <span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
+                </a>
+          </li>
+           <li>
                   <a href tile-control-refresh ng-click="ajaxFaker()">
-                    <fa name="refresh"></fa> Refresh
+                  <fa name="refresh"></fa> Refresh
                   </a>
-                </li>
-                <li>
-                  <a href tile-control-fullscreen ng-click="isFullscreen06 = !isFullscreen06">
-                    <fa name="expand"></fa> Fullscreen
-                  </a>
-                </li>
-                <li>
-                  <a href tile-control-lightbox>
-                    <fa name="magnet"></fa> Open in Lightbox
-                  </a>
-                </li>
-
-              </ul>
-
             </li>
-            <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
-          </ul>
-        </div>
-        <!-- /tile header -->
+            <li>
+                 <a href tile-control-lightbox>
+                 <fa name="magnet"></fa> Open in Lightbox
+                 </a>
+            </li>
 
-        <!-- tile body -->
-        <div class="tile-body table-custom" ng-controller="TablesBootstrapCtrl">
+        </ul>
 
-          <div class="table-responsive">
-            <table datatable="ng" dt-options="dtOptions" dt-column-defs="dtColumnDefs" class="table table-custom">
-              <thead>
-              <tr>
-                <th>ID</th>
-                <th>Objective</th>
-                <th>Description</th>
-                <th style="width: 180px;">Progress</th>
-                <th class="text-justify">Due Date</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr ng-repeat="o in objective">
-                <td>{{$index+1}}</td>
-                <td>{{o.name}}</td>
-                <td><small ng-class="{'text-danger': project.priority.value == 1, 'text-warning': project.priority.value == 2, 'text-success': project.priority.value == 3}">{{o.desc}}</small></td>
-                <td><uib-progressbar class="progress-xxs not-rounded mb-0 inline-block" value="status[$index]" type="greensea" style="width: 150px; margin-right: 5px"></uib-progressbar><small>{{status[$index]}}%</small></td>
-                <td class="text-justify">{{o.dueDate | date}}</td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
+     </li>
+     <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
+    </ul>
+   </div> 
+      
+<div>
+  <div class="panel">
+   <div class="row">
+                         
+      <div class="col-md-8 col-sm-12">
+                             
+          <div class="inline-controls">
+           <div class="dataTables_length" id="DataTables_Table_0_length">
+            <label  class="col-md-8 col-sm-12">View Objectives<br>
+                
+                <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control input-sm">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select> 
+            </label>
+                                  
+            </div>
+      </div>
+      </div>
+                <div class="col-md-3 col-sm-8">
+                    <div class="pull-right">
+                        <div id="DataTables_Table_0_filter" class="dataTables_filter">
+                            <label>
+                                Search<input type="search" class="form-control input-sm" placeholder="Search" ng-model="searchKeyword"aria-controls="DataTables_Table_0">
+                            </label>
+              
+                         </div>
+                    </div>
+                  </div>
+                  </div>      
+<div class="panel-body">
+<table class="table table-bordered bordered table-striped table-condensed datatable" ui-options="dataTableOpt">
+          
+     <thead>
+          
 
-        </div>
-        <!-- /tile body -->
+        <tr>
+      
+          <th>ID</th>
+        <th>Title</th>
+		<th>Descriptions</th>
+		<th>Due Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+            
+        </tr>
+         
+      </thead>
+ 
+    <tr>
 
-      </section>
-      <!-- /tile -->
+    
+	    </tr>
+    
+    
+        <tbody>
+       <tr ng-repeat="objective in objectives | filter: searchKeyword  track by $index">
+           
+           <td ng-hide="editMode">{{$index+1}}</td>
+            <td ng-if="editMode"><input type="text" class="form-control" placeholder="Company id" name="registrationId"
+            ng-model="newCompany.registrationId" />
+           </td>
+           
+            <td ng-hide="editMode">{{objective.name}}</td>
+            <td ng-if="editMode"><input type="text" class="form-control" placeholder="title" name="title" ng-model="objective.title"/></td>
+           
+            <td ng-hide="editMode" >{{objective.desc}}</td>
+            <td ng-if="editMode"> <input type="text" class="form-control" placeholder="description" name="id"ng-model="objective .description" /></td>
+           
+            <td ng-hide="editMode" >{{objective.dueDate | date}}</td>
+            <td ng-if="editMode"> <input type="date" class="form-control" placeholder="date" name="id"ng-model="objective.date" /></td>
 
+           
+        <td ng-hide="editMode">
+         <div class="progress">
+              <div class="progress-bar progress-bar-success" role="progressbar" style="width:40%">
+                Free Space
+              </div>
+              <div class="progress-bar progress-bar-warning" role="progressbar" style="width:10%">
+                Warning
+              </div>
+              <div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%">
+                Danger
+              </div>
+         </div>
+                 <td>
+
+                 <span ng-hide="editMode" class="btn btn-sm btn-success" >
+                  <a ui-sref="app.shop.order({id: objective.id})" ><i class="fa fa-edit"></i></a></span>
+             <span  class="btn btn-sm btn-warning"><a ui-sref="delete-objective({id: objective.id})" ><i class="fa fa-trash"></i></a></span>
+
+                <span ng-show="editMode" class="btn btn-sm btn-primary"  ng-click="save(objective)"><i class="fa fa-save"></i></span>
+  <span ng-show="editMode"class="btn btn-sm btn-info" ng-click="clear(objective)"><i class="fa fa-remove"></i></span>
+            </td>
+           </tr>
+            
+           </tbody>
+    
+    </table>
+
+           </div>
+       </div>
+   </div>
+    <div class="row"><div class="col-xs-6"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 1 to 5 of 3 entries</div></div><div class="col-xs-6"><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><ul class="pagination"><li class="disabled"><a href="#" class="previous" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" id="DataTables_Table_0_previous">Previous</a></li><li></li><li class="active"><a href="#" class="" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0">1</a></li><li class="disabled"><a href="#" class="next" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" id="DataTables_Table_0_next">Next</a></li></ul></div></div></div>
+</section>
+     </div>
+   </div>
+</div>
+</body>

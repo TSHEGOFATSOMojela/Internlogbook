@@ -11,7 +11,8 @@ app.controller('OrdersCtrl', ['$scope', 'Objective', '$state',
         .create({
           name: $scope.newObjective.title,
           dueDate: $scope.newObjective.dueDate,
-          desc: $scope.newObjective.description
+          desc: $scope.newObjective.description,
+          status: $scope.newObjective.status
        }).$promise
         .then(function() {
           //location go to view Objective page
